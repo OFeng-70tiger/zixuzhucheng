@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="TTYoZjBGShQBioPmXmyFOC">
+<head data-page-node-id="Y1Jox35OUs6CaKPjlx50Yp">
+<meta charset="UTF-8" data-page-node-id="teZJRGUoM6zAYjajkOMBA0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="fBgKQEkS1FzT6Y1wcBTu7h">
+<title>《伍子胥筑城》课堂六问答疑手册</title>
+<style>
+  :root{
+    --paper:#f6efdd; --ink:#4a3a28; --soft:#7c6a50;
+    --red:#a63b28; --red-d:#8e2f1f; --gold:#b08a3e;
+    --line:#d9c9a6; --card:#fdf8ec; --card2:#faf3e0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;
+    line-height:1.9; font-size:17px; padding-bottom:80px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+  /* ---------- 头部 ---------- */
+  header{text-align:center;padding:52px 0 30px;border-bottom:3px double var(--line)}
+  .kicker{display:inline-block;font-size:14px;letter-spacing:.4em;text-indent:.4em;color:var(--gold);
+    border:1px solid var(--gold);border-radius:999px;padding:5px 22px;margin-bottom:18px}
+  h1{font-size:34px;color:var(--red-d);letter-spacing:.08em;font-weight:900}
+  .sub{margin-top:12px;color:var(--soft);font-size:15.5px;letter-spacing:.12em}
+  .sub b{color:var(--red)}
+  .toolbar{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{cursor:pointer;font-family:inherit;font-size:15px;letter-spacing:.15em;text-indent:.15em;
+    color:var(--red-d);background:var(--card);border:1.5px solid var(--gold);
+    border-radius:999px;padding:7px 26px;transition:.2s}
+  .btn:hover{background:var(--gold);color:#fff}
+
+  /* ---------- 目录 ---------- */
+  nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 8px}
+  nav a{text-decoration:none;font-size:14.5px;color:var(--ink);background:var(--card2);
+    border:1px dashed var(--gold);border-radius:10px;padding:5px 14px;transition:.2s}
+  nav a:hover{background:var(--gold);color:#fff;border-style:solid}
+
+  /* ---------- 答疑卡 ---------- */
+  .qa{margin-top:22px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+    overflow:hidden;box-shadow:0 3px 12px rgba(120,95,50,.08);scroll-margin-top:16px}
+  .qa-q{display:flex;align-items:center;gap:13px;padding:16px 20px;cursor:pointer;user-select:none;
+    font-size:19.5px;font-weight:700;line-height:1.6;background:var(--card2)}
+  .qa-q:hover{background:#f5ecd4}
+  .no{flex:none;font-size:14px;color:#fff;background:var(--red);border-radius:8px;
+    padding:3px 12px;letter-spacing:.2em;text-indent:.2em}
+  .arr{margin-left:auto;flex:none;color:var(--gold);font-size:15px;transition:transform .25s}
+  .qa.open .arr{transform:rotate(180deg)}
+  .qa-a{display:none;padding:8px 26px 24px;border-top:1px dashed var(--line)}
+  .qa.open .qa-a{display:block}
+
+  .qa-a h4{margin:18px 0 4px;font-size:17px;color:var(--red-d);letter-spacing:.1em;
+    display:flex;align-items:center;gap:9px}
+  .qa-a h4::before{content:"";flex:none;width:8px;height:8px;background:var(--gold);
+    transform:rotate(45deg)}
+  .qa-a p{margin-top:9px;text-align:justify}
+  .qa-a b{color:var(--red-d)}
+  .qa-a ul{margin:9px 0 0 1.6em}
+  .qa-a li{margin-top:5px;text-align:justify}
+  .key{margin-top:14px;background:#f7efdb;border-left:4px solid var(--gold);
+    border-radius:0 10px 10px 0;padding:12px 18px;font-size:16.5px}
+  .key b{color:var(--red-d)}
+
+  /* 话术框 */
+  .shu{margin-top:20px;background:#fbf6ea;border:1.5px solid var(--gold);border-radius:12px;
+    padding:16px 20px 16px;position:relative}
+  .shu .tag{position:absolute;top:-13px;left:18px;background:var(--gold);color:#fff;
+    font-size:13.5px;letter-spacing:.25em;text-indent:.25em;border-radius:7px;padding:2px 14px}
+  .shu p{font-size:16.5px;color:#5a4630}
+  .shu .copy{position:absolute;top:-13px;right:14px;background:var(--red);color:#fff;
+    border:none;font-family:inherit;font-size:13px;letter-spacing:.15em;border-radius:7px;
+    padding:3px 13px;cursor:pointer}
+  .shu .copy:hover{background:var(--red-d)}
+
+  table{width:100%;border-collapse:collapse;margin-top:14px;font-size:15.5px}
+  th,td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+  th{background:var(--card2);color:var(--red-d);white-space:nowrap}
+  tr:nth-child(even) td{background:#faf4e2}
+
+  footer{margin-top:44px;text-align:center;color:var(--soft);font-size:13.5px;letter-spacing:.15em}
+  footer::before{content:"❖ ❖ ❖";display:block;color:var(--gold);letter-spacing:.8em;margin-bottom:10px}
+
+  #toast{position:fixed;left:50%;bottom:36px;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#f6efdd;font-size:14.5px;letter-spacing:.15em;
+    padding:9px 26px;border-radius:999px;opacity:0;pointer-events:none;transition:.3s}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:620px){
+    h1{font-size:26px}
+    .qa-q{font-size:17.5px;padding:14px 14px}
+    .qa-a{padding:6px 16px 18px}
+    body{font-size:16px}
+  }
+</style>
+</head>
+<body data-page-node-id="hzTHVazMegn1IPizX1T8Pr">
+<div class="wrap" data-page-node-id="rDQV1KTZPGv4q7GnB2jnPG">
+
+<header data-page-node-id="bMj3pSVsYfhlG9xMjtFE8y">
+  <div class="kicker" data-page-node-id="lEDHKvlGLnk2BC5TE2DwmO">吴地时光机 · 第一课配套资料</div>
+  <h1 data-page-node-id="HII3v5C49GlDgK7dRhsWKB">《伍子胥筑城》课堂六问答疑手册</h1>
+  <div class="sub" data-page-node-id="UPDlBbi9ItDL8cAhAoz99Z">姑苏区老年大学《吴地时光机》苏州趣味文史课 · 第 01 课<br data-page-node-id="92gTba7Jr5eIFAlAjIfGJz">
+  用途：教师课堂细节讲解与学员提问应答参考</div>
+  <div class="toolbar" data-page-node-id="3XkRsSFLexyw6vLoI4CpSD">
+    <button class="btn" id="toggleAll" onclick="toggleAll()" data-page-node-id="HnTqiopGVJFFB7DIC37vg6">全部展开</button>
+    <button class="btn" onclick="window.print()" data-page-node-id="bvZ8EXKZYlR4NtoHGj9XNY">打印 / 存 PDF</button>
+  </div>
+  <nav data-page-node-id="sFWparxN3x15JvcZyaSRAo">
+    <a href="#q1" data-page-node-id="3K06NcWTL0uqGFZuZhqoxQ">问一 · 姑苏台</a><a href="#q2" data-page-node-id="38XQcqrV28p3lvHh4tNB3m">问二 · 平王与费无忌</a><a href="#q3" data-page-node-id="yI9jlXtayngNsAzPegomeN">问三 · 公子光</a>
+    <a href="#q4" data-page-node-id="T7bI1HdWR0dcjPYcL9k5x2">问四 · 相土尝水</a><a href="#q5" data-page-node-id="FILljYzXTzF0UsLLKawTNz">问五 · 三门三敌</a><a href="#q6" data-page-node-id="KInzKCO20ZwptUyD7I2I2D">问六 · 夫差与伯嚭</a>
+  </nav>
+</header>
+
+<!-- ═══════ 问一 ═══════ -->
+<div class="qa" id="q1" data-page-node-id="AGW12kFkLHhczR9yIZUFWX">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="J2B3n4QVO6WEVJenPEnrwR"><span class="no" data-page-node-id="KDaIqsxXGnv1f0jdEr7f3H">问一</span>姑苏台、姑苏山、姑胥山，到底是怎么回事？<span class="arr" data-page-node-id="9uoyjsjm9bwKXJTphOCk1S">▼</span></div>
+  <div class="qa-a" data-page-node-id="o546vCMGAF31cFYLQprBa0">
+    <div class="key" data-page-node-id="AWtMiFrRWAbaATvi7uJdUk"><b data-page-node-id="eEEBE3qH8jCTx4t37QuDVA">核心结论：</b>"姑苏"与"姑胥"是<b data-page-node-id="H5XT6agCFhgE3HzW3b8dCM">通假字</b>，古代吴方言中"苏""胥""余"读音相近——姑苏台＝姑胥台，姑苏山＝姑胥山＝姑余山＝胥台山，都是同一地方的不同写法。但姑苏台的<b data-page-node-id="QE5fX75ZXe5jCDidGQG9Bj">具体位置</b>，历史上确实有两种主要说法。</div>
+
+    <h4 data-page-node-id="98U63Rw9AOGHk3IMyb35kY">说法一：姑苏山（横山北麓）说</h4>
+    <p data-page-node-id="jzzRTxjkdVZC4TUHgsLHiM">姑苏台建在姑苏山上。姑苏山位于今苏州城西南，是横山（七子山）北出最西的一座山峰，在尧峰山北、紫石山一带。民国元老李根源曾在此考察，见到"石池石壁，皆人工造作"，台四周隐隐有建筑遗迹。民国《吴县志》记载最详：<b data-page-node-id="isbbcGeRnhrnUGAiipjmgW">"姑苏山在尧峰紫石山之北，为横山北出最西之峰。一名姑胥，又名姑馀……今人亦称为胥台山，其下有吴王夫差庙。"</b></p>
+
+    <h4 data-page-node-id="NHcrsesfWyADOnBjXjquaW">说法二：胥山（太湖边）说</h4>
+    <p data-page-node-id="x0zWXc2cQFcar8fTfbSgj1">姑苏台在苏州城西南胥口镇南、濒临太湖的胥山，今称清明山。这一说法认为胥山就是姑苏山，台因山而名，山因台而显。</p>
+
+    <h4 data-page-node-id="fY84RyfDlIeiHkHmSFuz9v">胥门与姑苏台的关联</h4>
+    <p data-page-node-id="LWZdX02ifeEIvtcfk9ZGTm">胥门得名于伍子胥，这是确定的。而姑苏台／姑胥台中的"胥"字，也与伍子胥有关——一种说法是，这一带最早因舜时谋臣"胥"（助大禹治水有功，封于江东吴地）而得名"姑胥"，后来伍子胥在此筑城、经营，"姑胥"之名就与伍子胥紧密联系在了一起。可以说，<b data-page-node-id="AEg7u1cwEVuHboLFfVEqnh">胥门、胥江、胥口、胥山、姑苏台，这条"胥"字地名链，都是对伍子胥（以及更早的"胥"文化）的纪念</b>。</p>
+
+    <h4 data-page-node-id="hgNlzC4LZTb3TlSo4cLlrA">补充：苏州之名的由来</h4>
+    <p data-page-node-id="U9j8Om8lmLeHZiwn926WfJ">隋开皇九年（589 年），因境内有姑苏山，改吴州为苏州。"苏州"这个名字，比"姑苏"晚出近千年，但根源都在这座姑苏山上。</p>
+
+    <div class="shu" data-page-node-id="VhfYZzHKkqS1DAx4WCoSkY"><span class="tag" data-page-node-id="hIHZb8zfg03C8zjgKjNpK6">课堂话术建议</span><button class="copy" onclick="cp(this)" data-page-node-id="R82wi0ULlSArZujPhp7JG1">复制话术</button>
+      <p data-page-node-id="AIK4DpjnRzFAlGYvwR5Ynr">"大家看平江图上胥门被封闭，上面写着'姑苏台'三个字，城内就是姑苏馆——当年苏州接待贵宾的国宾馆。这'姑苏台'三个字，就牵出一段公案。姑苏台到底在哪？历史上至少有两说：一说在横山北麓的姑苏山上，一说在太湖边的胥山上。但不管在哪，'姑苏'就是'姑胥'，古代吴语里苏、胥同音，所以姑苏台就是姑胥台，姑苏山就是姑胥山。这'胥'字，最终都指向一个人——伍子胥。"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 问二 ═══════ -->
+<div class="qa" id="q2" data-page-node-id="WTvBx6MB2yJMY8GbUiZId5">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="rpSWDEDwV2mq5OOklplLw3"><span class="no" data-page-node-id="cmYE463XX0t7lPhA8Cym7F">问二</span>楚平王和费无忌，谁是害伍子胥家破人亡的真凶？<span class="arr" data-page-node-id="Zz51rSBwhGfazBwoL7eGqW">▼</span></div>
+  <div class="qa-a" data-page-node-id="gA2UbrIjmHP4XA1olM4HMA">
+    <div class="key" data-page-node-id="4uLMawsdHF3LA635K00eSd"><b data-page-node-id="vEYScftpssGh2mjnsKUJaj">核心结论：</b>楚平王是<b data-page-node-id="0HnSCcJUd6yGUighOwBIUU">决策者</b>，费无忌是<b data-page-node-id="oAy3DHMhccoTD9zDskzrpA">策划者和推手</b>。没有楚平王的荒唐和猜忌，费无忌的谗言不会奏效；但没有费无忌的步步紧逼，这场悲剧不会发生得如此彻底。两人是"昏君＋奸臣"的经典组合。</div>
+
+    <h4 data-page-node-id="AZvjfJugdTULaAelvdcNW2">第一步：调包秦女（荒唐的开端）</h4>
+    <p data-page-node-id="Z5sYqF0nl5996MTvw7agq9">楚平王有太子名建，命伍奢（伍子胥之父）为太傅，费无忌为少傅。费无忌对太子建不忠。楚平王派费无忌到秦国为太子建娶亲，秦女长得绝美。费无忌快马加鞭赶回楚国，对楚平王说："秦女绝美，王可自取，而更为太子取妇。"楚平王竟然真的把未来的儿媳妇纳入自己宫中，宠爱至极，后来生下公子轸（即后来的楚昭王）。</p>
+
+    <h4 data-page-node-id="T0nsMMQbAcStTGz5GbNTal">第二步：离间父子（费无忌的自保）</h4>
+    <p data-page-node-id="Jg32tu3Pyb8LCBE5OYWgqj">费无忌靠这件事讨好了楚平王，但他心里非常害怕——万一楚平王死了，太子建继位，自己必死无疑。于是他开始日夜在楚平王面前说太子建的坏话。楚平王本就因为夺了太子的未婚妻而心虚，渐渐疏远太子建，把太子建派到城父（今安徽亳州一带）守边，伍奢随行。</p>
+
+    <h4 data-page-node-id="srqP3VAkqqwiuWguSpqesq">第三步：诬陷谋反（痛下杀手）</h4>
+    <p data-page-node-id="n1UNsbpswGy2RiqenrPqKO">费无忌进一步诬陷太子建谋反，说："太子居城父，擅兵，外交诸侯，且欲入矣。"楚平王召伍奢回来质问，伍奢直言："王奈何以小臣疏骨肉？"楚平王不听，将伍奢囚禁，又派司马奋扬去杀太子建。幸亏奋扬知道太子建无辜，暗中派人通知太子建逃走，太子建奔宋。</p>
+
+    <h4 data-page-node-id="qLFBdkNeaqojyI7WZ3tPJG">第四步：斩草除根（伍氏灭门）</h4>
+    <p data-page-node-id="VDnuWUGjYJfU4K9NAKsACx">费无忌又说："伍奢有二子，皆贤，不诛且为楚忧。"楚平王以伍奢为人质，派人召伍尚和伍子胥。伍尚仁厚，选择赴死陪父；伍子胥识破阴谋，弯弓搭箭逼退使者，亡命出逃。最终伍奢和伍尚被杀害，伍子胥背负血海深仇，开始了逃亡之路。</p>
+
+    <h4 data-page-node-id="GuVlaKFGPEsmoSPR5HBHS3">楚平王"荒唐却并不愚蠢"</h4>
+    <p data-page-node-id="ODuvWPn1vTsmUmdt5VO94r">说他荒唐，是因为他抢儿媳妇、信谗言、杀忠臣，做的事一件比一件离谱。说他并不愚蠢，是因为他其实很清楚自己在做什么——他忌惮太子建的势力，担心被自己夺妻的太子将来报复，所以废掉太子建、铲除伍氏家族，本质上是一场<b data-page-node-id="EASdFwH3fC8ZRl5OZ8uWW8">权力清洗</b>。费无忌的谗言只是给他提供了借口和台阶。</p>
+
+    <div class="shu" data-page-node-id="pQA1ki5IbAbu3ttLPHhWSq"><span class="tag" data-page-node-id="VICwodiZy0M4D5N63ZZu7V">课堂话术建议</span><button class="copy" onclick="cp(this)" data-page-node-id="NZ7uJOfqFqW4rtqepssg4o">复制话术</button>
+      <p data-page-node-id="JltXXSvhMgg6a9wxZwnprl">"害伍子胥家破人亡的，表面上是大奸臣费无忌，但背后的决策者是楚平王。这个故事的开端极其荒唐：楚平王派费无忌给太子建娶媳妇，费无忌一看秦女太美，回来就劝平王'您自己留着吧，再给太子另找一个'。平王居然真就这么干了。干完之后呢？他心里发虚啊，抢了儿子的媳妇，儿子将来继位能放过他吗？费无忌就抓住这个心理，一步步挑拨，最终诬陷太子谋反，杀了伍奢伍尚。所以说，费无忌是黑手，楚平王是真凶，两个人一个唱白脸一个唱红脸，合起伙来制造了这场冤案。也正是这场冤案，逼出了一个要颠覆楚国的伍子胥。"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 问三 ═══════ -->
+<div class="qa" id="q3" data-page-node-id="3mAUS46WngBsPT46OUhhZF">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="jPninFx4k0xWQHTVrKogIG"><span class="no" data-page-node-id="2Edalbzkvnj1e9SYAE12Jb">问三</span>伍子胥为什么选择公子光，而不是吴王僚？<span class="arr" data-page-node-id="kLRF95nErNaeJm25x9BBUR">▼</span></div>
+  <div class="qa-a" data-page-node-id="liNMaaBYv3DkETI2ymrACA">
+    <div class="key" data-page-node-id="1LJrETwXDRJ7BOXzMHln0Q"><b data-page-node-id="eBsGGKSB83hhQl3T7GJFBQ">核心结论：</b>伍子胥<b data-page-node-id="NDio9jF3drWHjeSzXEM6fj">最初确实先投靠了吴王僚</b>，但通过一次关键对话，他敏锐地判断出：吴王僚优柔寡断、不是能帮他复仇的人；而公子光有野心、有能力、有夺位之志。于是他果断"换赛道"，把专诸推荐给公子光，自己退隐耕田，等待时机。这是一次极其精准的<b data-page-node-id="VCGPTRUeHCjuhwHrR9LLD7">政治投资</b>。</div>
+
+    <h4 data-page-node-id="EuUCG8Awm6YNpe7T2l7VsV">伍子胥与吴王僚的初次接触</h4>
+    <p data-page-node-id="LtjFpcdWHHEJeozYICYrxI">伍子胥逃到吴国后，首先去觐见吴王僚，游说他攻打楚国的好处。吴王僚几乎被说动了。这时候公子光站出来阻拦："伍子胥的父兄都被楚王杀了，他劝我们攻打楚国，是为了报他自己的私仇，不是真正为吴国着想。攻打楚国未必能打赢。"吴王僚听了这话，就打消了伐楚的念头。</p>
+
+    <h4 data-page-node-id="bQzifOF8NYtpyKwAky8ykV">伍子胥的关键判断</h4>
+    <p data-page-node-id="armo0sxWhITm8l1seigWYC">伍子胥从这件事中读出了两个重要信息：</p>
+    <ul data-page-node-id="JG4vkPBYZepfyYYYxYehRv">
+      <li data-page-node-id="a2lJztwWIEy7qwcyky69ZR"><b data-page-node-id="hVIU0yBB2igpx3zfU9bj8g">吴王僚没有主见</b>——别人三言两语就能改变他的决定，这样的君主不可能坚定地支持他伐楚复仇。</li>
+      <li data-page-node-id="yBsd9GIqsaRbnEW5XLEjMO"><b data-page-node-id="gt7DCqCr8sUDPVqXyJUbBE">公子光有"内志"</b>——公子光阻拦伐楚，不是因为他真的认为不该打楚国，而是因为他不想让吴王僚通过伐楚建立军功、巩固王位。公子光的心思在国内，他想自己当吴王。</li>
+    </ul>
+    <p data-page-node-id="SkPkn9LFUPzPCMr0dYztZp">伍子胥心想："彼光将有内志，未可说以外事。"（公子光有在国内夺取王位的志向，不能跟他谈对外征伐的事。）于是他把勇士专诸推荐给公子光，自己退到乡下耕田，等待公子光成事。</p>
+
+    <h4 data-page-node-id="aPTQyyQIQEsHuodbxTkhy6">为什么要冒险参与弑君？</h4>
+    <ul data-page-node-id="lFNdDAuHbgHDHbmaGnopnd">
+      <li data-page-node-id="BVw6pa9WAOqXhIvNIIEsCF"><b data-page-node-id="z9gyOqzMBlOkHNvx9bSLl7">复仇是第一目标</b>：伍子胥的一切行动都围绕"向楚国复仇"展开。要复仇，必须借助吴国的军事力量。而吴王僚不可能给他这个机会，只有帮助公子光夺位，才能换来伐楚的承诺。</li>
+      <li data-page-node-id="dTGPbOed3dG8uxvuGI0o5J"><b data-page-node-id="FD2DQILUSL706xQaRBk4GZ">公子光的继位合法性</b>：公子光是吴王诸樊的长子。吴王寿梦有四个儿子——诸樊、余祭、夷昧、季札。寿梦想传位给贤明的小儿子季札，季札不受，于是兄终弟及，传到夷昧。夷昧死后，按规矩应该再传给季札，季札还是逃走不受。于是夷昧的儿子僚继位，是为吴王僚。但公子光认为："我父亲诸樊是长子，季札不愿继位，按嫡长子继承制，应该由我来继位，僚凭什么当王？"所以在公子光自己看来，他夺位是"拿回属于自己的东西"，并非纯粹的篡位。</li>
+      <li data-page-node-id="dnMbtFDjJLjEKmbJwv6M19"><b data-page-node-id="UlxHrFc2WEy2OZMiHz6v6F">春秋时期的现实</b>：春秋战国礼崩乐坏，弑君篡位之事屡见不鲜，"君臣大义"的约束力已经大大减弱。伍子胥作为楚国亡臣，在吴国没有根基，只能通过这种非常手段上位。</li>
+      <li data-page-node-id="vu35eHL10bgg0AxtqvU6QM"><b data-page-node-id="6Boh83kDlr576CnrBpd428">风险与收益成正比</b>：帮助公子光夺位，一旦成功，他就是开国元勋，权倾朝野，可以调动吴国全部力量伐楚。这个诱惑对身负血海深仇的伍子胥来说，是无法拒绝的。</li>
+    </ul>
+
+    <h4 data-page-node-id="Fq4HT5dvWAYNRbUtWX1e4C">专诸刺王僚的经过</h4>
+    <p data-page-node-id="b5PuY45GtEzdOFePhTs7w8">公元前 515 年，楚平王去世，吴王僚趁楚国国丧派两个弟弟率军伐楚，不料被楚军截断退路，国内空虚。公子光趁机设宴请吴王僚，专诸将匕首藏在鱼腹中（"鱼肠剑"），在上菜时刺杀吴王僚。专诸当场被吴王僚的卫士杀死，但公子光早已埋伏好甲士，一举控制局面，自立为王，即吴王阖闾。</p>
+
+    <div class="shu" data-page-node-id="vObl4sfpZ70tr9IkqoRQcE"><span class="tag" data-page-node-id="RnhRg0n6oqlRDXuqjkWCEC">课堂话术建议</span><button class="copy" onclick="cp(this)" data-page-node-id="CW98z8gMEtwP29TUaWWoMQ">复制话术</button>
+      <p data-page-node-id="GIvKZGolGUVigsLC5JsFqL">"伍子胥一开始找的是吴王僚，不是公子光。他跟吴王僚大谈伐楚的好处，吴王僚都快心动了。结果公子光一句话就给搅黄了：'他伍子胥父兄都被楚王杀了，劝您打楚国是报私仇，不是为吴国好。'吴王僚一听，立马就不打了。伍子胥多聪明的人啊，他从这件事里一下就看穿了：第一，吴王僚这个人没主见，别人说啥就是啥，靠不住；第二，公子光拦着不让打楚国，不是他真觉得不该打，是他不想让吴王僚立功——公子光的心思在国内，他想自己当王。于是伍子胥立刻换了赛道，把专诸推荐给公子光，自己躲到乡下种地去了。为什么要冒弑君的风险？因为伍子胥这辈子就一个目标——报仇。吴王僚给不了他这个机会，只有帮公子光上位，他才能调动吴国的军队杀回楚国。而且公子光也不是完全没道理——他是长子诸樊的儿子，按嫡长子继承制，王位本来就该是他的。所以这桩刺杀，在公子光看来是'拿回属于自己的东西'，在伍子胥看来是'复仇的必经之路'。两个人各取所需，一拍即合。"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 问四 ═══════ -->
+<div class="qa" id="q4" data-page-node-id="KG4PafEMPb3GgUDGTrdPC8">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="u15XXxSTZu9dVTa2WzC1Rk"><span class="no" data-page-node-id="QTa53zLaMjbmH9t5XRu8pL">问四</span>"相土尝水，象天法地"到底是什么意思？和相面、相亲、法相天地有关系吗？<span class="arr" data-page-node-id="Oinn0yIDIsChgOo5FIopMN">▼</span></div>
+  <div class="qa-a" data-page-node-id="90Q15wxwYEkkDbtVMAdTmQ">
+    <div class="key" data-page-node-id="4qGKn04caGEDeSsrJhBhFX"><b data-page-node-id="DUnNBTQewGnryDw3QBSmq5">核心结论：</b>"相土尝水"和相面、相亲在<b data-page-node-id="SDgOw9R3kU4tln53dADUyw">逻辑上确实相似</b>——都是通过细致观察来判断对象是否合适。"象天法地"和神话里的"法相天地"（变大变小的神通）<b data-page-node-id="cFSgFQDpQz2dtBMPsl5JZ4">没有关系</b>，只是字面上都有"天""地"二字，纯属巧合。</div>
+
+    <h4 data-page-node-id="NiwdKWD6TnEPhRGkKrEwKg">相土尝水</h4>
+    <p data-page-node-id="eo8JafwVKVdR08wPzgszFO">出自《吴越春秋·阖闾内传》："子胥乃使相土尝水，象天法地，造筑大城。"</p>
+    <ul data-page-node-id="CaHiFKZgEpGFAf9PMNHDXX">
+      <li data-page-node-id="lxaFPJa6cVay0dJcU3wHr4"><b data-page-node-id="IvRFnyPBJaCjERRheEJ9XU">相土</b>："相"就是观察、考察。考察土地的高低、肥瘠、地质结构、排水条件，判断这块地适不适合建城。</li>
+      <li data-page-node-id="jWBCmPLHL9SkAdJeUBDOJh"><b data-page-node-id="LFuCjPRRK8FmsBuweaaTdo">尝水</b>：品尝水味的咸淡，考察水源是否充足、水质是否甘甜、有没有水患。古代建城，水源是第一位的。</li>
+    </ul>
+    <p data-page-node-id="fOTKdy5OLWHWaWlXu8xEdn">这和相面、相亲的逻辑确实相通：</p>
+    <ul data-page-node-id="Uk3qNukYxoXeOMgyVsdQRH">
+      <li data-page-node-id="OBXDZFSzRp2ZBbsZixsyQ3">相面：观察人的五官气色，判断命运吉凶</li>
+      <li data-page-node-id="bJI0WBMOdbpGEenCDDXdT8">相亲：观察对方的人品家世，判断能不能共度一生</li>
+      <li data-page-node-id="v9yaT0hMB3dCCc0rvSRgKm">相土：观察土地的肥瘦高下，判断能不能成就霸业</li>
+    </ul>
+    <p data-page-node-id="HjuwWxyYcqmezRJdTDoom3">伍子胥还曾到今天苏州相城区一带"相土尝水"，因为那里地势低洼、容易积水，不适合建城，就放弃了。<b data-page-node-id="CXk1Z5K6kRX9iT3gfrYWoo">"相城"这个名字，就是因为伍子胥曾来此"相土"而得名</b>。</p>
+
+    <h4 data-page-node-id="YFK19GjpX1QMbECN5LkzGv">象天法地</h4>
+    <ul data-page-node-id="7ul5xk6pffwsUUn7I4tBfJ">
+      <li data-page-node-id="LI7XV1DA8ZmXORmDLzRUui"><b data-page-node-id="FipGfk6deBMj563OCX4dTb">象天</b>：模仿、对应天上的现象。具体来说，就是把城市的布局和天上的星宿、风向对应起来。</li>
+      <li data-page-node-id="Qq2f9IN4NWHSM7bCR4BzvQ"><b data-page-node-id="z8zhmeNlO0ApWIAZ5qynDO">法地</b>：效法、遵循地上的规律。具体来说，就是把城市的水系、城门和地上的八卦、地理对应起来。</li>
+    </ul>
+    <p data-page-node-id="FNFFsPhwQNlnwzq72vPRrJ"><b data-page-node-id="7IJpCOkPEs4eTztQ1eYo6S">具体体现</b>：</p>
+    <ul data-page-node-id="d1wB0X1sHCPFncpTsFT6YV">
+      <li data-page-node-id="fA4JxXTNfux4sAWYB38MAF">阖闾大城设 <b data-page-node-id="aQYVgpxb5ldZizhuElySNg">8 个陆门</b>，对应天上的"八风"（八方来风）</li>
+      <li data-page-node-id="QYAbdsCxyGeqh9BzdrTedH">设 <b data-page-node-id="rVuLnMGFyqiGaLufBHXqCi">8 个水门</b>，对应地上的"八卦"（又称"八聪"）</li>
+      <li data-page-node-id="MEYELdDSEyB79bHxnrweT3">城的结构、位置、座向都与天象相呼应，符合儒家"礼"所依据的"天地之序"</li>
+    </ul>
+    <p data-page-node-id="mHzjMiEgn5BIeOfHTCP1To">这体现了中国古代"天人合一"的哲学思想——城市不是随便建的，它是天地宇宙的一个缩影，人住在里面，就是生活在天地秩序之中。</p>
+
+    <h4 data-page-node-id="ulwpjTNA1XnXaMOGdHBGlQ">和"法相天地"的区别</h4>
+    <p data-page-node-id="DQ65EaYIBWEb9fSjL2Urmy">神话小说里的"法相天地"（也叫"法天象地"）是一种神通，能让身体变得顶天立地、巨大无比。《西游记》里孙悟空和二郎神斗法时就用过。这和伍子胥的"象天法地"完全是两码事：</p>
+    <ul data-page-node-id="OkAiRAUZ9JHgGXCAPJCcFo">
+      <li data-page-node-id="mCiahVGmp9ghJQ9xcr9ayP">象天法地：<b data-page-node-id="avZ9EbZFL4rSnpUZt3Ipua">城市规划理念</b>，让城市对应天地规律</li>
+      <li data-page-node-id="DHQFPxKC4QrWI9sbDNZEoT">法相天地：<b data-page-node-id="XPHz34WftBPP49vRgXCeGi">神话神通</b>，让身体变大变小</li>
+    </ul>
+    <p data-page-node-id="ZdgCONVeKpmSml0mf1FLy4">只是字面上都有"天""地"，容易让人产生联想，但内涵完全不同。</p>
+
+    <div class="shu" data-page-node-id="k1QVq4KoVRiYrSUkqhCGtu"><span class="tag" data-page-node-id="V07idQDFr2xAJBoF8TW15z">课堂话术建议</span><button class="copy" onclick="cp(this)" data-page-node-id="FgtMxGwstgPladnUM0ZJ4i">复制话术</button>
+      <p data-page-node-id="H1w1eHyFDVzzXvn3cvRrrb">"大家看这八个字——'相土尝水，象天法地'。先说前四个字'相土尝水'，这个'相'字，大家想想，相面的相、相亲的相，是不是一个意思？对，都是仔细观察、认真挑选。相面是看人的气色五官，相亲是看对方人品家世，相土呢？就是看这块地的高低肥瘦、排水好不好。尝水更绝，还要亲口尝尝水是咸是淡、甜不甜。伍子胥建城之前，带着人走遍了苏州的山山水水，连今天的相城都去过，一看地势太低洼，容易淹水，不行，放弃了——'相城'这个名字就是这么来的。所以说，相亲看对眼了成就一段好姻缘，相土选对了地方成就一座千年古城。再说后四个字'象天法地'，有人说这是不是跟孙悟空那个'法相天地'变大变小的神通一样？还真不是，就是字面上都有天地俩字，巧合。象天法地是什么意思呢？就是把城市的布局跟天地对应起来——8 个陆门对应天上的八风，8 个水门对应地上的八卦。城不是随便建的，它是天地宇宙的一个缩影，这就是中国古人'天人合一'的智慧。"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 问五 ═══════ -->
+<div class="qa" id="q5" data-page-node-id="rIellAdBLr4Z2v7PrW1PcQ">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="1SQROyGezkJ67W9VhWhdRH"><span class="no" data-page-node-id="KLPov6PG3ZHELT9BCQlJHJ">问五</span>阊门、齐门、蛇门，三座城门分别针对哪三个敌国？<span class="arr" data-page-node-id="0VuFGEPfGV5xmEsdbV8S8q">▼</span></div>
+  <div class="qa-a" data-page-node-id="eRmuqP0C62zlW2tMLC3zYu">
+    <div class="key" data-page-node-id="gdPo3GIxS12ufqRjK6uEzL"><b data-page-node-id="VDEOWqLpFjW4alWY8MmLhG">核心结论：</b>三座城门都有明确的政治和军事指向性——<b data-page-node-id="ll4E1Qrtd6Q0UsrWoxCyzb">阊门（破楚门）→ 楚国</b>：军事征伐的象征；<b data-page-node-id="iRgbiq3YEPlBVEhruAKSJ6">齐门（望齐门）→ 齐国</b>：政治联姻的象征；<b data-page-node-id="R6RG6j5xnJwjhMObC0HK0L">蛇门 → 越国</b>：巫术镇服的象征。三座城门，三种对付敌国的方式，非常有意思。</div>
+
+    <h4 data-page-node-id="B4vkwn0REHfgCrnMxebaC9">阊门——破楚门（针对楚国）</h4>
+    <ul data-page-node-id="zHfP7Hl4SaMnVeq5tCIdWc">
+      <li data-page-node-id="d1QDRY52RWG1u9aI5LpBzX"><b data-page-node-id="fGveHfqkoZOSqD4GL63jhA">位置</b>：苏州城西北门</li>
+      <li data-page-node-id="iSBg2yMCnyCeXWF4qnTHlb"><b data-page-node-id="XSXkW4SSibQLsYUopO6bbf">得名</b>："阊"有通天之意，"阊阖"是天宫的南门，象征吴国受天神保佑、日臻强盛。</li>
+      <li data-page-node-id="QBDzri9SY1ohTJKK11ML1w"><b data-page-node-id="UOo1yP3HlrTetBlFKaymP4">别称破楚门</b>：因为这座门朝向西北方的楚国，吴王阖闾就是在这里誓师，率领大军西征伐楚。公元前 506 年，吴王阖闾以孙武为将、伍子胥为谋，从阊门出发，五战五胜，一举攻破楚国都城郢都，创造了春秋时期以小国攻破大国都城的奇迹。所以这座门叫"破楚门"，名副其实。</li>
+    </ul>
+
+    <h4 data-page-node-id="rbiW8TrQTEQwl10f2Umu7v">齐门——望齐门（针对齐国）</h4>
+    <ul data-page-node-id="gAA5Yzjvuyh7guDsoScCwE">
+      <li data-page-node-id="QQhxNTaO5QdAkmfvRbX2Ew"><b data-page-node-id="1SmMqhmPgRE3VHxBHvlWx0">位置</b>：苏州城北门</li>
+      <li data-page-node-id="kLdYWR6PiqKwMEmowBgdLw"><b data-page-node-id="diNXE2pQX03J8vySmGTDmn">得名</b>：这里有一段凄美的故事。吴王阖闾为太子波（一说为阖闾自己）娶了齐景公的女儿，史称"齐女"。齐女远嫁吴国，思念故国，日夜哭泣，郁郁成病。阖闾为了安慰她，在城北建造了一座城门楼，让齐女可以登楼向北眺望自己的家乡齐国，所以叫"望齐门"，简称齐门。</li>
+      <li data-page-node-id="z9gMlTXjth6JxicQBSBVfD"><b data-page-node-id="kTF5xaHXwkPmmHsBXXGhc8">政治含义</b>：齐门虽然不像破楚门那样充满杀气，但它同样是针对齐国的——它是吴齐政治联姻的产物。齐国是东方大国，吴国想北上争霸，必须处理好和齐国的关系，联姻就是手段之一。齐女思乡的故事背后，是吴国与齐国之间微妙的政治博弈。</li>
+    </ul>
+
+    <h4 data-page-node-id="Hg0XIOKFrr7EurVgm94FPK">蛇门（针对越国）</h4>
+    <ul data-page-node-id="eauhS5HOL4QqLZmrznpd1l">
+      <li data-page-node-id="2GHSc6RdPwAnWduQYlswVV"><b data-page-node-id="jctk8ohWD5F8qkzUjr4rku">位置</b>：苏州城东南门</li>
+      <li data-page-node-id="GgkbuCfn9EGkUuwA5APlI9"><b data-page-node-id="R1VTtJEWDNq5g6i8tD0jlt">得名</b>：这是最有神秘色彩的一座门。古代用天干地支和十二生肖对应方位：吴国在辰位，属龙；越国在巳位，属蛇。所以伍子胥在蛇门上放置了一条木蛇，蛇头朝北（朝向吴国城内），象征越国臣服于吴国。这是一种<b data-page-node-id="ntSALTBHD6BH1IAnMj1731">巫术镇服</b>的手段，用象征学的方式"压"住越国。</li>
+      <li data-page-node-id="VNaAqw0JXq9EHfrPyR6Rjb"><b data-page-node-id="CQi013a2GUICRc7LD29FkW">历史的反讽</b>：极具讽刺意味的是，正是这个被伍子胥用木蛇"镇服"的越国，后来反过来灭掉了吴国。蛇门上的木蛇朝北，象征越臣属于吴；可最终的结果是越灭吴，历史跟伍子胥开了一个残酷的玩笑。</li>
+    </ul>
+
+    <h4 data-page-node-id="U5WFasbnSED9YhntOGuH9j">补充：盘门与"绝越"</h4>
+    <p data-page-node-id="CCaYiE0BbZS439nZ2o8cZj">盘门古称"蟠门"，城门上曾刻木蟠龙，也是用来震慑越国的。此外，吴国平时不开东门，表示"绝越"——断绝和越国的往来，从城门设置上就体现了对越国的敌视。</p>
+
+    <div class="shu" data-page-node-id="EJt3zcdPaIzI6WRHdZGOHr"><span class="tag" data-page-node-id="wNzMPQ84UbIl39iFba3SHM">课堂话术建议</span><button class="copy" onclick="cp(this)" data-page-node-id="vNXlk3VHGjnV2BVyiduIBz">复制话术</button>
+      <p data-page-node-id="i6lkQG9yT6dJarzFRUAlvs">"苏州古城的八门，每一座都有讲究。其中有三座门特别有意思，分别对着三个强国，而且对付的方式还不一样。第一座是阊门，也叫破楚门，对着西北的楚国。这是最霸气的一座门——吴王阖闾就是从这里誓师出发，五战五胜打进楚国郢都的，'破楚'二字，实至名归。第二座是齐门，也叫望齐门，对着北方的齐国。这座门就温柔多了，背后是个爱情悲剧：吴王阖闾娶了齐景公的女儿，齐女远嫁思乡，天天哭，阖闾就建了这座城门楼让她登高望齐。但温柔背后也是政治——齐国是东方大国，吴国要北上争霸，联姻就是手段。第三座是蛇门，对着东南的越国，这座门最神秘。按十二生肖方位，吴属龙、越属蛇，伍子胥就在门上放了条木蛇，头朝里，象征越国臣服吴国。这是用巫术镇服的方式对付越国。但历史特别讽刺——就是这个被木蛇压着的越国，最后反过来灭了吴国。三座门，三种对敌方式：军事征伐、政治联姻、巫术镇服，伍子胥把对付敌国的手段，都刻在了城门上。"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 问六 ═══════ -->
+<div class="qa" id="q6" data-page-node-id="07ezGQGxyzGqgu3KHypp0O">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="PYM4ZWq6cMWx7AqTYPKGpW"><span class="no" data-page-node-id="R33Sk2WIcE4h4SVhL9y0PB">问六</span>夫差真是昏君吗？他为什么更喜欢伯嚭？夫差和楚平王像不像？<span class="arr" data-page-node-id="5njC8m6BwRYCPuiyvjdimD">▼</span></div>
+  <div class="qa-a" data-page-node-id="jiTL6ZqdN9j52PLqG7KCE9">
+    <div class="key" data-page-node-id="Faabdj0rhtEpEX4YRplP9R"><b data-page-node-id="OBuvFSYFiDPnHbBNRNcFOW">核心结论：</b>夫差<b data-page-node-id="o4YGDef8Cm9NHVdAeC5dfg">不是传统意义上的昏君</b>，他是一个有能力、有抱负但刚愎自用、战略短视的君主。他宠信伯嚭，是因为伯嚭懂他、顺他、迎合他的霸主梦，而伍子胥总是逆着他、扫他的兴。夫差和楚平王<b data-page-node-id="6dLS75RTlQ33a5qoRwZdaU">确实有惊人的相似之处</b>——都宠信楚国来的奸臣，都杀害了忠直的伍氏家族成员，最终都因自己的错误决策付出了惨痛代价。</div>
+
+    <h4 data-page-node-id="SANrIVgxSQVD57aYCuVBHT">夫差是不是昏君？——不是，是"有为之君"走向"刚愎之君"</h4>
+    <p data-page-node-id="PCd22dvcBTOQcymqKZmuzT"><b data-page-node-id="5M1PoMjI5oHblwjXFTHzF1">他有作为的一面：</b></p>
+    <ul data-page-node-id="UeGu98dNiA2EJwG5fpwWse">
+      <li data-page-node-id="jShmCIWkT1OLYsMpWfSOWZ"><b data-page-node-id="oVbliUFuN8p2UHrRfJdOrr">复仇迅速</b>：阖闾在槜李之战中被越国射死，夫差继位后，让人每天站在宫门口提醒他："夫差，你忘了越王杀你父亲了吗？"夫差回答："不敢忘！"仅仅两年后（公元前 494 年），夫差就在夫椒之战中大败越国，把勾践围困在会稽山上，差点灭了越国。</li>
+      <li data-page-node-id="eOueuzzFrgoGGQC4ZlkFDt"><b data-page-node-id="IW1kuZArFYW1OGyaK4kzre">北上争霸</b>：夫差打败越国后，挥师北上，攻打陈国、蔡国、鲁国，与齐国大战于艾陵并取胜。公元前 486 年，他下令开凿邗沟，沟通长江和淮河，这是中国历史上有确切纪年的最早的大型运河工程，后来成为京杭大运河的重要一段。</li>
+      <li data-page-node-id="8CAFhzCZK3YJRQYB4WyjNy"><b data-page-node-id="BqrXL4ZTWM4AtQ9rENURL5">黄池会盟</b>：公元前 482 年，夫差在黄池（今河南封丘）与晋定公等诸侯会盟，争夺霸主之位，一度达到了吴国霸业的顶峰。</li>
+    </ul>
+    <p data-page-node-id="dcZWeQZ21PTF6hs7ggWx1J"><b data-page-node-id="lxdzu4VaJgb4sYDx9ALhtq">他致命的缺陷：</b></p>
+    <ul data-page-node-id="RfaQFM61RsyS4kDwctG7Sp">
+      <li data-page-node-id="ltLZMVRMSG2ydBY98XYiJY"><b data-page-node-id="jPTJbYlgyVUhnJpmg4YQgw">刚愎自用</b>：听不进逆耳忠言，伍子胥多次劝谏，他不仅不听，反而越来越反感。</li>
+      <li data-page-node-id="dMZvWqHkwzaCePhYsR5q7w"><b data-page-node-id="GJs0V3XdzXXxbS1aLLd0O7">好大喜功</b>：沉迷于中原霸主的虚名，忽视了身边最致命的威胁——越国。</li>
+      <li data-page-node-id="ZER6Dja3Kg4Ju6o5CpEEUn"><b data-page-node-id="kSmGuLnoCZzm7OBQTxAprD">战略短视</b>：没有彻底消灭越国，放虎归山；连年北伐，消耗国力，让越国有了可乘之机。</li>
+    </ul>
+    <p data-page-node-id="ucD1Vf40qwcff8CeKRKByx"><b data-page-node-id="p6IwSemCgbUEsEnMIncDpu">新视角：清华简《越公其事》的记载</b>——近年出土的战国竹简清华简《越公其事》提供了一个不同于《史记》的视角：夫差放过勾践，不完全是因为骄傲和被伯嚭蒙蔽，也有<b data-page-node-id="BmB0ImPjrg2Xi9mpTbCDXX">现实的无奈</b>——吴越战争中吴国的精锐将士死伤过半，夫差对伍子胥说："我们不是不想灭越，是打不动了。"同时勾践的求和也并非完全卑微，而是有条件的谈判。这说明夫差的决策有其现实考量，并非纯粹的昏庸。但无论如何，夫差最终的判断是错误的——他低估了勾践的隐忍和复仇之心，也高估了吴国的实力。</p>
+
+    <h4 data-page-node-id="l7e9zwj4FTeVJpGzcgHuek">夫差为什么更喜欢伯嚭？</h4>
+    <p data-page-node-id="fTSJ69hondgfMWbLjxm7bq"><b data-page-node-id="EnBAVPBuc91nq0m6xcb4gY">因为伯嚭是夫差的"情绪价值提供者"，而伍子胥是夫差的"压力来源"。</b></p>
+    <ul data-page-node-id="4GDsqibYUwDbCT9IabJKbY">
+      <li data-page-node-id="FNskXnypBZGsYhnV5NB2bl"><b data-page-node-id="wzHrWpUZq09HGn1bgcaGZv">性格互补（实则是迎合）</b>：伍子胥刚直、强硬、直言不讳，说话直来直去，经常顶撞夫差，让夫差下不来台；伯嚭圆滑、乖巧、善于察言观色，永远说夫差爱听的话，让夫差感到舒服。</li>
+      <li data-page-node-id="ejpjmKC06PTjjIDyFVB2sD"><b data-page-node-id="I1qC3mOepJQq5odcmj8U37">政见契合</b>：夫差的核心目标是<b data-page-node-id="57ODTneQC5dc878HRCgYFF">北上争霸</b>。伯嚭支持北伐，认为"战胜之后宽待敌国，才能令天下诸侯信服"，正好迎合夫差想当霸主的心理；伍子胥反对北伐，认为"越在我，心腹之疾也"，应该先灭越再图北——这等于否定了夫差的霸主梦，夫差自然不爱听。</li>
+      <li data-page-node-id="aiWzvKaDJuxvJ08EGSlIe0"><b data-page-node-id="aHri70DxGqBYTIdFyve5bt">伯嚭收了越国的贿赂</b>：越国大夫文种看透了吴国的朝堂格局："吴王敬畏子胥而亲信伯嚭。"于是越国用重金美女贿赂伯嚭，伯嚭就不断在夫差面前替越国说好话，促成了吴越议和，也保住了勾践的性命。伯嚭的贪婪，让他成了越国在吴国王宫的"代言人"。</li>
+      <li data-page-node-id="GOy9LTQ1IZ7bqXBZEQV8Sp"><b data-page-node-id="FaCnCyvegmMJCfkenchWvM">伍子胥的"托子于齐"给了伯嚭口实</b>：伍子胥多次劝谏无效，预感吴国将亡，趁出使齐国的机会，把自己的儿子托付给齐国的鲍氏。伯嚭抓住这件事大做文章，诬陷伍子胥"心怀异志，里通外国"。夫差本就对伍子胥不满，这下更有了赐死他的理由。</li>
+      <li data-page-node-id="0idGdO5NOC9AzmqbuaIDWb"><b data-page-node-id="n3wAjhHaw96r8ZvtNFucsm">两人都是楚国人，但走了完全不同的路</b>：伯嚭也是楚国贵族出身，祖父伯州犁是楚国名臣，父亲郤宛被费无忌陷害致死，伯嚭也是逃到吴国的。伍子胥和伯嚭有相似的背景，但伍子胥推荐了伯嚭，伯嚭却最终害死了伍子胥。这是历史的又一重讽刺。</li>
+    </ul>
+
+    <h4 data-page-node-id="xcrx7MujW5MCEYZQ7BlasB">夫差和楚平王像不像？——非常像，一个模子里刻出来的</h4>
+    <table data-page-node-id="QAnk0QoUHcW3sR6lnOWNt0">
+      <tr data-page-node-id="Bgudqa5cshJyumP2KjHF95"><th data-page-node-id="9tSDrpBCJky3Sdsy5nBBul">对比维度</th><th data-page-node-id="jh4Wd9jtCeSR8Lzi2EqZ88">楚平王</th><th data-page-node-id="qkStbEHTn8MUmdOEGuf0Rn">吴王夫差</th></tr>
+      <tr data-page-node-id="OGuABdZbqPS5oE5b7CWopf"><td data-page-node-id="KSJRAeCGN414j7JLlURUCE">宠信的奸臣</td><td data-page-node-id="B1L5LhWRrOyH8yDPgQNDv4">费无忌（楚国人）</td><td data-page-node-id="YfPWjEUOoe0lT95BAcZKO2">伯嚭（楚国人）</td></tr>
+      <tr data-page-node-id="yuawsTJK0AFZrfEDko7TMT"><td data-page-node-id="O3TsnmKPX0Xk2WRMOhCOMZ">杀害的忠臣</td><td data-page-node-id="u7sTzCqSm8pdoXOmULgZWV">伍奢（伍子胥之父）</td><td data-page-node-id="StFWgEL3mOmEZOuSLlFO79">伍子胥（伍奢之子）</td></tr>
+      <tr data-page-node-id="0MgyWgyRAepu1Vq1Psw7wW"><td data-page-node-id="GjZHbauA3ejZWYUTdGuYEw">奸臣的手段</td><td data-page-node-id="ww4njmSzFruBxKZ9cBqS7e">谗言诬陷太子谋反</td><td data-page-node-id="8Czxbo2KoJPoqUnqJjXxlA">谗言诬陷伍子胥通敌</td></tr>
+      <tr data-page-node-id="v2t8a7W0KyYjVQOaMt91Eq"><td data-page-node-id="AK4vjJshfHZERh7SwJER6S">君主的性格</td><td data-page-node-id="HbuGG28uI1GIiFFAOShcJJ">荒唐、猜忌、听不进忠言</td><td data-page-node-id="5kbExTie4PFm3kciDBHNtw">刚愎、好大喜功、听不进忠言</td></tr>
+      <tr data-page-node-id="TTVyXRjQTMmGSCF1k16qEv"><td data-page-node-id="hdRBuKs1eTrhjvT2BBD7Wl">错误决策</td><td data-page-node-id="9fz5abQFPnlejtBg1cgmpR">夺儿媳、废太子、杀伍氏</td><td data-page-node-id="ve2bD7chqhknJHT16wFZLy">放勾践、北伐争霸、赐死伍子胥</td></tr>
+      <tr data-page-node-id="pst0Js23Q8X2g1Q5FV4Zqa"><td data-page-node-id="hm6rurhbh4RzmKynt2x4lG">最终后果</td><td data-page-node-id="AKdnN6CRylf30IJhE5syy3">楚国被吴军攻破郢都，平王被掘墓鞭尸</td><td data-page-node-id="Q5fmtMkE1Li4rsHxlPZuhn">吴国被越国所灭，夫差自杀</td></tr>
+    </table>
+    <p data-page-node-id="VvSWFZP8zUEPEHQKwTLnuI"><b data-page-node-id="WS6jU8RJymWLtmfreEcA9Z">最讽刺的巧合：</b>费无忌和伯嚭都是<b data-page-node-id="GlWITW56C4jlxBwPzPgSrf">楚国人</b>；费无忌害死了<b data-page-node-id="S3Kn8Aej9RuuRFJJK7Fwfn">伍奢</b>（父亲），伯嚭害死了<b data-page-node-id="In1VySoq7cPgCw0fwSvrM7">伍子胥</b>（儿子）；楚平王信费无忌，最终被伍子胥<b data-page-node-id="SU64iPrfTOAUiWBMzXnjHp">掘墓鞭尸</b>；夫差信伯嚭，最终被越国<b data-page-node-id="7mslB9dwomLgvHutKiM4zh">灭国自杀</b>。两代君主，同一个奸臣模式，同一个家族的悲剧，历史形成了一个完美的闭环。</p>
+    <p data-page-node-id="Agy8KPMnHsBNVW5xCQh3sE"><b data-page-node-id="BsAaY3D4bQddsHvtVzlcxH">不同之处：</b>楚平王更多是<b data-page-node-id="acIvr4nZtPvQkkpsNKK83M">昏庸荒唐</b>，从抢儿媳妇开始就一路离谱；夫差更多是<b data-page-node-id="1vtmxGP4D8cHGPjdjx1FDm">有才无德</b>，他有能力、有抱负，但刚愎自用、战略失误，把一手好牌打烂了。</p>
+
+    <div class="shu" data-page-node-id="UrhcUKdXVKSxz6IQcI2Hr3"><span class="tag" data-page-node-id="vuVWyJst0cRQk19lHvlgzi">课堂话术建议</span><button class="copy" onclick="cp(this)" data-page-node-id="7gyemhkPHzokqAJkWHg9UW">复制话术</button>
+      <p data-page-node-id="Gxg9pJrwZE2iC3ptGm4WyU">"夫差是不是昏君？这个问题不能简单回答。他继位之初，让人每天在宫门口喊'夫差，你忘了杀父之仇吗？'他回答'不敢忘'，两年就大败越国，这能叫昏君吗？他开凿邗沟、北伐齐国、黄池会盟争霸，这也不是昏君能做出来的事。但他刚愎自用、好大喜功，放着身边的越国不打，非要去中原争那个霸主虚名，这又是致命的错误。所以夫差不是昏君，是一个'有为之君'变成了'刚愎之君'。那他为什么更喜欢伯嚭？因为伯嚭会说话啊，永远顺着他、捧着他，支持他北上争霸的梦想。而伍子胥呢？天天泼冷水，说越国才是心腹大患，不能北伐。换了你是夫差，你也烦。再加上伯嚭收了越国的贿赂，一个劲替越国说好话，伍子胥又把儿子托付给齐国，给了伯嚭诬陷他'通敌'的口实。最后夫差就赐死了伍子胥。说到这里，大家有没有发现一个惊人的巧合？楚平王宠信费无忌，杀了伍子胥的父亲伍奢；夫差宠信伯嚭，杀了伍子胥。费无忌和伯嚭，都是楚国人！楚平王信奸臣，最后被伍子胥掘墓鞭尸；夫差信奸臣，最后被越国灭国自杀。两代君主，同一个套路，同一个家族的悲剧，历史就像一个轮回。而且夫差和楚平王还有一个共同点——他们都不是蠢，是听不进真话，都喜欢听顺耳的话。这大概就是权力最可怕的地方吧。"</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ 附录 ═══════ -->
+<div class="qa open" id="fu" data-page-node-id="HHqXs8mFdBeJBrQlukp9L3">
+  <div class="qa-q" onclick="tg(this)" data-page-node-id="nl2Pz3v6Em6F1hH1E8bo4q"><span class="no" data-page-node-id="NcDdE6UiCBT52UqMrMBK8I">附录</span>史料来源索引<span class="arr" data-page-node-id="I95mHfYrwhxtdwlJjtUyBD">▼</span></div>
+  <div class="qa-a" data-page-node-id="fdDGdBsirl8XkOYnhBNOSw">
+    <table data-page-node-id="DAZXvWfiWAlnC0TfPCccfr">
+      <tr data-page-node-id="vVOMcBrBUASwND9k4rIUQF"><th data-page-node-id="HANTdnfgQ86YGHS5wjBGSM">问题</th><th data-page-node-id="aK62C7HJDyyLko5zSIotAA">主要史料</th></tr>
+      <tr data-page-node-id="qftNOUHZrYjAVAOBNyG6DJ"><td data-page-node-id="A8gmyMrTcrHAdxUY6wA0xa">姑苏台位置</td><td data-page-node-id="t7ivOcg1cdxSnCg9w71RaH">《吴越春秋》《吴郡志》《吴县志》《元和郡县图志》</td></tr>
+      <tr data-page-node-id="buiIKC0MEy4oUErFksiFjc"><td data-page-node-id="xAIHdAuP2gC42AWU1PjVEX">楚平王与费无忌</td><td data-page-node-id="ExXpP9SR1d4qoePjAWSXXn">《史记·伍子胥列传》《史记·楚世家》《左传》</td></tr>
+      <tr data-page-node-id="tu44ezWyiiv4uDBusp3Qh9"><td data-page-node-id="W6qZIQuqi4dVyDYOjHjJN1">伍子胥与公子光</td><td data-page-node-id="6NtJx9POREkHO3sZYstPCX">《史记·伍子胥列传》《史记·吴太伯世家》《吴越春秋》</td></tr>
+      <tr data-page-node-id="MFMFxFiYakIstiyNUrI2F1"><td data-page-node-id="QHtyn1b7kOwqILgNU7JXUM">相土尝水象天法地</td><td data-page-node-id="u9wMxorbJkEp1rAkgiqcCz">《吴越春秋·阖闾内传》《史记正义》</td></tr>
+      <tr data-page-node-id="TFVc6CQMUtRS05Nehb2G4T"><td data-page-node-id="Y1IHc9J7vKNJbGvV2gAw09">八门名称与含义</td><td data-page-node-id="1ILmsrYk90GBLWGFPfQgPR">《吴越春秋》《吴地记》《吴郡图经续记》《越绝书》</td></tr>
+      <tr data-page-node-id="rA26BA4u15U1no6P18RwF2"><td data-page-node-id="hkFY8YiDxiKNO5JdMRx8Zl">夫差与伯嚭</td><td data-page-node-id="9xgyrLOGqCQbypQD5zujzS">《史记·伍子胥列传》《史记·越王勾践世家》《国语·吴语》清华简《越公其事》</td></tr>
+    </table>
+  </div>
+</div>
+
+<footer data-page-node-id="X0RD0z7lSOYb4KGrd5v4Eo">本手册仅供教师备课参考 · 课堂讲解时可根据学员反应灵活取舍</footer>
+</div>
+
+<div id="toast" data-page-node-id="NbFqLW5kyR5RqR7zrYfPrH">话术已复制到剪贴板</div>
+
+<script>
+function tg(q){q.parentNode.classList.toggle('open')}
+function toggleAll(){
+  var cards=document.querySelectorAll('.qa');
+  var closed=[].filter.call(cards,function(c){return !c.classList.contains('open')});
+  var open=closed.length>0;
+  cards.forEach(function(c){c.classList.toggle('open',open)});
+  document.getElementById('toggleAll').textContent=open?'全部收起':'全部展开';
+}
+function toast(){
+  var t=document.getElementById('toast');
+  t.classList.add('show');setTimeout(function(){t.classList.remove('show')},1600);
+}
+function cp(btn){
+  var txt=btn.parentNode.querySelector('p').innerText;
+  var done=function(){toast()};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(function(){fallback(txt,done)});
+  }else{fallback(txt,done)}
+}
+function fallback(txt,done){
+  var ta=document.createElement('textarea');ta.value=txt;
+  ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);
+  ta.select();try{document.execCommand('copy');done()}catch(e){}
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>
