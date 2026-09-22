@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伍子胥筑城 · 现场讲解大纲（交互版 · 90′）</title>
+<style>
+  :root{
+    --paper:#faf7f0; --card:#fffdf8; --ink:#2e2a25; --sub:#6b6357;
+    --line:#e3dbcc; --red:#9b3b2b; --gold:#a3803c; --green:#4a6b52;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;
+    font-size:15.5px; line-height:1.85;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding:40px 28px 80px;}
+  h1,h2,h3,h4{font-family:"Noto Serif SC","Songti SC","SimSun",serif; letter-spacing:.5px;}
+  header.top{text-align:center; padding:8px 0 26px; border-bottom:3px double var(--line);}
+  header.top .kicker{font-size:13px; color:var(--sub); letter-spacing:4px;}
+  header.top h1{font-size:34px; margin:12px 0 6px; letter-spacing:6px;}
+  header.top .sub{font-size:16px; color:var(--red); letter-spacing:2px;}
+  header.top .meta{margin-top:16px; font-size:13.5px; color:var(--sub);}
+  header.top .meta span{display:inline-block; margin:0 10px; padding:2px 10px; border:1px solid var(--line); border-radius:999px; background:var(--card);}
+  .lead{margin:26px 0 10px; padding:16px 20px; background:var(--card); border-left:4px solid var(--gold); border-radius:0 8px 8px 0; font-size:15px; color:#423b32;}
+  .lead b{color:var(--red);}
+  h2.sec{margin:44px 0 16px; font-size:21px; padding-bottom:8px; border-bottom:2px solid var(--line);}
+  h2.sec .no{color:var(--gold); margin-right:8px;}
+  table{width:100%; border-collapse:collapse; background:var(--card); font-size:14px;}
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#f3ecdd; font-family:"Noto Serif SC",serif; font-weight:600; white-space:nowrap;}
+  td.t{white-space:nowrap; color:var(--sub); font-variant-numeric:tabular-nums;}
+  tr.rest td{background:#f6f1e4; color:var(--sub); font-style:italic;}
+  .act{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:0 0 16px; margin:22px 0; overflow:hidden;}
+  .act > .head{display:flex; align-items:baseline; gap:12px; padding:14px 20px; background:linear-gradient(90deg,#f3ecdd,#faf7f0); border-bottom:1px solid var(--line);}
+  .act > .head .n{font-family:"Noto Serif SC",serif; font-size:15px; color:#fff; background:var(--red); border-radius:6px; padding:2px 10px; letter-spacing:1px;}
+  .act > .head h3{margin:0; font-size:19px; flex:1;}
+  .act > .head .dur{font-size:13.5px; color:var(--sub); white-space:nowrap;}
+  .act .row{display:grid; grid-template-columns:96px 1fr; gap:4px 14px; padding:12px 20px 0;}
+  .act .row .lab{font-family:"Noto Serif SC",serif; font-size:13.5px; color:var(--gold); text-align:right; padding-top:3px; letter-spacing:1px;}
+  .act .row .val{font-size:14.8px;}
+  .act .row .val ol,.act .row .val ul{margin:0; padding-left:22px;}
+  .act .row .val li{margin:3px 0;}
+  .act .row .val p{margin:2px 0;}
+  .q{color:var(--green);}
+  .key{display:block; margin:6px 0 0; padding:8px 14px; background:#f6f1e4; border-left:3px solid var(--gold); border-radius:0 6px 6px 0; font-size:14.5px; color:#44392c;}
+  blockquote{margin:6px 0; padding:8px 14px; background:#f7f3e9; border-left:3px solid var(--red); border-radius:0 6px 6px 0; font-size:14.5px; color:#3c352c;}
+  blockquote .src{display:block; margin-top:4px; font-size:12.8px; color:var(--sub);}
+  .arrow{color:var(--red); font-weight:600;}
+  .board{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:8px;}
+  .board .col{background:var(--card); border:1px dashed #cbbfa8; border-radius:8px; padding:12px 14px;}
+  .board .col h4{margin:0 0 8px; font-size:15px; color:var(--red);}
+  .board .col p{margin:4px 0; font-size:14px;}
+  .board .flow{font-size:14px; line-height:2.1;}
+  .board .flow i{font-style:normal; color:var(--gold);}
+  .qa{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:4px 0; margin:14px 0;}
+  .qa .item{padding:11px 20px; border-bottom:1px dashed var(--line); font-size:14.6px;}
+  .qa .item:last-child{border-bottom:none;}
+  .qa .item b{color:var(--red);}
+  .qa .item .a{display:block; margin-top:3px; color:#443c31;}
+  .tips{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 22px; margin:14px 0; font-size:14.8px;}
+  .tips li{margin:6px 0;}
+  /* —— 插入单元：关系图谱 / 吴王世系图 —— */
+  .figbox{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 20px 18px; margin:14px 0 22px;}
+  .figttl{margin:0 0 14px; font-size:16px; color:var(--red); border-bottom:1px dashed var(--line); padding-bottom:8px;}
+  .net{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; align-items:start;}
+  .netcol{border:1px solid var(--line); border-radius:8px; padding:10px 10px 12px; background:#faf7f0;}
+  .netcol > h4{margin:0 0 8px; font-size:13.5px; text-align:center; letter-spacing:2px; padding-bottom:6px; border-bottom:1px solid var(--line);}
+  .netcol.chu > h4{color:var(--red);} .netcol.wu > h4{color:var(--green);} .netcol.mid > h4{color:var(--gold);}
+  .node{display:block; margin:5px 0; padding:5px 9px; background:#fff; border:1px solid var(--line); border-radius:6px; font-size:13.2px; line-height:1.5;}
+  .node small{display:block; color:var(--sub); font-size:11.3px; line-height:1.45;}
+  .node.core{background:#f6f1e4; border:1.6px solid var(--gold); text-align:center; font-size:15px; font-weight:600; color:var(--red); padding:9px;}
+  .node.core small{color:#8a7a5c; font-weight:400;}
+  .node.r{border-left:3px solid var(--red);} .node.g{border-left:3px solid var(--green);}
+  .reltab{margin-top:14px; font-size:13px;}
+  .reltab th{font-size:12.8px;} .reltab td{padding:6px 9px;}
+  .dark{margin-top:14px; padding:12px 16px; background:#f6f1e4; border-left:4px solid var(--red); border-radius:0 8px 8px 0; font-size:13.8px;}
+  .dark b{color:var(--red);}
+  .dark ol{margin:6px 0 0; padding-left:20px;} .dark li{margin:4px 0;}
+  @media (max-width:720px){ .net{grid-template-columns:1fr;} }
+  .foot{margin-top:52px; padding-top:16px; border-top:3px double var(--line); text-align:center; font-size:13px; color:var(--sub);}
+  @media print{
+    body{background:#fff; font-size:12.5pt;}
+    .wrap{max-width:none; padding:0;}
+    .act,.qa,.tips,table{break-inside:avoid;}
+    h2.sec{break-before:auto;}
+  }
+  @media (max-width:720px){
+    .board{grid-template-columns:1fr;}
+    .act .row{grid-template-columns:1fr;}
+    .act .row .lab{text-align:left;}
+  }
+
+  /* ================= 交互层 ================= */
+  html{scroll-behavior:smooth;}
+  .act, h2.sec{scroll-margin-top:calc(var(--topH) + 16px);}
+  aside#side{position:fixed; left:0; top:var(--topH); bottom:0; width:288px; box-sizing:border-box;
+    background:#fffdf8; border-right:1px solid var(--line); padding:18px 16px 18px;
+    overflow-y:auto; z-index:60; display:flex; flex-direction:column; gap:13px;
+    transform:translateX(-100%); transition:transform .25s ease, top .2s ease;}
+  body.nav-open aside#side{transform:none;}
+  @media (min-width:1100px){
+    body{padding-left:300px;}
+    aside#side{transform:none;}
+    body.no-side{padding-left:0;}
+    body.no-side aside#side{transform:translateX(-100%);}
+  }
+  aside#side .brand{font-family:"Noto Serif SC",serif; font-size:18px; letter-spacing:3px; color:var(--red);}
+  aside#side .brand span{display:block; margin-top:5px; font-size:11.3px; letter-spacing:.4px; color:var(--sub); font-family:"Noto Sans SC","Microsoft YaHei",sans-serif; line-height:1.55;}
+  .clock{background:#f6f1e4; border:1px solid var(--line); border-radius:10px; padding:11px 13px 12px;}
+  .clock .big{font-family:"Noto Serif SC",serif; font-size:33px; line-height:1.05; color:var(--ink); font-variant-numeric:tabular-nums; letter-spacing:1px;}
+  .clock .big.warn{color:var(--red);}
+  .clock .mrow{display:flex; gap:8px; margin-top:9px;}
+  .clock button{flex:1; padding:7px 0; font-size:13px; font-family:inherit; border-radius:7px; border:1px solid var(--line); background:#fff; color:var(--ink); cursor:pointer; transition:.15s;}
+  .clock button:hover{border-color:var(--gold); color:var(--gold);}
+  .clock button.on{background:var(--red); border-color:var(--red); color:#fff;}
+  .clock .meta{display:flex; justify-content:space-between; gap:6px; margin-top:9px; font-size:11.6px; color:var(--sub); font-variant-numeric:tabular-nums;}
+  .clock .meta .late{color:var(--red); font-weight:600;}
+  .clock .meta .ok{color:var(--green); font-weight:600;}
+  .progwrap{font-size:11.6px; color:var(--sub);}
+  .prog{height:7px; border-radius:999px; background:#efe9dc; overflow:hidden; margin-bottom:6px;}
+  .prog .bar{height:100%; width:0; background:var(--gold); transition:width .3s;}
+  nav#toc{display:flex; flex-direction:column; gap:1px; border-top:1px dashed var(--line); padding-top:11px; flex:1 0 auto;}
+  nav#toc a{display:flex; align-items:center; gap:8px; padding:6px 9px; border-radius:7px; color:var(--ink); text-decoration:none; font-size:13.3px; line-height:1.45;}
+  nav#toc a:hover{background:#f6f1e4;}
+  nav#toc a.cur{background:#f3ecdd;}
+  nav#toc a.cur .tt{color:var(--red); font-weight:600;}
+  nav#toc a .dot{flex:none; min-width:26px; font-size:11.4px; color:var(--gold); font-family:"Noto Serif SC",serif;}
+  nav#toc a .tt{flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  nav#toc a .ck{margin-left:auto; flex:none; width:16px; height:16px; border:1.4px solid var(--line); border-radius:50%; font-size:11px; line-height:14px; text-align:center; color:transparent;}
+  nav#toc a.done .ck{border-color:var(--green); background:var(--green); color:#fff;}
+  .tools{display:grid; grid-template-columns:1fr 1fr; gap:7px; border-top:1px dashed var(--line); padding-top:11px;}
+  .tools button{padding:8px 4px; font-size:12.3px; font-family:inherit; border-radius:7px; border:1px solid var(--line); background:#fff; color:var(--ink); cursor:pointer; transition:.15s;}
+  .tools button:hover{border-color:var(--gold); color:var(--gold);}
+  .tools button.on{background:var(--gold); border-color:var(--gold); color:#fff;}
+  .keys{font-size:10.8px; color:#a89e8b; line-height:1.7; letter-spacing:.2px;}
+  .floater{position:fixed; right:14px; bottom:14px; z-index:70; display:none; align-items:center; gap:8px;}
+  .floater button, .floater span{background:#fffdf8; border:1px solid var(--line); border-radius:999px; padding:9px 15px; font-size:13px; font-family:inherit; color:var(--ink); box-shadow:0 5px 16px rgba(60,50,35,.16); cursor:pointer;}
+  .floater span{font-variant-numeric:tabular-nums; cursor:default;}
+  @media (max-width:1099px){ .floater{display:flex;} }
+  #scrim{position:fixed; inset:0; background:rgba(46,42,37,.36); z-index:55; opacity:0; pointer-events:none; transition:opacity .25s;}
+  body.nav-open #scrim{opacity:1; pointer-events:auto;}
+  @media (min-width:1100px){ #scrim{display:none;} }
+
+  /* 逐幕折叠 + 勾选 + 幕倒计时 */
+  .act > .head{cursor:pointer; user-select:none; align-items:center;}
+  .act .chev{flex:none; font-size:11px; color:var(--sub); transition:transform .2s; margin-left:1px;}
+  .act.fold .chev{transform:rotate(-90deg);}
+  .act.fold > .body{display:none;}
+  .act .done{flex:none; width:19px; height:19px; border:1.5px solid var(--line); border-radius:50%; font-size:11px; line-height:17px; text-align:center; color:transparent; transition:.15s;}
+  .act .done:hover{border-color:var(--green);}
+  .act.is-done .done{background:var(--green); border-color:var(--green); color:#fff;}
+  .act.is-done > .head{background:linear-gradient(90deg,#e8f0e6,#faf7f0);}
+  .act.is-done > .head h3{color:#42623f;}
+  .act .dur{cursor:pointer; border:1px solid var(--line); border-radius:999px; padding:1px 9px; background:#fff; transition:.15s;}
+  .act .dur:hover{border-color:var(--gold); color:var(--gold);}
+  .act .dur.run{background:var(--gold); border-color:var(--gold); color:#fff;}
+  .act .dur.over{background:var(--red); border-color:var(--red); color:#fff; animation:blink .9s steps(1,end) infinite;}
+  @keyframes blink{50%{opacity:.32;}}
+
+  /* 答疑手风琴 */
+  .qa .item{position:relative; padding-right:44px; cursor:pointer; transition:background .15s;}
+  .qa .item::after{content:"▾"; position:absolute; right:18px; top:11px; font-size:12px; color:var(--gold); transition:transform .2s;}
+  .qa .item.open::after{transform:rotate(180deg);}
+  .qa .item .a{display:none;}
+  .qa .item.open{background:#faf7f0;}
+  .qa .item.open .a{display:block;}
+
+  /* ================= 顶部置顶索引（两种模式） ================= */
+  body[data-idx="open"]{ --topH:98px; }
+  body[data-idx="mini"]{ --topH:52px; }
+  body{padding-top:var(--topH); transition:padding-top .2s ease;}
+
+  header#topbar{
+    position:fixed; left:0; right:0; top:0; z-index:80;
+    background:rgba(255,253,248,.975); backdrop-filter:blur(7px);
+    border-bottom:1px solid var(--line); box-shadow:0 2px 12px rgba(60,50,35,.07);
+    display:flex; flex-direction:column;
+  }
+  .tb-row{display:flex; align-items:center; gap:9px; padding:0 14px; height:52px; box-sizing:border-box;}
+  #tbBurger{flex:none; width:34px; height:30px; font-size:15px; line-height:1; border:1px solid var(--line);
+    background:#fff; border-radius:8px; color:var(--ink); cursor:pointer; font-family:inherit; padding:0;}
+  #tbBurger:hover{border-color:var(--gold); color:var(--gold);}
+  .tb-brand{flex:none; font-family:"Noto Serif SC",serif; font-size:16px; letter-spacing:2px;
+    color:var(--red); text-decoration:none; white-space:nowrap;}
+  .tb-brand:hover{color:var(--gold);}
+  #tbCur{flex:none; max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    font-size:13px; color:var(--sub); padding-left:11px; border-left:1px solid var(--line);}
+  #tbCur b{color:var(--red);}
+  body[data-idx="open"] #tbCur{display:none;}
+  .tb-space{flex:1 1 auto; min-width:6px;}
+  .tb-clock{flex:none; font-family:"Noto Serif SC",serif; font-size:17.5px; font-variant-numeric:tabular-nums;
+    letter-spacing:.5px; cursor:pointer; padding:1px 4px; border-radius:7px;}
+  .tb-clock:hover{background:#f6f1e4;}
+  .tb-clock.warn{color:var(--red);}
+  .tb-prog{flex:none; font-size:11.8px; color:var(--sub); border:1px solid var(--line); border-radius:999px;
+    padding:2px 10px; background:#fff; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .tb-seg{flex:none; display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; background:#fff;}
+  .tb-seg button{border:none; background:none; font-family:inherit; font-size:12.2px; padding:5px 12px;
+    cursor:pointer; color:var(--sub); white-space:nowrap; transition:.15s;}
+  .tb-seg button:hover{color:var(--gold);}
+  .tb-seg button.on{background:var(--gold); color:#fff;}
+
+  nav#topnav{display:flex; gap:7px; align-items:center; padding:0 14px 10px; overflow-x:auto;
+    scrollbar-width:none; -ms-overflow-style:none;}
+  nav#topnav::-webkit-scrollbar{display:none;}
+  body[data-idx="mini"] nav#topnav{display:none;}
+  nav#topnav a{flex:none; display:inline-flex; align-items:center; gap:6px; padding:5px 12px;
+    border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink);
+    text-decoration:none; font-size:12.8px; white-space:nowrap; transition:.15s;}
+  nav#topnav a:hover{border-color:var(--gold); color:var(--gold);}
+  nav#topnav a .dot{font-family:"Noto Serif SC",serif; font-size:11.4px; color:var(--gold);}
+  nav#topnav a.cur{background:#f3ecdd; border-color:var(--gold); color:var(--red); font-weight:600;}
+  nav#topnav a.cur .dot{color:var(--red);}
+  nav#topnav a.done{background:#eef3ec; border-color:#d2e0ce;}
+  nav#topnav a.done::after{content:"✓"; font-size:10.5px; color:var(--green); margin-left:1px;}
+  nav#topnav a.cur.done{background:#f3ecdd;}
+
+  /* 大字模式（站远了也能看） */
+  body.big{font-size:18.5px;}
+  body.big .act .row .val{font-size:17.6px;}
+  body.big .act .row .lab{font-size:15px;}
+  body.big .act > .head h3{font-size:22px;}
+  body.big .key, body.big blockquote{font-size:17px;}
+  body.big .qa .item{font-size:17px;}
+  body.big .figttl{font-size:18px;}
+
+  @media (max-width:720px){
+    body[data-idx="open"]{ --topH:92px; }
+    body[data-idx="mini"]{ --topH:50px; }
+    .tb-row{padding:0 10px; gap:7px; height:50px;}
+    .tb-brand{font-size:14.5px; letter-spacing:1px;}
+    #tbCur{max-width:104px; font-size:12px; padding-left:9px;}
+    .tb-prog{display:none;}
+    .tb-seg button{padding:5px 9px; font-size:11.4px;}
+    .tb-clock{font-size:16px;}
+    nav#topnav{padding:0 10px 10px; gap:6px;}
+    nav#topnav a{font-size:12.2px; padding:5px 10px;}
+    .wrap{padding:34px 16px 70px;}
+    table{font-size:12.6px;}
+    th,td{padding:6px 7px;}
+    th{white-space:normal;}
+    html,body{overflow-x:hidden;}
+  }
+  @media (max-width:480px){
+    .tb-row{padding:0 8px; gap:6px;}
+    .tb-brand{font-size:13.5px; letter-spacing:.5px;}
+    .tb-seg button{padding:5px 8px; font-size:11px;}
+    #tbCur{max-width:84px;}
+    .tb-clock{font-size:15px;}
+  }
+
+  @media print{
+    header#topbar,aside#side,.floater,#scrim{display:none !important;}
+    body{padding-left:0 !important; padding-top:0 !important;}
+    .act.fold > .body{display:block !important;}
+    .qa .item .a{display:block !important;}
+    .act .chev,.act .done{display:none !important;}
+    .act .dur{border:none; background:none;}
+  }
+</style>
+</head>
+<body data-idx="open">
+
+<header id="topbar">
+  <div class="tb-row">
+    <button id="tbBurger" type="button" title="目录（窄屏开抽屉 / 宽屏显隐侧栏）">☰</button>
+    <a class="tb-brand" href="#" id="tbHome" title="回到开头">伍子胥筑城</a>
+    <span id="tbCur">〇 · 时间轴总表</span>
+    <span class="tb-space"></span>
+    <span class="tb-prog" id="tbProg">已讲 0 / 9</span>
+    <span class="tb-clock" id="tbClock" title="点击开始 / 暂停计时">00:00</span>
+    <div class="tb-seg" role="tablist" aria-label="顶部索引模式">
+      <button id="mOpen" type="button" title="完整索引：全部章节横向平铺">完整索引</button>
+      <button id="mMini" type="button" title="精简：只留当前幕与计时，省屏">精简</button>
+    </div>
+  </div>
+  <nav id="topnav" aria-label="章节索引"></nav>
+</header>
+
+<div id="scrim"></div>
+
+<aside id="side">
+  <div class="brand">伍子胥筑城<span>《吴地时光机》第 1 课 · 室内 90′ · 交互大纲</span></div>
+
+  <div class="clock">
+    <div class="big" id="ckBig">00:00</div>
+    <div class="mrow">
+      <button id="ckPlay" type="button">开始计时</button>
+      <button id="ckZero" type="button">归零</button>
+    </div>
+    <div class="meta"><span id="ckPlan">应到 6′</span><span id="ckDiff">—</span></div>
+  </div>
+
+  <div class="progwrap">
+    <div class="prog"><div class="bar" id="pgBar"></div></div>
+    <div id="pgTxt">已讲 0 / 9 幕</div>
+  </div>
+
+  <nav id="toc"></nav>
+
+  <div class="tools">
+    <button id="tBig" type="button">大字模式</button>
+    <button id="tFold" type="button">全部收起</button>
+    <button id="tOpen" type="button">全部展开</button>
+    <button id="tPrint" type="button">打印 / PDF</button>
+  </div>
+
+  <div class="keys">快捷键：← → 翻幕 ｜ T 计时开 / 停 ｜ D 标记已讲 ｜ B 大字模式 ｜ I 索引展开 / 收起<br>顶部索引两种模式随时切换：点顶栏右侧「完整索引 / 精简」；宽屏点 ☰ 可显隐本侧栏。<br>点幕卡片标题可折叠；点右上角时长可启「本幕倒计时」；点答疑问题展开答案。</div>
+</aside>
+
+<div class="floater">
+  <button id="fNav" type="button">目录</button>
+  <span id="fClock">00:00</span>
+</div>
+
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">吴 地 时 光 机 · 现 场 讲 解 大 纲</div>
+  <h1>伍子胥筑城</h1>
+  <div class="sub">苏州 2500 年，从何而来？</div>
+  <div class="meta">
+    <span>2026 秋季班 · 单元一「城与河」· 第 1 课</span>
+    <span>室内课 90′</span>
+    <span>切入地：胥门</span>
+    <span>关键词：地名 · 城 · 人</span>
+  </div>
+</header>
+
+<div class="lead">
+  <b>一条主线：</b>一个敌国的流亡者，为苏州造了一座城；他看见了自己的死，也看见了吴国的亡。<br>
+  <b>一个悬念贯穿全场：</b>开场问「石像是谁、他埋在哪座城门边」——<u>不揭晓</u>，直到尾声回到胥门才回收，并用「考据 vs 传说」这把钥匙作答。<br>
+  <b>四个情绪台阶：</b>好奇（三个胥字）→ 悲愤（敌国来客）→ 昂扬（慧眼·筑城·破楚）→ 苍凉（属镂剑下）→ 温暖回收（一城永存）。<br>
+  <b>一个插入单元：</b>「插 · 一张关系图」（弹性 9′）——用一张人物关系图，把「楚宫血案」与「吴宫剑影」串成一条命脉：他不是一个人在走，他是被一张网推着走的。讲透这张网，才能讲透他为什么能改变一座城。
+</div>
+
+<h2 class="sec"><span class="no">〇</span>时间轴总表（含茶歇）</h2>
+<table>
+  <thead>
+    <tr><th>时段</th><th>环节</th><th>时长</th><th>核心任务</th><th>情绪 / 状态</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="t">0′–6′</td><td>开场 · 胥门寻人</td><td class="t">6′</td><td>立悬念、不揭晓答案</td><td>好奇、安静</td></tr>
+    <tr><td class="t">6′–18′</td><td>壹 · 三个「胥」字</td><td class="t">12′</td><td>地名链 + 立「考据 vs 传说」钥匙</td><td>轻快、认地名</td></tr>
+    <tr><td class="t">18′–31′</td><td>贰 · 敌国来客</td><td class="t">13′</td><td>身世、动机、吴楚世仇</td><td>沉重、紧张</td></tr>
+    <tr class="rest"><td class="t">31′–33′</td><td colspan="3">☕ 茶歇缩至 2′（新增「插」单元，茶歇相应收紧）</td><td>放松</td></tr>
+    <tr><td class="t">33′–42′</td><td>插 · 一张关系图 ★弹性</td><td class="t">9′</td><td>关系网收拢 + 吴王世系 + 鱼肠剑</td><td>紧张 → 豁然</td></tr>
+    <tr><td class="t">42′–52′</td><td>叁 · 一双慧眼</td><td class="t">10′</td><td>荐贤三事 + 引出筑城总纲</td><td>昂扬</td></tr>
+    <tr><td class="t">52′–70′</td><td>肆 · 相土尝水，象天法地 ★</td><td class="t">18′</td><td>建城、门名即国策、2540 年不变</td><td>庄重、自豪</td></tr>
+    <tr><td class="t">70′–78′</td><td>伍 · 破楚门</td><td class="t">8′</td><td>兑现伏笔 + 转折（盛极而衰）</td><td>痛快 → 转沉</td></tr>
+    <tr><td class="t">78′–90′</td><td>陆 · 属镂剑下 ＋ 尾声 · 一城永存</td><td class="t">12′+5′</td><td>情感最高点 → 回收开场</td><td>悲怆 → 温暖</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13.5px;color:var(--sub);margin:8px 0 0;">弹性说明：本表已为新增的「插 · 一张关系图」腾出 9′——茶歇 5′→2′、贰 −2′、叁 −2′、伍 −2′；<b>若不插该单元，各幕恢复原时长即可</b>。<b>肆不可压</b>（本课分量所在）；若仍超时，先舍互动提问，不舍收束句。若为 100′/120′ 加强版，「插」可直接放开为独立 12′–15′。</p>
+
+<h2 class="sec"><span class="no">壹</span>逐幕讲解大纲</h2>
+
+<!-- 开场 -->
+<div class="act">
+  <div class="head"><span class="n">开场</span><h3>胥门寻人——城门口那尊石像是谁？</h3><span class="dur">0′–6′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">用一尊石像把全场安静下来，抛出两个问题，并明确「今天不急着回答」。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li>出示实拍：苏州城西南老城门<b>胥门</b>，门外一尊高大石像——老人、佩剑而立、目光望向西方。</li>
+      <li>第一问：<b>他是谁？</b>（今天苏州一半以上的老地名都能和他扯上关系）</li>
+      <li>第二问：<b>他埋在哪座城门边？</b></li>
+      <li>宣布规则：先不揭晓，带着这两个问题走完 2500 年。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">现场动作</div><div class="val">投影两张照片（石像全身 + 低角度仰拍脸部）；黑板上只写一个字：<b>胥</b>。</div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">请 3–4 位学员举手猜「他是谁」，猜对也不确认</span>——保持悬念的价值高于答案。</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「答案其实就写在他身后的城门上——我们从一个字开始讲起。」</span></div></div>
+</div>
+
+<!-- 壹 -->
+<div class="act">
+  <div class="head"><span class="n">壹</span><h3>三个「胥」字——胥门 · 胥江 · 胥口</h3><span class="dur">6′–18′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">用地名吊起好奇；同时<b>立起全课的方法论钥匙：考据与传说可以并存</b>。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li>一条地名链：<b>胥门—胥江—胥口</b>，加上胥山、胥湖、胥王庙，像一串珠子从城门撒到太湖。</li>
+      <li>方位关系：胥门在城西，又名<b>姑胥门</b>；正对一条大河即<b>胥江</b>；胥江通太湖的入口是<b>胥口</b>。</li>
+      <li><b>考据说</b>：胥门之名其实更早——《左传》已有胥门，那时伍子胥还在楚国；苏州地方志称因城西<b>姑胥山（姑苏山）</b>得名；「胥」更古老的本义指佐禹治水、受封吴地的先贤，其居地「故胥」转音成「姑苏」。</li>
+      <li><b>传说说</b>：伍子胥生前故宅在胥门附近；死后「抉目悬门」的故事又被安在这座门上——苏州人太想把他留在城门口。</li>
+      <li>合并作答：<b>门名有更古老的来历，但苏州人用两千多年的情感，把他「认领」成了门的主人。</b></li>
+      <li>胥江的分量：地方志称「太湖东南第一泄水要道」；宋代《吴中水利书》已引前人记载「吴王阖闾用伍子胥之谋，始创此河以为漕运」——「胥江为子胥所凿」至少宋代就已流传。它既是泄洪水道，又是运粮漕路，是吴国「以水兴国」的命脉。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">关键引文</div><div class="val"><blockquote>「吴王阖闾用伍子胥之谋，始创此河以为漕运」<span class="src">——宋《吴中水利书》引前人记载（胥江）</span></blockquote></div></div>
+  <div class="row"><div class="lab">板书 / 教具</div><div class="val">当场画<b>胥江水系示意图</b>：太 湖 → 胥口（伍子胥墓·胥王庙）→ 胥 江（漕运与泄水）→ 阖闾大城 → 胥门。</div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">「您身边还有哪些带『胥』字的地方？」</span>学员报名，讲师一一板书，拼出一幅「伍子胥的苏州地图」。</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「一个人，能被一座城用两千年记住——不是记住他的名字，而是让山河都改姓他的姓。」</span><br><span class="arrow">→</span> 这位让苏州山河改姓的人，本来是个楚国人。</div></div>
+</div>
+
+<!-- 贰 -->
+<div class="act">
+  <div class="head"><span class="n">贰</span><h3>敌国来客——一个楚国人，为什么来到吴国？</h3><span class="dur">18′–33′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">讲清他的身世与动机；顺带交代「吴楚世仇」这一背景，为破楚门埋线。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li>出身：伍子胥名<b>员</b>，字子胥，楚国人；父<b>伍奢</b>为楚国太子之师，家族有名望。吴楚是<b>世仇</b>，常年用兵。</li>
+      <li><b>前 522 飞来横祸</b>：楚平王听谗臣<b>费无忌</b>（《左传》作费无极）挑拨，要除太子一系；伍奢下狱，又以「来了就放你父亲」诱召兄弟二人——一眼看穿是斩草除根。</li>
+      <li>哥哥<b>伍尚</b>的选择：「我去赴死，你逃走——你能报父仇。」父兄遇害，伍子胥挽弓逼退追兵，踏上逃亡路。</li>
+      <li><b>昭关（史实与戏曲分岔）</b>：史书记「橐载而出昭关」（藏于箱中出关）；京剧《文昭关》的「一夜白头」是后世浪漫加工——但走投无路的急迫是真的。</li>
+      <li><b>江上丈人</b>：老渔翁渡他过江，子胥解百金之剑相谢，渔翁答「楚国悬赏五万石粟、封大夫爵我都不动心，岂会贪你一把剑」——中国文学里最早的隐侠形象之一。</li>
+      <li>此后贫病交加，<b>吴市吹箫乞食</b>，忍辱到吴。</li>
+      <li><b>卑梁之衅</b>（吴楚世仇的荒诞注脚）：吴边邑卑梁与楚边邑钟离的姑娘为争采桑叶口角，两家打、边邑打，最后两国发兵，吴取楚之钟离、居巢——为几片桑叶，两个大国动了刀兵。</li>
+      <li>初到吴国即献策伐楚，被<b>公子光</b>一句点破：「伍子胥劝大王伐楚，是为报他自己的私仇。」——他立刻明白：这位公子光另有雄心。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">关键引文</div><div class="val">
+    <blockquote>伍奢临死前叹：「楚国君臣，从此要苦于战事了！」<span class="src">——《史记 · 伍子胥列传》</span></blockquote>
+    <blockquote>公子光曰：「伍子胥劝大王伐楚，是为报他自己的私仇，于吴国并无好处。」<span class="src">——《史记 · 吴太伯世家》</span></blockquote>
+  </div></div>
+  <div class="row"><div class="lab">现场动作</div><div class="val">地图上标出「楚—吴」与他的逃亡路线：昭关 → 大江 → 吴市；卑梁、钟离位置顺手一点。</div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">「设身处地想：一个背负血海深仇的楚国人，逃到世仇之国，第一件事会做什么？」</span>先请学员猜，再揭晓：献策伐楚，却被点破。</div></div>
+  <div class="row"><div class="lab">史实提示</div><div class="val">卒年通行作<b>前 484</b>（夫差赐属镂剑）；生年史无明载（一说前 559 前后），课上<b>不写具体生年</b>，避免争议。</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「有些路，是被逼出来的；有些路，是自己选的。」</span><br><span class="arrow">→</span> 那么，他选中了谁？</div></div>
+</div>
+
+<!-- 插 · 关系图谱 -->
+<div class="act">
+  <div class="head"><span class="n">插</span><h3>一张关系图——从楚宫血案到吴宫剑影</h3><span class="dur">33′–42′ · 弹性 9′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">用一张图把前两幕串成一条命脉，让学员看清：<b>他不是一个人在走，他是被一张关系网推着走的</b>；而他之所以能改变一座城，是因为他看懂了这张网，并在网上选对了人。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li><b>引子（30″）</b>：一个敌国的流亡者，凭什么能在吴国做到「行人」、当上「相」、为一座都城画出第一张图？答案不在他一个人身上——在一张网里。这张网上有二十来个名字，横跨楚、吴两国，缠了六十年。</li>
+      <li><b>第一折 · 一个小人的贪念（楚宫血案 · 前527）</b>：楚平王派<b>费无忌</b>去秦国，为太子<b>建</b>迎亲。费无忌回来只说了一句话：「秦女绝美，王可自娶。」——新娘成了平王的夫人（<b>孟嬴</b>），太子另娶了一位齐国女子。费无忌从此心虚：太子将来即位，他必死。于是他先把太子「送」出郢都（前523 出镇城父），再于<b>前522</b> 诬告太子「外交诸侯、谋反」——太子奔宋、转郑，被杀。<span class="q">点题：一个小人的恐惧，掀翻了一个国家。</span></li>
+      <li><b>第二折 · 父亲和哥哥，都死了（伍家灭门 · 前522）</b>：太子太傅<b>伍奢</b>被下狱。费无忌给平王出了一个绝户计：召伍奢的两个儿子来，来了就一起杀。使者说：来，父亲活；不来，父亲死。哥哥<b>伍尚</b>说：「我去。」——父活一线希望不能不去；我死，你活着，你能报仇。弟弟<b>伍子胥</b>说：「都去了，父子三人一起死，仇没人报。」结果：伍奢、伍尚在郢都被杀；伍子胥弯弓拒捕，亡命出奔。伍奢临刑留下一句预言：「<b>楚国君臣，从此要苦于战事了。</b>」</li>
+      <li><b>第三折 · 楚国还在塌（伯嚭登场 · 前515）</b>：伍子胥走后，费无忌又谗杀左尹<b>郤宛</b>，激起公愤；令尹子常杀了费无忌、灭其族。郤宛之子<b>伯嚭</b>，也逃到了吴国。<span class="q">这里埋一根钉子：二十年后，正是这个伯嚭——同样从楚国逃出来、同样背着灭门之仇——受了越国的贿赂，害死了伍子胥。同一座吴宫里，两个楚难遗孤，一个忠、一个奸。</span>另有一人：太子建的儿子<b>白公胜</b>，是伍子胥抚孤带大的；<b>前479</b>，白公胜在楚国发动叛乱——<b>复仇的种子，跨了两代人。</b></li>
+      <li><b>第四折 · 吴国王位这笔糊涂账（钥匙 · 必讲）</b>：先看吴国的家事。第十九代君主<b>寿梦</b>有四个儿子：<b>诸樊</b>、<b>余祭</b>、<b>余昧</b>、<b>季札</b>。寿梦最想把位子传给小儿子季札——因为他贤；可季札<b>三让</b>不肯受。于是走「<b>兄终弟及</b>」：诸樊传余祭、余祭传余昧，想这样一路轮到季札。可余昧死时，季札还是<b>逃位</b>了——位子落到了余昧的儿子<b>僚</b>头上（前527）。长子诸樊的儿子<b>公子光</b>不服，说了六个字：「<b>我真王嗣，当立。</b>」——按兄终弟及，位子本该转回长房；按父死子继，我是长子的长子，更该是我。<span class="q">这笔账，怎么算公子光都有理。而伍子胥一到吴国，就看懂了这笔账。</span></li>
+      <li><b>第五折 · 鱼肠剑（前515）</b>：伍子胥做了一个决定——不去劝吴王僚伐楚（那是报私仇，名不正），而是<b>把刺客送给公子光</b>。他荐了<b>专诸</b>。前515 年，公子光设宴请王僚；王僚穿三重甲、布满亲兵，专诸把匕首藏进烤鱼腹中，上菜时抽剑一击——王僚死，专诸当场被杀。公子光即位，就是<b>吴王阖闾</b>。<b>前514 年，阖闾拜伍子胥为「行人」——那座城，开工了。</b><span class="q">他的赌注，赢了。</span></li>
+      <li><b>收网（1′）</b>：回头看这张网——上面每一个名字，都有一个下场：费无忌灭族（前515）、楚平王死而墓被掘（前516／前506）、吴王僚被刺（前515）、专诸身死（前515）、阖闾伤指而亡（前496）、勾践降而后灭吴（前494／前473）、伯嚭受赂而被诛（前473）、夫差自刎（前473）、伍子胥赐剑（前484）。司马迁在《伍子胥列传》篇末只留了七个字——见引文。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">关键引文</div><div class="val">
+    <blockquote>「秦女绝美，王可自取。」<span class="src">——《史记 · 伍子胥列传》（费无忌说楚平王）</span></blockquote>
+    <blockquote>「我真王嗣，当立。」<span class="src">——《史记 · 吴太伯世家》（公子光）</span></blockquote>
+    <blockquote>「怨毒之于人甚矣哉！」<span class="src">——《史记 · 伍子胥列传》篇末评语（怨恨对人的驱动力，太大了啊！）</span></blockquote>
+  </div></div>
+  <div class="row"><div class="lab">现场动作</div><div class="val">这是全场<b>唯一一次「讲图」</b>：先只投<b>图一（关系图谱）</b>，用手指从「费无忌」一路划到「伯嚭」，最后停在正中的「伍子胥」；讲第四折时切到<b>图二（吴王世系）</b>，用手比「四兄弟 → 僚 → 公子光」这条折线；讲到鱼肠剑，用红笔在图上补一条红线指向「僚」。</div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">「换作是你：季札三次让掉王位，是高明还是迂腐？公子光夺位，是篡还是正？」</span>不给答案，只让学员看到——<b>同一笔账，站在不同位置算出的结果完全不同</b>；伍子胥的本事，就是能同时算清这几笔账。</div></div>
+  <div class="row"><div class="lab">史实提示</div><div class="val">①谗臣之名「<b>费无忌</b>」，《左传》作「费无极」，一人异写，不必纠缠。②僚的身世两说：《史记 · 吴太伯世家》记作「余昧之子」（本图所采）；《公羊传 · 襄公二十九年》作「长庶也」（寿梦庶长子说）——两说都指向「僚非正当继承人」。③「掘墓鞭尸」的争议详见伍幕。④白公之乱（前479）在楚国，点一句即可，不展开。</div></div>
+  <div class="row"><div class="lab">时间腾挪</div><div class="val">本单元 9′ 从四处匀出：茶歇 5′→2′（−3′）、贰幕细节压缩（−2′）、叁幕互动压缩（−2′）、伍幕压缩（−2′）。<b>若现场气氛需要，最短可压到 5′——只讲第四折＋第五折</b>（吴王世系 + 鱼肠剑），其余各折一句话带过。反向：若为 100′／120′ 加强版，本单元可放开讲到 15′（补足第一、三折细节与楚昭王、白公胜的下场）。</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「一个人身上背着二十个名字的恩怨——他没有被压垮，他把这张网，编成了吴国的班底。」</span><br><span class="arrow">→</span> 所以他选中了谁、又要用这些人做什么？看下一幕，他开口只说了十二个字。</div></div>
+</div>
+
+<!-- 图一 · 关系图谱 -->
+<div class="figbox">
+  <h3 class="figttl">图一 · 伍子胥人物关系图谱（投影用 · 左楚 · 中 · 右吴）</h3>
+  <div class="net">
+    <div class="netcol chu">
+      <h4>楚 · 郢都</h4>
+      <span class="node r">楚平王<small>前528—前516 在位 · 自娶孟嬴</small></span>
+      <span class="node r">费无忌<small>少傅 · 进谗构陷 · 前515 灭族</small></span>
+      <span class="node">孟嬴<small>秦公主 · 原聘太子妃（未成婚）</small></span>
+      <span class="node">太子建<small>前522 奔宋→郑，被杀</small></span>
+      <span class="node">伍 奢<small>太傅 · 前522 死难</small></span>
+      <span class="node">伍 尚<small>兄 · 归死</small></span>
+      <span class="node r">郤 宛<small>左尹 · 前515 谗杀</small></span>
+      <span class="node">楚昭王 · 熊轸<small>孟嬴之子 · 前506 出逃</small></span>
+      <span class="node">白公胜<small>太子建之子 · 前479 作乱</small></span>
+    </div>
+    <div class="netcol mid">
+      <h4>核心</h4>
+      <span class="node core">伍子胥<small>名员 · 奔吴复仇 · 相吴称霸</small></span>
+      <span class="node">父 伍奢 · 兄 伍尚<small>前522 死难（楚）</small></span>
+      <span class="node">主 太子建<small>师生（太傅）· 前522 死</small></span>
+      <span class="node g">荐 专 诸<small>前515 · 刺吴王僚</small></span>
+      <span class="node g">荐 孙 武<small>前512 · 拜为将军 · 同谋破楚</small></span>
+      <span class="node">抚 白公胜<small>太子建之子 · 前479 之乱</small></span>
+    </div>
+    <div class="netcol wu">
+      <h4>吴 · 姑苏</h4>
+      <span class="node r">伯 嚭<small>楚郤氏 → 吴太宰 · 受越重赂</small></span>
+      <span class="node">吴王僚<small>前526—前515 · 被刺</small></span>
+      <span class="node g">公子光（阖闾）<small>前514—前496 在位</small></span>
+      <span class="node">专 诸<small>刺客 · 刺僚身死</small></span>
+      <span class="node g">孙 武<small>兵圣 · 前512 拜将军</small></span>
+      <span class="node">吴王夫差<small>前496—前473 · 赐剑 · 自刎</small></span>
+      <span class="node">越王勾践<small>前494 降吴 · 前473 灭吴</small></span>
+    </div>
+  </div>
+  <table class="reltab">
+    <thead><tr><th>关系</th><th>双方</th><th>年</th><th>结果</th></tr></thead>
+    <tbody>
+      <tr><td>进谗夺媳</td><td>费无忌 → 楚平王 / 太子建</td><td class="t">前527</td><td>孟嬴为夫人，太子改娶齐女</td></tr>
+      <tr><td>构陷谋反</td><td>费无忌 → 太子建</td><td class="t">前522</td><td>太子奔宋→郑，被杀</td></tr>
+      <tr><td>师生（太傅）</td><td>伍奢 → 太子建</td><td class="t">—</td><td>伍家受牵连</td></tr>
+      <tr><td>父子 · 兄弟</td><td>伍奢 / 伍尚 / 伍子胥</td><td class="t">前522</td><td>父兄死难，子胥出奔</td></tr>
+      <tr><td>谗杀 · 灭族</td><td>费无忌 → 郤宛</td><td class="t">前515</td><td>子常诛费无忌，伯嚭奔吴</td></tr>
+      <tr><td>抚孤</td><td>伍子胥 → 白公胜</td><td class="t">—</td><td>前479 白公之乱</td></tr>
+      <tr><td>弑立 · 刺杀</td><td>公子光 → 吴王僚（专诸手）</td><td class="t">前515</td><td>阖闾即位</td></tr>
+      <tr><td>荐举</td><td>伍子胥 → 专诸 / 孙武</td><td class="t">前515/512</td><td>刺僚成功 / 拜为将军</td></tr>
+      <tr><td>同谋破楚</td><td>伍子胥 + 孙武</td><td class="t">前506</td><td>柏举五战五捷，入郢</td></tr>
+      <tr><td>宠信佞臣</td><td>夫差 → 伯嚭</td><td class="t">前494</td><td>受越重赂，力主许和</td></tr>
+      <tr><td>谗害 · 赐死</td><td>伯嚭 → 伍子胥</td><td class="t">前484</td><td>属镂剑赐死，尸浮江中</td></tr>
+      <tr><td>亡国 · 诛佞</td><td>勾践 → 夫差 / 伯嚭</td><td class="t">前473</td><td>越灭吴，夫差自刎、伯嚭被诛</td></tr>
+    </tbody>
+  </table>
+  <div class="dark">
+    <b>三条暗线（讲图时点出，不必展开）：</b>
+    <ol>
+      <li><b>楚人双雄 · 忠奸同途</b>——伍子胥（伍奢之子）与伯嚭（郤宛之子），同为楚难遗孤、同奔吴、同受阖闾重用；结局却一忠一奸：子胥前484 赐死，伯嚭前473 被勾践诛。</li>
+      <li><b>复仇的代际传递</b>——伍子胥抚孤太子建之子白公胜；半个世纪后，白公胜在楚国发动叛乱（前479）。仇恨没有在他这一代终结。</li>
+      <li><b>恩怨的闭环</b>——费无忌进谗灭伍家（前527–前522），自己前515 被灭族；楚平王夺媳（前527），其墓前506 被掘。<b>所有下了刀的人，后来都倒在自己的刀下。</b></li>
+    </ol>
+  </div>
+</div>
+
+<!-- 图二 · 吴王世系 -->
+<div class="figbox">
+  <h3 class="figttl">图二 · 吴国王位传承线（投影用 · 寿梦家这笔「糊涂账」）</h3>
+  <svg viewBox="0 0 860 380" style="width:100%;height:auto;" role="img" aria-label="吴国王位传承线示意图">
+    <defs>
+      <marker id="mkA" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#a3803c"/></marker>
+      <marker id="mkR" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9b3b2b"/></marker>
+    </defs>
+    <text x="430" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e2a25" font-family="Noto Serif SC, Songti SC, SimSun, serif">兄终弟及 · 季札三让 · 僚被「截胡」· 公子光夺位——四代恩怨，一图理清</text>
+
+    <!-- 寿梦 -->
+    <rect x="350" y="44" width="120" height="36" rx="7" fill="#fffdf8" stroke="#9b3b2b" stroke-width="1.6"/>
+    <text x="410" y="61" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#9b3b2b">寿 梦</text>
+    <text x="410" y="74" text-anchor="middle" font-size="10.5" fill="#6b6357">第19世 · 前561卒</text>
+
+    <!-- 父系关系线 -->
+    <path d="M410,80 V104" stroke="#a3803c" stroke-width="1.4" fill="none"/>
+    <path d="M110,104 H710" stroke="#a3803c" stroke-width="1.4" fill="none"/>
+    <path d="M110,104 V116" stroke="#a3803c" stroke-width="1.4" fill="none"/>
+    <path d="M310,104 V116" stroke="#a3803c" stroke-width="1.4" fill="none"/>
+    <path d="M510,104 V116" stroke="#a3803c" stroke-width="1.4" fill="none"/>
+    <path d="M710,104 V116" stroke="#a3803c" stroke-width="1.4" fill="none"/>
+    <text x="836" y="99" text-anchor="end" font-size="10.5" fill="#6b6357">遗命欲传四子季札</text>
+
+    <!-- 四子 -->
+    <rect x="45" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
+    <text x="110" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e2a25">诸樊（长子）</text>
+    <text x="110" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">前560—前548</text>
+
+    <rect x="245" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
+    <text x="310" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e2a25">余祭（次子）</text>
+    <text x="310" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">前547—前531</text>
+
+    <rect x="445" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
+    <text x="510" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e2a25">余昧（三子）</text>
+    <text x="510" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">前530—前527</text>
+
+    <rect x="645" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#a3803c" stroke-width="1.3" stroke-dasharray="5 3"/>
+    <text x="710" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#a3803c">季札（四子）</text>
+    <text x="710" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">延陵季子 · 三让王位</text>
+    <text x="710" y="172" text-anchor="middle" font-size="10.5" fill="#9b3b2b">※ 三让不受 · 前527 逃位</text>
+
+    <!-- 兄终弟及 -->
+    <path d="M178,136 H242" stroke="#a3803c" stroke-width="1.6" fill="none" marker-end="url(#mkA)"/>
+    <path d="M378,136 H442" stroke="#a3803c" stroke-width="1.6" fill="none" marker-end="url(#mkA)"/>
+    <path d="M578,136 H642" stroke="#a3803c" stroke-width="1.6" fill="none" marker-end="url(#mkA)" stroke-dasharray="5 4"/>
+
+    <!-- 公子光（阖闾） -->
+    <path d="M110,154 V206" stroke="#a3803c" stroke-width="1.4" fill="none" marker-end="url(#mkA)"/>
+    <text x="118" y="184" font-size="10.5" fill="#6b6357">父子</text>
+    <rect x="30" y="206" width="160" height="36" rx="7" fill="#fffdf8" stroke="#4a6b52" stroke-width="1.4"/>
+    <text x="110" y="223" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2e2a25">公子光（阖闾）</text>
+    <text x="110" y="236" text-anchor="middle" font-size="10" fill="#6b6357">前514—前496 在位</text>
+
+    <!-- 僚 -->
+    <path d="M510,154 V206" stroke="#a3803c" stroke-width="1.4" fill="none" marker-end="url(#mkA)"/>
+    <text x="518" y="184" font-size="10.5" fill="#6b6357">父子</text>
+    <rect x="430" y="206" width="160" height="36" rx="7" fill="#fffdf8" stroke="#9b3b2b" stroke-width="1.4"/>
+    <text x="510" y="223" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2e2a25">吴王僚</text>
+    <text x="510" y="236" text-anchor="middle" font-size="9.5" fill="#6b6357">※ 余昧之子 · 前526—515</text>
+
+    <!-- 专诸刺僚 -->
+    <path d="M193,224 H427" stroke="#9b3b2b" stroke-width="1.8" fill="none" marker-end="url(#mkR)"/>
+    <text x="310" y="216" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#9b3b2b">专诸鱼肠剑刺杀 · 前515</text>
+
+    <!-- 夫差 -->
+    <path d="M110,242 V286" stroke="#a3803c" stroke-width="1.4" fill="none" marker-end="url(#mkA)"/>
+    <text x="118" y="268" font-size="10.5" fill="#6b6357">父死子继 · 前496</text>
+    <rect x="30" y="286" width="160" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
+    <text x="110" y="303" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2e2a25">吴王夫差</text>
+    <text x="110" y="316" text-anchor="middle" font-size="10" fill="#6b6357">前496—前473 · 亡</text>
+
+    <!-- 图例 -->
+    <path d="M60,350 H108" stroke="#a3803c" stroke-width="1.8" fill="none" marker-end="url(#mkA)"/>
+    <text x="118" y="354" font-size="11" fill="#6b6357">正常传位</text>
+    <path d="M240,350 H288" stroke="#9b3b2b" stroke-width="1.8" fill="none" marker-end="url(#mkR)"/>
+    <text x="298" y="354" font-size="11" fill="#6b6357">刺杀夺位</text>
+    <path d="M420,350 H468" stroke="#a3803c" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
+    <text x="478" y="354" font-size="11" fill="#6b6357">虚线＝血缘 / 让位关系</text>
+  </svg>
+</div>
+
+<!-- 叁 -->
+<div class="act">
+  <div class="head"><span class="n">叁</span><h3>一双慧眼——他选中了吴国的未来</h3><span class="dur">42′–52′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">展示他识人、谋国的眼光；用「阖闾问计」十二字引出下一幕筑城，收在昂扬处。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li>承接上一单元：<b>王僚</b>坐在王位上，但真正想做事、能做事的是堂兄弟<b>公子光</b>——他一眼就选定了人。</li>
+      <li><b>荐专诸 · 鱼腹藏剑</b>：前 515，公子光设宴请王僚，甲士伏于地下；专诸把匕首藏入烤鱼腹中，上菜时抽出，一击刺死王僚，自己当场被杀。公子光即位，即<b>吴王阖闾</b>。</li>
+      <li><b>阖闾问计</b>：吴国偏居东南、地势低湿、有江海之患，内无守御、民无所依，该怎么办？——十二字作答。</li>
+      <li><b>荐孙武</b>：七次举荐齐国人孙武；《孙子兵法》十三篇；吴宫教战「三令五申」斩宠姬，军纪肃然，拜为将军。</li>
+      <li>「争霸班底」成型：<b>阖闾的雄心 + 子胥的城与政 + 孙武的兵与法</b>。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">关键引文</div><div class="val"><blockquote>「立城郭，设守备，实仓廪，治兵库。」<span class="src">——《吴越春秋 · 阖闾内传》（伍子胥对阖闾之问）</span></blockquote>翻译：<b>先造一座坚固的城，再谈别的。</b>——本课题目的由来。</div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">「他先荐刺客、再荐兵圣、自己退居幕后——他图什么？这是『利用』还是『成就』？」</span>（个人的仇与吴国的强，在他手里拧成了一股绳）</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「班底成型了。那座城，就要开工了。」</span></div></div>
+</div>
+
+<!-- 肆 -->
+<div class="act">
+  <div class="head"><span class="n">肆 ★</span><h3>相土尝水，象天法地——公元前 514 年，一座城诞生</h3><span class="dur">52′–70′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val"><b>本课分量所在</b>：把「筑城」讲成一件天大的事——选址、格局、门名、以及 2540 年不变的奇迹。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li>前 <b>514</b>（吴王阖闾元年），阖闾任伍子胥为「行人」参与国政，委以大事——为吴国造一座都城。</li>
+      <li>八个字：<b>相土尝水，象天法地</b>——考察土质、尝测水文、观察天象、对照地理。用今天的话说，是一次结合<b>水利、防洪、航运、军事防御</b>的全面勘察：太湖东岸，西有湖山为屏障，东为沃野鱼米乡，水网密布、进退有据——就是这里。</li>
+      <li>城制：史称「<b>阖闾大城</b>」，大城之内又筑小城（宫城）。<b>陆门八象天八风，水门八法地八聪</b>——建城第一天，就把一座城修成了「天地格局」；水陆双棋盘、河街相邻的骨架自此定下。</li>
+      <li><b>门名即国策</b>：西二门冲楚（<b>阊门</b>，楚在西北，立门「通天气」，<b>又名破楚门</b>；<b>胥门</b>，正对胥江）；南二门压越（吴在辰属龙、越在巳属蛇，东南立<b>蛇门</b>悬木蛇，西南立<b>盘门</b>蟠龙）；北面<b>平门、齐门</b>是平鲁威齐；东面<b>娄门、匠门</b>管农桑与百工。</li>
+      <li>两千五百年后，今日苏州古城仍能对应找到这些门：阊门、胥门、盘门、娄门、齐门、平门、相门（匠门）——城址几乎未挪动，中国城建史上罕见的「连续性」。</li>
+      <li><b>2026 年，苏州 2540 岁</b>：吴亡了、越亡了，王朝无数兴替，<b>城的位置没变、骨架没变</b>。这座城的第一张设计图，是伍子胥画的。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">关键引文</div><div class="val"><blockquote>「子胥乃使相土尝水，象天法地，造筑大城，周回四十七里；陆门八，以象天八风；水门八，以法地八聪。」<span class="src">——《吴越春秋 · 阖闾内传》</span></blockquote></div></div>
+  <div class="row"><div class="lab">板书 / 教具</div><div class="val">挂<b>八门方位图</b>（上北下南），让学员在图上找自己家的方位；八门逐一「点读」一遍（这是全场的高光动作）。</div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">「今天的苏州城，还留有几座带名字的老城门？」</span>——盘门（水陆并联古城门，全国仅存）、阊门、胥门、娄门、齐门、平门、相门……一一认领，正好接上秋季班的「城门城墙」走读线。</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「一座城，2500 年，位置没挪过——这就是『伍子胥筑城』四个字的分量。」</span><br><span class="arrow">→</span> 西墙那座专为楚国而立的门——破楚门，后来真的派上用场了吗？</div></div>
+</div>
+
+<!-- 伍 -->
+<div class="act">
+  <div class="head"><span class="n">伍</span><h3>破楚门——一座门，等来一场决战</h3><span class="dur">70′–78′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">兑现第一幕「破楚」伏笔，节奏要快；在痛快之后立刻转折，把「盛极而衰」交给下一幕。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li><b>三分疲楚</b>：把吴军分三支轮流出动，楚军救哪边，哪边就退——数年拖疲楚国。</li>
+      <li><b>前 506 柏举之战</b>：联唐、蔡大举西进，五战五胜，攻入楚都<b>郢</b>；楚昭王出逃——<b>伍子胥等了十六年的这一天，到了</b>。</li>
+      <li><b>掘墓鞭尸之争</b>：《史记》记其掘楚平王墓、鞭尸三百；唐代司马贞、明末<b>顾炎武</b>均提出质疑，认为可能是后人添油加醋——<b>史料也要带着问号读</b>。</li>
+      <li><b>盛极而衰的伏笔</b>：前 496 <b>槜李之战</b>，阖闾轻敌南征；越王勾践派敢死队在阵前自刎，吴军看呆，越军掩杀，阖闾中箭伤指而亡。</li>
+      <li>阖闾临终嘱太子夫差：「你会忘记勾践杀了你父亲吗？」夫差答：「不敢忘！」</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">互动</div><div class="val"><span class="q">「报仇报到了这个程度，过头了吗？」</span>没有标准答案——可引出老友<b>申包胥</b>的质问与「倒行逆施」的回答，让学员自判：被仇恨驱动十六年，是力量还是枷锁？</div></div>
+  <div class="row"><div class="lab">收束转场</div><div class="val"><span class="key">「他辅佐的第一代吴王，把他当老师；第二代吴王，会把他当什么？」</span></div></div>
+</div>
+
+<!-- 陆 -->
+<div class="act">
+  <div class="head"><span class="n">陆</span><h3>属镂剑下——一双望向未来的眼睛</h3><span class="dur">78′–90′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">全课情感最高点：从「谏而不听」到「赐剑遗言」再到「预言应验」，一句一句砸下去，不要打断。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li><b>前 494 夫椒之战</b>：夫差败越，勾践率五千残兵困守<b>会稽</b>，派文种求和，愿「委国为臣妾」。</li>
+      <li><b>谏杀勾践，不听</b>：伍子胥以「<b>少康中兴</b>」为例——少康仅一成之田、一旅之众尚且复国；今天放过勾践，等于养虎遗患。夫差听信受贿的太宰<b>伯嚭</b>，允和。勾践夫妇入吴为奴，三年后被放回。</li>
+      <li><b>谏防越，更不听</b>：夫差一心北上争霸、连年伐齐；子胥反复警告「越国才是心腹之患，伐齐好比打到一片石头田」。</li>
+      <li><b>前 484 前后</b>：夫差派他出使齐国，他预感大祸，把儿子托付齐国鲍氏；伯嚭趁机进谗「把儿子送到敌国，是要造反」。</li>
+      <li><b>赐属镂剑</b>，令自尽。他留下两句遗言（见引文）。</li>
+      <li>夫差大怒，命以<b>「鸱夷革」（皮囊）</b>盛尸抛入江中；百姓怜之，江边立祠，其山名<b>胥山</b>——传说此日正是<b>五月初五</b>。在苏州一带的民间记忆里，<b>端午最早纪念的其实是伍子胥</b>（比屈原早约两百年，苏州端午习俗世代奉他为潮神、涛神）。</li>
+      <li><b>预言应验</b>：十一年后（前 473）越灭吴。夫差被围，求和不成，叹「吾悔不用子胥之言」，自刎；传说他以白布<b>蒙住双眼</b>——无颜到地下去见伍子胥。</li>
+      <li>大事年表逐条点亮（九条，见下）。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">关键引文</div><div class="val"><blockquote>「必树吾墓上以梓，令可以为器；抉吾眼，置之吴东门之上，以观越寇之入灭吴也。」<span class="src">——《史记 · 伍子胥列传》</span></blockquote>白话：在我墓上种梓树——它长成可做棺材那天，吴国就要亡了；把我的眼睛挖出来挂在东门上，我要亲眼看越军进城灭吴。</div></div>
+  <div class="row"><div class="lab">现场动作</div><div class="val">投影<b>大事年表</b>，从前 522 一条一条点亮到前 473；「抉目悬门」的地点标注在图上。</div></div>
+  <div class="row"><div class="lab">史实提示</div><div class="val">遗言所悬为「<b>吴东门</b>」（后人有指蛇门等诸说）；民间把它与城西胥门相连，属<b>情感性附会</b>，点明即可，不必强辩。端午表述用「在苏州民间记忆中……」为宜（与屈原说并存）。</div></div>
+  <div class="row"><div class="lab">收束</div><div class="val"><span class="key">「他看见了自己的死，也看见了吴国的亡——却拦不住，也躲不开。」</span></div></div>
+</div>
+
+<!-- 尾声 -->
+<div class="act">
+  <div class="head"><span class="n">尾声</span><h3>一城永存——回到胥门</h3><span class="dur">90′+ 机动 5′</span></div>
+  <div class="row"><div class="lab">本幕任务</div><div class="val">回收开场悬念，把情绪落回温暖与敬意；布置课后任务，预告下一课。</div></div>
+  <div class="row"><div class="lab">讲述要点</div><div class="val">
+    <ol>
+      <li>吴国亡了，越国也亡了——可伍子胥造的那座城，一直活到今天。</li>
+      <li>回到石像：他来自楚国，一辈子没能叶落归根；苏州人把他留在城门口——<b>胥门</b>是他的门、<b>胥江</b>是他的河、<b>胥口</b>是他的归宿，端午的龙舟为他竞渡。</li>
+      <li><b>回扣开场两问</b>：他是哪里人？苏州为什么纪念他？胥门的「胥」纪念的到底是谁？——引导学员用本课的「考据 vs 传说」作答：<b>门名有古源，情感归子胥</b>。</li>
+      <li>课后小任务（自愿）：①去胥门走一走，拍一张「我与胥门」；②找身边带「胥」字的地名，问问家里老人；③思考题：如果伍子胥活在今天，他最想看到苏州的什么？</li>
+      <li>下集预告：城修好了、门立起来了，城里还要有「人」和「魂」——下一课从一座塔、一座庙说起。</li>
+    </ol>
+  </div></div>
+  <div class="row"><div class="lab">金句板书</div><div class="val"><span class="key">「一个敌国的流亡者，成了苏州城的设计师——苏州 2500 年的故事，从『不拘一格用人才』开始。」</span></div></div>
+</div>
+
+<h2 class="sec"><span class="no">贰</span>板书设计（三栏一路写到底）</h2>
+<div class="board">
+  <div class="col">
+    <h4>左 · 地名链</h4>
+    <p class="flow">
+      太 湖<br>↓<br><i>胥口</i>（墓 · 胥王庙）<br>↓<br><i>胥 江</i>（漕运 · 泄水）<br>↓<br><i>胥 门</i>（姑胥门）<br>↓<br>阖闾大城
+    </p>
+    <p style="color:var(--sub);font-size:13px;">第一幕写完，全程不擦——它是「山河改姓」的证据。</p>
+  </div>
+  <div class="col">
+    <h4>中 · 人生链</h4>
+    <p class="flow">
+      前 522　奔 吴<br>
+      前 515　荐专诸（阖闾立）<br>
+      前 <b>514</b>　<b>筑 城</b> ★<br>
+      前 506　破楚入郢<br>
+      前 496　槜李 · 阖闾亡<br>
+      前 484　赐属镂剑<br>
+      前 473　越灭吴
+    </p>
+    <p style="color:var(--sub);font-size:13px;">每讲一幕点亮一条；到第六幕整条线已经「满」了。</p>
+  </div>
+  <div class="col">
+    <h4>右 · 金句栏</h4>
+    <p>「让山河都改姓他的姓。」</p>
+    <p>「先造一座坚固的城，再谈别的。」</p>
+    <p>「一座城，2500 年，位置没挪过。」</p>
+    <p>「一个敌国的流亡者，成了苏州城的设计师。」</p>
+  </div>
+</div>
+<p style="font-size:13.5px;color:#443c31;margin:12px 0 0;padding:10px 14px;background:#f6f1e4;border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">「插」单元讲完，在中栏人生链下方补一行 <b>关系网快写</b>：费无忌 → 平王·太子建 → 伍奢·伍尚 ⇢ <b>伍子胥</b> → 专诸·孙武 → 阖闾 → 夫差 ⇠ 伯嚭 ⇠ 勾践。<br>一条线写完，整张网就落在了黑板上——这也是全场唯一一次「把二十个名字写在一起」。</p>
+
+<h2 class="sec"><span class="no">叁</span>答疑预案（学员最可能问的十四个问题）</h2>
+<div class="qa">
+  <div class="item"><b>1. 胥门真的是因伍子胥得名吗？</b><span class="a">两说并存：考据上门名更早（《左传》已见，或与姑胥山/「故胥」转音有关）；传说上门名与他相连。讲法：门名有古源，情感归子胥。</span></div>
+  <div class="item"><b>2.「掘墓鞭尸」可信吗？</b><span class="a">《史记》有载，但唐代司马贞、明末顾炎武都质疑过，可能为后人增饰。讲法：史料也要带着问号读。</span></div>
+  <div class="item"><b>3. 端午节到底纪念谁？</b><span class="a">苏州民间记忆中最早是伍子胥（定位潮神、涛神），比屈原早约两百年；两说并存，表述用「在苏州民间记忆中……」。</span></div>
+  <div class="item"><b>4. 胥江真是伍子胥开凿的吗？</b><span class="a">宋代《吴中水利书》已引前人记载「吴王阖闾用伍子胥之谋，始创此河以为漕运」——说明此说至晚宋代已流传，且有名有姓有年份。</span></div>
+  <div class="item"><b>5. 他的生卒年是多少？</b><span class="a">卒年前 484（赐属镂剑）通行；生年史无明载，一说前 559 前后——课上不写具体生年。</span></div>
+  <div class="item"><b>6. 孙武「吴宫教战」是真的吗？</b><span class="a">见于《史记》等文献；讲「传说的生动」与「史实的骨架」之别，不必纠缠细节真伪。</span></div>
+  <div class="item"><b>7. 2540 年是怎么算出来的？</b><span class="a">前 514 年筑城至 2026 年，正好 2540 年（1986 年苏州曾以建城 2500 年纪念，即从前 514 起算）。</span></div>
+  <div class="item"><b>8. 阖闾大城就是今天的苏州古城吗？</b><span class="a">是。城址大致未移，今古城区内仍能对应老门名，这是中国城建史上罕见的连续性。</span></div>
+  <div class="item"><b>9. 他为什么不去辅佐吴王僚？</b><span class="a">他一眼看出真正能做事的、有雄心的是公子光——故《史记》记公子光点破其私仇后，他立刻转向。</span></div>
+  <div class="item"><b>10. 他的墓在哪里？</b><span class="a">传说与祠庙在胥口（伍子胥墓 · 胥王庙），正可衔接「胥江—规划馆—万年桥—胥门」半日走读线。</span></div>
+  <div class="item"><b>11. 费无忌是个什么人？后来怎样了？</b><span class="a">楚国少傅，因替太子建迎亲时进谗（「秦女绝美，王可自取」）而搅乱楚宫；前515 又谗杀左尹郤宛，激起公愤，被令尹子常诛杀并灭族。一人之馋，祸延两国——课上是「反派线索」的最好样板。</span></div>
+  <div class="item"><b>12. 季札是谁？为什么三次让掉王位？</b><span class="a">寿梦第四子，封于延陵（今常州一带），世称「延陵季子」，是先秦著名的「让国」典范。他的三让与最终逃位，直接造成吴国王位继承的混乱——也为公子光夺位留下了口实。</span></div>
+  <div class="item"><b>13. 吴王僚到底是谁的儿子？</b><span class="a">两说并存：《史记 · 吴太伯世家》作「余昧之子」（本课采用）；《公羊传 · 襄公二十九年》作「长庶也」（寿梦庶长子说）。两说都指向「僚非正当继承人」——这正是公子光「我真王嗣，当立」的口实。</span></div>
+  <div class="item"><b>14. 白公之乱是什么？</b><span class="a">太子建之子白公胜（伍子胥抚孤带大）于前479 在楚国发动叛乱，一度占领郢都，兵败被杀。可看作伍子胥复仇故事在楚国的余波——仇恨跨了两代人，点一句即可。</span></div>
+</div>
+
+<h2 class="sec"><span class="no">肆</span>现场执行与控场提示</h2>
+<div class="tips">
+  <ul>
+    <li><b>悬念纪律：</b>开场两问全场不揭晓，尾声才回收；中间若有学员追问，笑答「课尾见分晓」。</li>
+    <li><b>收束句必说：</b>每一幕的收束句是全场转场的「钉子」，宁舍互动、不舍收束句。</li>
+    <li><b>引文处理：</b>每段原典先读原文，再白话翻译——原文给分量，白话给听懂。</li>
+    <li><b>时间弹性：</b>茶歇 5′ 视状态；叁、伍可各压 2′；肆（筑城）是最不可压的 18′。</li>
+    <li><b>物料清单：</b>①苏州城区图 / 八门方位图打印件（人手一份）；②胥门、万年桥、胥江口照片（可用学员实拍）；③大事年表图（后贴/投影）；④板书三色笔。</li>
+    <li><b>设备预案（若用 OBS/投屏）：</b>「八门方位图」与「大事年表」做成两个整屏画面，随讲随切；照片单页循环。</li>
+    <li><b>「插」单元物料：</b>关系图谱（图一）与吴王世系图（图二）各做一整屏；图一最好加一层「逐条点亮」动画——手指划到哪儿，哪条关系才亮，避免二十个名字一起涌上来。</li>
+    <li><b>走读衔接（可选户外半日线）：</b>胥门石像 → 万年桥 → 胥江口（或古城墙），户外讲解用「三看」：看门额（门名即国策）、看水向（胥江往西通太湖）、看碑记（考据与传说对照）。户外场次请遵守走读安全规范。</li>
+  </ul>
+</div>
+
+<div class="foot">
+  伍子胥筑城 · 现场讲解大纲（90′ · 2026 秋季班 · 含「插 · 一张关系图」单元）<br>
+  据《吴地时光机》第一课网页课件及「伍子胥人物关系图」专题页整理 ｜ 下一步：按本大纲生产逐字稿
+</div>
+
+</div>
+
+<script>
+(function(){
+  var acts = [].slice.call(document.querySelectorAll('.act'));
+  var secs = [].slice.call(document.querySelectorAll('h2.sec'));
+  var toc  = document.getElementById('toc');
+  var doneMap = {};
+
+  /* ---------- 时长解析 ---------- */
+  function durSpan(s){
+    var t = (s || '').replace(/[\s·]/g, '');
+    var m = t.match(/(\d+)′[–\-—](\d+)′/);
+    if (m) return [parseInt(m[1],10), parseInt(m[2],10)];
+    m = t.match(/(\d+)′\+/);
+    if (m) return [parseInt(m[1],10), parseInt(m[1],10) + 5];
+    m = t.match(/(\d+)′/);
+    if (m) return [parseInt(m[1],10), parseInt(m[1],10)];
+    return null;
+  }
+  var origDur = acts.map(function(a){ var d = a.querySelector('.dur'); return d ? d.textContent : ''; });
+  var spans   = origDur.map(durSpan);
+
+  /* ---------- 结构改造：包 body / 加控件 ---------- */
+  acts.forEach(function(a, i){
+    a.id = 'act-' + i;
+    var rows = [].slice.call(a.querySelectorAll(':scope > .row'));
+    if (rows.length){
+      var body = document.createElement('div');
+      body.className = 'body';
+      rows[0].parentNode.insertBefore(body, rows[0]);
+      rows.forEach(function(r){ body.appendChild(r); });
+    }
+    var head = a.querySelector(':scope > .head');
+    var dur  = head.querySelector('.dur');
+    var dck  = document.createElement('span');
+    dck.className = 'done'; dck.textContent = '✓';
+    dck.title = '标记本幕已讲（快捷键 D）';
+    var chev = document.createElement('span');
+    chev.className = 'chev'; chev.textContent = '▾';
+    head.appendChild(dck); head.appendChild(chev);
+
+    head.addEventListener('click', function(e){
+      if (e.target === dur || e.target === dck) return;
+      a.classList.toggle('fold');
+    });
+    dck.addEventListener('click', function(e){ e.stopPropagation(); toggleDone(i); });
+    if (dur){
+      dur.title = '点击开始「本幕倒计时」';
+      dur.addEventListener('click', function(e){ e.stopPropagation(); toggleCD(i); });
+    }
+  });
+
+  /* ---------- 目录 ---------- */
+  var order = [];
+  if (secs[0]){ secs[0].id = 'sec-time'; order.push({ id:'sec-time', n:'〇', t:'时间轴总表', act:-1 }); }
+  acts.forEach(function(a, i){
+    var n = a.querySelector('.head .n').textContent.replace(/★/g,'').trim();
+    if (n.length > 2) n = n.slice(0,2);
+    var h = a.querySelector('.head h3').textContent.trim();
+    var t = h.split('——')[0].split('—')[0].replace(/★/g,'').trim();
+    if (t.length > 11) t = t.slice(0,11) + '…';
+    order.push({ id:a.id, n:n, t:t, act:i });
+  });
+  ['板书设计','答疑预案','执行提示'].forEach(function(t, k){
+    var el = secs[k + 2]; if (!el) return;
+    el.id = 'sec-x' + k;
+    order.push({ id:el.id, n:'附', t:t, act:-1 });
+  });
+  var topnav = document.getElementById('topnav');
+  var linkMap = {}, tLinkMap = {}, orderMap = {};
+  order.forEach(function(o){
+    orderMap[o.id] = o;
+    var a = document.createElement('a');
+    a.href = '#' + o.id;
+    a.setAttribute('data-target', o.id);
+    if (o.act >= 0) a.setAttribute('data-act', o.act);
+    a.innerHTML = '<span class="dot">' + o.n + '</span><span class="tt">' + o.t + '</span><span class="ck">✓</span>';
+    toc.appendChild(a); linkMap[o.id] = a;
+
+    var b = document.createElement('a');
+    b.href = '#' + o.id;
+    b.setAttribute('data-target', o.id);
+    if (o.act >= 0) b.setAttribute('data-act', o.act);
+    b.innerHTML = '<span class="dot">' + o.n + '</span><span class="tt">' + o.t + '</span>';
+    topnav.appendChild(b); tLinkMap[o.id] = b;
+  });
+
+  /* ---------- 滚动定位 ---------- */
+  var watch = [].slice.call(document.querySelectorAll('.act, h2.sec')).filter(function(el){ return el.id; });
+  var curId = null;
+  var tbCurEl = document.getElementById('tbCur');
+  function scrollChipIntoView(el){
+    if (!el) return;
+    var base = el.offsetLeft - topnav.offsetLeft;
+    var left = base - (topnav.clientWidth - el.offsetWidth) / 2;
+    if (left < 0) left = 0;
+    if (Math.abs(topnav.scrollLeft - left) > 4) topnav.scrollTo({ left:left, behavior:'smooth' });
+  }
+  function setCur(id){
+    if (curId === id) return;
+    if (curId){
+      if (linkMap[curId]) linkMap[curId].classList.remove('cur');
+      if (tLinkMap[curId]) tLinkMap[curId].classList.remove('cur');
+    }
+    curId = id;
+    if (linkMap[id]) linkMap[id].classList.add('cur');
+    if (tLinkMap[id]){ tLinkMap[id].classList.add('cur'); scrollChipIntoView(tLinkMap[id]); }
+    var o = orderMap[id];
+    if (o) tbCurEl.innerHTML = '<b>' + o.n + '</b> · ' + o.t;
+    render();
+  }
+  function onScroll(){
+    var y = window.scrollY + window.innerHeight * 0.30, found = watch[0];
+    watch.forEach(function(el){
+      if (el.getBoundingClientRect().top + window.scrollY <= y) found = el;
+    });
+    if (found) setCur(found.id);
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+
+  /* ---------- 全场计时 ---------- */
+  var elapsed = 0, running = false, t0 = 0, raf = null;
+  var ckBig  = document.getElementById('ckBig');
+  var tbClock = document.getElementById('tbClock');
+  var ckPlan = document.getElementById('ckPlan');
+  var ckDiff = document.getElementById('ckDiff');
+  var fClock = document.getElementById('fClock');
+  var btnPlay = document.getElementById('ckPlay');
+  function fmt(sec){
+    sec = Math.max(0, Math.round(sec));
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function planOfCur(){
+    var el = document.getElementById(curId); if (!el) return null;
+    var i = acts.indexOf(el);
+    if (i < 0){
+      i = acts.length - 1;
+      for (var k = 0; k < acts.length; k++){
+        if (el.compareDocumentPosition(acts[k]) & 4){ i = k; break; }
+      }
+    }
+    return spans[i] ? spans[i][1] : null;
+  }
+  function render(){
+    var s = elapsed / 1000;
+    ckBig.textContent = fmt(s);
+    if (fClock) fClock.textContent = fmt(s);
+    if (tbClock) tbClock.textContent = fmt(s);
+    var p = planOfCur();
+    if (p == null){ ckPlan.textContent = '—'; ckDiff.textContent = ''; if (tbClock) tbClock.classList.remove('warn'); return; }
+    ckPlan.textContent = '应到 ' + p + '′';
+    var d = s / 60 - p;
+    if (d > 1){ ckDiff.textContent = '已超 ' + Math.round(d) + '′'; ckDiff.className = 'late'; ckBig.classList.add('warn'); }
+    else { ckDiff.textContent = (d > -0.5 ? '基本准时' : '富余 ' + Math.round(-d) + '′'); ckDiff.className = (d > -0.5 ? '' : 'ok'); ckBig.classList.remove('warn'); }
+    if (tbClock) tbClock.classList.toggle('warn', ckBig.classList.contains('warn'));
+  }
+  function loop(){
+    if (!running) return;
+    elapsed += Date.now() - t0; t0 = Date.now();
+    render();
+    raf = setTimeout(loop, 200);
+  }
+  function start(){
+    if (running) return;
+    running = true; t0 = Date.now();
+    btnPlay.textContent = '暂停'; btnPlay.classList.add('on');
+    loop();
+  }
+  function pause(){
+    if (!running) return;
+    running = false; elapsed += Date.now() - t0;
+    clearTimeout(raf);
+    btnPlay.textContent = '继续'; btnPlay.classList.remove('on');
+    render();
+  }
+  function zero(){
+    running = false; clearTimeout(raf); elapsed = 0;
+    btnPlay.textContent = '开始计时'; btnPlay.classList.remove('on');
+    render();
+  }
+  btnPlay.addEventListener('click', function(){ running ? pause() : start(); });
+  document.getElementById('ckZero').addEventListener('click', zero);
+
+  /* ---------- 本幕倒计时 ---------- */
+  var cd = { i:-1, remain:0, t0:0, running:false };
+  function beep(){
+    try{
+      var C = window.AudioContext || window.webkitAudioContext; if (!C) return;
+      var ctx = new C(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = 880; g.gain.value = 0.07;
+      o.connect(g); g.connect(ctx.destination); o.start();
+      setTimeout(function(){ try{ o.stop(); ctx.close(); }catch(e){} }, 900);
+    }catch(e){}
+  }
+  function cdReset(){
+    if (cd.i < 0) return;
+    var d = acts[cd.i].querySelector('.dur');
+    if (d){ d.classList.remove('run','over'); d.textContent = origDur[cd.i]; }
+    cd.i = -1; cd.running = false;
+  }
+  function cdLoop(){
+    if (!cd.running || cd.i < 0) return;
+    cd.remain -= Date.now() - cd.t0; cd.t0 = Date.now();
+    var d = acts[cd.i].querySelector('.dur');
+    if (cd.remain <= 0){
+      cd.remain = 0; cd.running = false;
+      if (d){ d.classList.remove('run'); d.classList.add('over'); d.textContent = '超时！'; }
+      beep();
+      return;
+    }
+    if (d){ d.classList.add('run'); d.textContent = fmt(cd.remain / 1000) + ' 剩'; }
+    setTimeout(cdLoop, 200);
+  }
+  function toggleCD(i){
+    var same = (cd.i === i);
+    cdReset();
+    if (same) return;
+    var sp = spans[i]; if (!sp) return;
+    cd.i = i; cd.remain = (sp[1] - sp[0]) * 60000; cd.t0 = Date.now(); cd.running = true;
+    cdLoop();
+  }
+
+  /* ---------- 进度勾选 ---------- */
+  function toggleDone(i){
+    doneMap[i] = !doneMap[i];
+    acts[i].classList.toggle('is-done', !!doneMap[i]);
+    var lk = toc.querySelector('a[data-act="' + i + '"]');
+    if (lk) lk.classList.toggle('done', !!doneMap[i]);
+    var tk = topnav.querySelector('a[data-act="' + i + '"]');
+    if (tk) tk.classList.toggle('done', !!doneMap[i]);
+    var n = 0;
+    for (var k in doneMap) if (doneMap[k]) n++;
+    document.getElementById('pgBar').style.width = (n / acts.length * 100) + '%';
+    document.getElementById('pgTxt').textContent = '已讲 ' + n + ' / ' + acts.length + ' 幕';
+    var tp = document.getElementById('tbProg');
+    if (tp) tp.textContent = '已讲 ' + n + ' / ' + acts.length;
+  }
+
+  /* ---------- 工具栏 ---------- */
+  var tBig = document.getElementById('tBig');
+  tBig.addEventListener('click', function(){
+    document.body.classList.toggle('big');
+    tBig.classList.toggle('on', document.body.classList.contains('big'));
+  });
+  document.getElementById('tFold').addEventListener('click', function(){ acts.forEach(function(a){ a.classList.add('fold'); }); });
+  document.getElementById('tOpen').addEventListener('click', function(){ acts.forEach(function(a){ a.classList.remove('fold'); }); });
+  document.getElementById('tPrint').addEventListener('click', function(){ window.print(); });
+
+  /* ---------- 答疑手风琴 ---------- */
+  [].slice.call(document.querySelectorAll('.qa .item')).forEach(function(it){
+    it.title = '点击展开 / 收起答案';
+    it.addEventListener('click', function(){ it.classList.toggle('open'); });
+  });
+
+  /* ---------- 移动端抽屉 / 侧栏显隐 ---------- */
+  document.getElementById('fNav').addEventListener('click', function(){ document.body.classList.toggle('nav-open'); });
+  document.getElementById('scrim').addEventListener('click', function(){ document.body.classList.remove('nav-open'); });
+  toc.addEventListener('click', function(e){ if (e.target.closest('a')) document.body.classList.remove('nav-open'); });
+  topnav.addEventListener('click', function(e){ if (e.target.closest('a')) document.body.classList.remove('nav-open'); });
+
+  /* ---------- 顶部置顶索引：两种模式 + 侧栏开关 ---------- */
+  var mOpen = document.getElementById('mOpen'), mMini = document.getElementById('mMini');
+  function setIdx(mode){
+    document.body.setAttribute('data-idx', mode);
+    mOpen.classList.toggle('on', mode === 'open');
+    mMini.classList.toggle('on', mode === 'mini');
+    try{ localStorage.setItem('wzx.idx', mode); }catch(e){}
+    if (mode === 'open' && curId) setTimeout(function(){ scrollChipIntoView(tLinkMap[curId]); }, 260);
+  }
+  mOpen.addEventListener('click', function(){ setIdx('open'); });
+  mMini.addEventListener('click', function(){ setIdx('mini'); });
+  document.getElementById('tbBurger').addEventListener('click', function(){
+    if (window.innerWidth >= 1100){
+      document.body.classList.toggle('no-side');
+      try{ localStorage.setItem('wzx.side', document.body.classList.contains('no-side') ? '0' : '1'); }catch(e){}
+    } else {
+      document.body.classList.toggle('nav-open');
+    }
+  });
+  document.getElementById('tbHome').addEventListener('click', function(e){
+    e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth' });
+  });
+  tbClock.addEventListener('click', function(){ running ? pause() : start(); });
+
+  /* ---------- 键盘 ---------- */
+  function curActIndex(){
+    for (var i = 0; i < acts.length; i++) if (acts[i].id === curId) return i;
+    return -1;
+  }
+  function goAct(i){
+    if (i < 0 || i >= acts.length) return;
+    acts[i].scrollIntoView({ behavior:'smooth', block:'start' });
+    setCur(acts[i].id);
+  }
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target.tagName || '').toUpperCase();
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    var k = (e.key || '').toLowerCase();
+    if (e.key === 'ArrowRight'){ var i = curActIndex(); goAct((i < 0 ? 0 : i) + 1); e.preventDefault(); return; }
+    if (e.key === 'ArrowLeft'){ var j = curActIndex(); goAct((j < 0 ? 1 : j) - 1); e.preventDefault(); return; }
+    if (k === 't'){ running ? pause() : start(); }
+    else if (k === 'd'){ var m = curActIndex(); if (m >= 0) toggleDone(m); }
+    else if (k === 'b'){ tBig.click(); }
+    else if (k === 'i'){ setIdx(document.body.getAttribute('data-idx') === 'open' ? 'mini' : 'open'); }
+  });
+
+  /* ---------- 初始化 ---------- */
+  try{
+    setIdx(localStorage.getItem('wzx.idx') === 'mini' ? 'mini' : 'open');
+    if (localStorage.getItem('wzx.side') === '0' && window.innerWidth >= 1100) document.body.classList.add('no-side');
+  }catch(e){ setIdx('open'); }
+  onScroll(); render();
+  if (location.hash){
+    var target = document.querySelector(location.hash);
+    if (target) setTimeout(function(){ target.scrollIntoView(); }, 80);
+  }
+})();
+</script>
+</body>
+</html>
