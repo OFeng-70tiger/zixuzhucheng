@@ -64,6 +64,25 @@
   /* —— 插入单元：关系图谱 / 吴王世系图 —— */
   .figbox{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 20px 18px; margin:14px 0 22px;}
   .figttl{margin:0 0 14px; font-size:16px; color:var(--red); border-bottom:1px dashed var(--line); padding-bottom:8px;}
+  /* 竖版图谱导航按钮 */
+  .vjump{display:inline-block; margin:0 0 0 10px; padding:3px 14px; font-size:12.8px; font-weight:bold; letter-spacing:.5px; color:#fff; background:var(--gold); border:none; border-radius:999px; cursor:pointer; vertical-align:middle; box-shadow:0 2px 6px rgba(60,40,10,.22); font-family:inherit; -webkit-tap-highlight-color:transparent;}
+  .vjump:hover{filter:brightness(1.06);}
+  .vjump:active{transform:translateY(1px);}
+  .vjump.red{background:var(--red);}
+  /* 竖版图谱弹层 */
+  #vmodal{position:fixed; inset:0; z-index:9999; display:none; background:rgba(32,27,20,.74); padding:16px 10px 26px; overflow:auto;}
+  #vmodal.on{display:block;}
+  #vmodal .vbox{max-width:660px; margin:0 auto; background:var(--card); border-radius:14px; padding:12px 12px 16px; box-shadow:0 10px 40px rgba(0,0,0,.35);}
+  #vmodal .vbar{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 2px 10px;}
+  #vmodal .vbar .vt{font-family:"Noto Serif SC",serif; font-weight:bold; font-size:15px; color:var(--red);}
+  #vmodal .vbar .vclose{flex:none; width:34px; height:34px; border-radius:50%; border:1px solid var(--line); background:#f3ecdd; color:var(--ink); font-size:17px; line-height:1; cursor:pointer;}
+  #vmodal .vbar .vhint{font-size:11.5px; color:var(--sub);}
+  #vmodal .vbody svg{width:100%; height:auto; display:block; border-radius:8px;}
+  @media (max-width:600px){
+    #vmodal{padding:8px 4px 18px;}
+    #vmodal .vbox{padding:8px 8px 12px; border-radius:10px;}
+    .vjump{font-size:12px; padding:4px 12px;}
+  }
   .net{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; align-items:start;}
   .netcol{border:1px solid var(--line); border-radius:8px; padding:10px 10px 12px; background:#faf7f0;}
   .netcol > h4{margin:0 0 8px; font-size:13.5px; text-align:center; letter-spacing:2px; padding-bottom:6px; border-bottom:1px solid var(--line);}
@@ -449,7 +468,7 @@
 
 <!-- 图一 · 关系图谱 -->
 <div class="figbox">
-  <h3 class="figttl">图一 · 伍子胥人物关系图谱（投影用 · 左楚 · 中 · 右吴）</h3>
+  <h3 class="figttl">图一 · 伍子胥人物关系图谱（投影用 · 左楚 · 中 · 右吴）<button type="button" class="vjump red" data-vfig="vfig1">📱 竖版关系图谱 · 手机看</button></h3>
   <div class="net">
     <div class="netcol chu">
       <h4>楚 · 郢都</h4>
@@ -512,7 +531,7 @@
 
 <!-- 图二 · 吴王世系 -->
 <div class="figbox">
-  <h3 class="figttl">图二 · 吴国王位传承线（投影用 · 寿梦家这笔「糊涂账」）</h3>
+  <h3 class="figttl">图二 · 吴国王位传承线（投影用 · 寿梦家这笔「糊涂账」）<button type="button" class="vjump" data-vfig="vfig2">📱 竖版传承线 · 手机看</button></h3>
   <svg viewBox="0 0 860 380" style="width:100%;height:auto;" role="img" aria-label="吴国王位传承线示意图">
     <defs>
       <marker id="mkA" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#a3803c"/></marker>
@@ -522,7 +541,7 @@
 
     <!-- 寿梦 -->
     <rect x="350" y="44" width="120" height="36" rx="7" fill="#fffdf8" stroke="#9b3b2b" stroke-width="1.6"/>
-    <text x="410" y="61" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#9b3b2b">寿 梦</text>
+    <text x="410" y="61" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#9b3b2b">寿 梦</text>
     <text x="410" y="74" text-anchor="middle" font-size="10.5" fill="#6b6357">第19世 · 前561卒</text>
 
     <!-- 父系关系线 -->
@@ -536,19 +555,19 @@
 
     <!-- 四子 -->
     <rect x="45" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
-    <text x="110" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e2a25">诸樊（长子）</text>
+    <text x="110" y="135" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e2a25">诸樊（长子）</text>
     <text x="110" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">前560—前548</text>
 
     <rect x="245" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
-    <text x="310" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e2a25">余祭（次子）</text>
+    <text x="310" y="135" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e2a25">余祭（次子）</text>
     <text x="310" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">前547—前531</text>
 
     <rect x="445" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
-    <text x="510" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e2a25">余昧（三子）</text>
+    <text x="510" y="135" text-anchor="middle" font-size="15" font-weight="bold" fill="#2e2a25">余昧（三子）</text>
     <text x="510" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">前530—前527</text>
 
     <rect x="645" y="118" width="130" height="36" rx="7" fill="#fffdf8" stroke="#a3803c" stroke-width="1.3" stroke-dasharray="5 3"/>
-    <text x="710" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#a3803c">季札（四子）</text>
+    <text x="710" y="135" text-anchor="middle" font-size="15" font-weight="bold" fill="#a3803c">季札（四子）</text>
     <text x="710" y="148" text-anchor="middle" font-size="10.5" fill="#6b6357">延陵季子 · 三让王位</text>
     <text x="710" y="172" text-anchor="middle" font-size="10.5" fill="#9b3b2b">※ 三让不受 · 前527 逃位</text>
 
@@ -561,14 +580,14 @@
     <path d="M110,154 V206" stroke="#a3803c" stroke-width="1.4" fill="none" marker-end="url(#mkA)"/>
     <text x="118" y="184" font-size="10.5" fill="#6b6357">父子</text>
     <rect x="30" y="206" width="160" height="36" rx="7" fill="#fffdf8" stroke="#4a6b52" stroke-width="1.4"/>
-    <text x="110" y="223" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2e2a25">公子光（阖闾）</text>
+    <text x="110" y="223" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#2e2a25">公子光（阖闾）</text>
     <text x="110" y="236" text-anchor="middle" font-size="10" fill="#6b6357">前514—前496 在位</text>
 
     <!-- 僚 -->
     <path d="M510,154 V206" stroke="#a3803c" stroke-width="1.4" fill="none" marker-end="url(#mkA)"/>
     <text x="518" y="184" font-size="10.5" fill="#6b6357">父子</text>
     <rect x="430" y="206" width="160" height="36" rx="7" fill="#fffdf8" stroke="#9b3b2b" stroke-width="1.4"/>
-    <text x="510" y="223" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2e2a25">吴王僚</text>
+    <text x="510" y="223" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#2e2a25">吴王僚</text>
     <text x="510" y="236" text-anchor="middle" font-size="9.5" fill="#6b6357">※ 余昧之子 · 前526—515</text>
 
     <!-- 专诸刺僚 -->
@@ -579,7 +598,7 @@
     <path d="M110,242 V286" stroke="#a3803c" stroke-width="1.4" fill="none" marker-end="url(#mkA)"/>
     <text x="118" y="268" font-size="10.5" fill="#6b6357">父死子继 · 前496</text>
     <rect x="30" y="286" width="160" height="36" rx="7" fill="#fffdf8" stroke="#e3dbcc" stroke-width="1.3"/>
-    <text x="110" y="303" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2e2a25">吴王夫差</text>
+    <text x="110" y="303" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#2e2a25">吴王夫差</text>
     <text x="110" y="316" text-anchor="middle" font-size="10" fill="#6b6357">前496—前473 · 亡</text>
 
     <!-- 图例 -->
@@ -1073,6 +1092,340 @@
     var target = document.querySelector(location.hash);
     if (target) setTimeout(function(){ target.scrollIntoView(); }, 80);
   }
+})();
+</script>
+
+<!-- ═══ 竖版图谱弹层（源：伍子胥人物关系图_竖版.html） ═══ -->
+<div id="vfig1" hidden><svg viewBox="-90 0 930 1160" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Songti SC','SimSun','Noto Serif SC',serif">
+
+  <!-- 底色 -->
+  <rect x="-90" y="0" width="930" height="1160" fill="#fdfaf3"/>
+
+  <!-- 标题 -->
+  <text x="370" y="26" text-anchor="middle" font-size="21" font-weight="bold" fill="#2e2a25" letter-spacing="1">伍子胥人物关系图</text>
+  <text x="370" y="46" text-anchor="middle" font-size="11.5" fill="#7a6f60">楚宫之祸 · 亡命入吴 · 相吴称霸 · 盛极而衰（前527—前473）</text>
+  <text x="370" y="60" text-anchor="middle" font-size="10.5" fill="#9a8f7c">上楚下吴 · 线条上标注关系与关键年份 · 红线为仇怨</text>
+
+  <!-- 三段底色 -->
+  <rect x="-10" y="72" width="745" height="330" rx="14" fill="#f7f1e2" opacity="0.75"/>
+  <rect x="-10" y="600" width="745" height="165" rx="14" fill="#f7f1e2" opacity="0.75"/>
+  <rect x="-10" y="800" width="745" height="285" rx="14" fill="#f7f1e2" opacity="0.75"/>
+
+  <!-- 段名（竖排于左） -->
+  <text x="-52" y="237" transform="rotate(-90 -52 237)" text-anchor="middle" font-size="12.5" fill="#8d3326" letter-spacing="2">一 · 楚国 · 祸起郢都</text>
+  <text x="-52" y="682" transform="rotate(-90 -52 682)" text-anchor="middle" font-size="12.5" fill="#a97b28" letter-spacing="2">二 · 伍子胥</text>
+  <text x="-52" y="942" transform="rotate(-90 -52 942)" text-anchor="middle" font-size="12.5" fill="#2f5d50" letter-spacing="2">三 · 吴国 · 越</text>
+
+  <!-- ══ 关系线（先画） ══ -->
+  <!-- 金色：助力/荐举/宠信 -->
+  <g fill="none" stroke="#a97b28" stroke-width="2">
+    <path d="M200,100 V78 H600 V100"/>
+    <line x1="470" y1="128" x2="525" y2="128"/>
+    <path d="M330,716 C290,762 225,790 165,845"/>
+    <line x1="385" y1="716" x2="385" y2="845"/>
+    <path d="M300,700 H30 V990 H75"/>
+    <path d="M450,716 C480,760 497,800 497,930 C497,952 470,955 450,960"/>
+  </g>
+  <!-- 红虚线：谗害/仇杀/祸端 -->
+  <g fill="none" stroke="#b0432f" stroke-width="2.5" stroke-dasharray="7,5">
+    <line x1="245" y1="128" x2="300" y2="128"/>
+    <path d="M560,156 V175 H160 V205"/>
+    <path d="M555,156 V285 H385 V310"/>
+    <line x1="600" y1="156" x2="600" y2="205"/>
+    <line x1="500" y1="678" x2="525" y2="678"/>
+    <path d="M300,660 H-40 V128 H75"/>
+    <path d="M695,873 H790 V760 H430 V716"/>
+    <line x1="610" y1="901" x2="610" y2="960"/>
+  </g>
+  <!-- 灰细线：血缘/婚姻/师生 -->
+  <g fill="none" stroke="#8a7a5e" stroke-width="1.5">
+    <line x1="430" y1="156" x2="430" y2="205"/>
+    <line x1="150" y1="156" x2="150" y2="205"/>
+    <line x1="150" y1="261" x2="150" y2="310"/>
+    <line x1="245" y1="250" x2="300" y2="318"/>
+    <line x1="470" y1="338" x2="525" y2="338"/>
+    <line x1="385" y1="366" x2="385" y2="640"/>
+    <path d="M560,366 C545,470 505,580 470,640"/>
+    <path d="M150,366 C150,500 205,620 300,690"/>
+    <path d="M695,233 H760 V679 H695"/>
+    <line x1="600" y1="706" x2="600" y2="845"/>
+    <path d="M695,990 H760 V690 H695"/>
+    <line x1="470" y1="873" x2="525" y2="873"/>
+  </g>
+  <g fill="none" stroke="#8a7a5e" stroke-width="1.5" stroke-dasharray="4,4">
+    <line x1="300" y1="150" x2="250" y2="208"/>
+  </g>
+  <!-- 深灰：弑立/刺杀 -->
+  <g fill="none" stroke="#4a4038" stroke-width="2.5">
+    <line x1="245" y1="873" x2="300" y2="873"/>
+    <line x1="150" y1="960" x2="150" y2="901"/>
+  </g>
+
+  <!-- ══ 线上标签 ══ -->
+  <g font-size="10.8" fill="#8a3a2a" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="272" y="94" text-anchor="middle" font-weight="bold">前527 夺媳为夫人</text>
+    <text x="300" y="170">构陷谋反 · 前522</text>
+    <text x="470" y="279" text-anchor="middle">前522 谗杀</text>
+    <text x="610" y="184">前515 谗杀 · 招灭族</text>
+    <text x="512" y="620" text-anchor="middle">前484 谗害</text>
+    <text x="620" y="752" text-anchor="middle">前484 属镂剑赐死</text>
+    <text x="620" y="935">前494 败越许和</text>
+    <text x="-62" y="420" transform="rotate(-90 -62 420)" text-anchor="middle" font-weight="bold">掘墓鞭尸三百 · 前506</text>
+  </g>
+  <g font-size="10.2" fill="#6a5a42" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="440" y="186">生子熊轸（楚昭王）</text>
+    <text x="272" y="196" text-anchor="middle">原聘 · 未成婚</text>
+    <text x="158" y="184">父子</text>
+    <text x="270" y="303" text-anchor="middle">师生</text>
+    <text x="158" y="282">父子 · 胜随奔吴</text>
+    <text x="497" y="330" text-anchor="middle">父子</text>
+    <text x="395" y="470">父子 · 前522 死难</text>
+    <text x="585" y="470">兄弟 · 尚归死</text>
+    <text x="230" y="560">抚孤 · 后白公之乱（前479）</text>
+    <text x="775" y="455" transform="rotate(-90 775 455)" text-anchor="middle">郤宛之子 · 前515 奔吴</text>
+    <text x="610" y="790">太宰 · 受越重赂</text>
+    <text x="778" y="845" transform="rotate(-90 778 845)" text-anchor="middle">贿伯嚭 · 求和</text>
+    <text x="160" y="935">鱼肠剑刺杀 · 前515</text>
+    <text x="497" y="835" text-anchor="middle">父子 · 前496 伤死</text>
+  </g>
+  <g font-size="10.2" fill="#8a3a2a" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="497" y="104" text-anchor="middle">迎亲进谗</text>
+    <text x="497" y="116" text-anchor="middle">「秦女绝美」</text>
+  </g>
+  <g font-size="10.2" fill="#7a6522" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="400" y="72" text-anchor="middle">宠信佞臣</text>
+    <text x="255" y="782">初投 · 言伐楚</text>
+    <text x="395" y="780">前514 拜行人 · 共谋国事</text>
+    <text x="16" y="880" transform="rotate(-90 16 880)" text-anchor="middle">进荐刺客</text>
+    <text x="505" y="782">前512 荐为将军</text>
+  </g>
+  <g font-size="10.2" fill="#4a4038" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="272" y="835" text-anchor="middle">前515 弑立</text>
+  </g>
+
+  <!-- ══ 节点 ══ -->
+  <!-- 楚国 -->
+  <g>
+    <rect x="75" y="100" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="160" y="124" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">楚平王</text>
+    <text x="160" y="143" text-anchor="middle" fill="#e8cfa8" font-size="10">前528—前516 在位</text>
+
+    <rect x="300" y="100" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="385" y="124" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">孟嬴</text>
+    <text x="385" y="143" text-anchor="middle" fill="#e8cfa8" font-size="10">秦公主 · 史未记名</text>
+
+    <rect x="525" y="100" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="610" y="124" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">费无忌</text>
+    <text x="610" y="143" text-anchor="middle" fill="#e8cfa8" font-size="10">少傅 · 前515 灭族</text>
+
+    <rect x="75" y="205" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="160" y="229" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">太子建</text>
+    <text x="160" y="248" text-anchor="middle" fill="#e8cfa8" font-size="10">前522 奔亡被杀</text>
+
+    <rect x="300" y="205" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="385" y="229" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">楚昭王 · 熊轸</text>
+    <text x="385" y="248" text-anchor="middle" fill="#e8cfa8" font-size="10">孟嬴之子</text>
+
+    <rect x="525" y="205" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="610" y="229" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">郤宛</text>
+    <text x="610" y="248" text-anchor="middle" fill="#e8cfa8" font-size="10">左尹 · 前515 谗杀</text>
+
+    <rect x="75" y="310" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="160" y="334" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">白公胜</text>
+    <text x="160" y="353" text-anchor="middle" fill="#e8cfa8" font-size="10">太子建之子</text>
+
+    <rect x="300" y="310" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="385" y="334" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">伍奢</text>
+    <text x="385" y="353" text-anchor="middle" fill="#e8cfa8" font-size="10">太傅 · 前522 死难</text>
+
+    <rect x="525" y="310" width="170" height="56" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="610" y="334" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">伍尚</text>
+    <text x="610" y="353" text-anchor="middle" fill="#e8cfa8" font-size="10">兄 · 归死</text>
+  </g>
+  <!-- 伍子胥 + 伯嚭 -->
+  <g>
+    <rect x="300" y="640" width="200" height="76" rx="10" fill="#a97b28" stroke="#7a5a1a" stroke-width="2.5"/>
+    <text x="400" y="672" text-anchor="middle" fill="#fdf6e3" font-size="24" font-weight="bold" letter-spacing="3">伍子胥</text>
+    <text x="400" y="697" text-anchor="middle" fill="#f3e2bd" font-size="10.5">名员 · 奔吴复仇 · 相吴称霸</text>
+
+    <rect x="525" y="650" width="170" height="56" rx="8" fill="#6e5644" stroke="#4e3c2c" stroke-width="1.5"/>
+    <text x="610" y="674" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">伯嚭</text>
+    <text x="610" y="693" text-anchor="middle" fill="#e0cdb2" font-size="10">楚郤氏 → 吴太宰</text>
+  </g>
+  <!-- 吴国 / 越 -->
+  <g>
+    <rect x="75" y="845" width="170" height="56" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="1.5"/>
+    <text x="160" y="869" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">吴王僚</text>
+    <text x="160" y="888" text-anchor="middle" fill="#c2d6c4" font-size="10">前515 被刺</text>
+
+    <rect x="300" y="845" width="170" height="56" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="1.5"/>
+    <text x="385" y="869" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">阖闾 · 公子光</text>
+    <text x="385" y="888" text-anchor="middle" fill="#c2d6c4" font-size="10">前514—前496 在位</text>
+
+    <rect x="525" y="845" width="170" height="56" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="1.5"/>
+    <text x="610" y="869" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">吴王夫差</text>
+    <text x="610" y="888" text-anchor="middle" fill="#c2d6c4" font-size="10">前496—前473 在位</text>
+
+    <rect x="75" y="960" width="170" height="56" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="1.5"/>
+    <text x="160" y="984" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">专诸</text>
+    <text x="160" y="1003" text-anchor="middle" fill="#c2d6c4" font-size="10">刺客 · 刺僚身死</text>
+
+    <rect x="300" y="960" width="170" height="56" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="1.5"/>
+    <text x="385" y="984" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">孙武</text>
+    <text x="385" y="1003" text-anchor="middle" fill="#c2d6c4" font-size="10">兵圣 · 同谋破楚</text>
+
+    <rect x="525" y="960" width="170" height="56" rx="8" fill="#6b6b33" stroke="#4d4d20" stroke-width="1.5"/>
+    <text x="610" y="984" text-anchor="middle" fill="#f4f2dc" font-size="15" font-weight="bold">越王勾践</text>
+    <text x="610" y="1003" text-anchor="middle" fill="#dedbb0" font-size="10">前494 降吴</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-size="11.5" fill="#5a5148">
+    <line x1="30" y1="1082" x2="62" y2="1082" stroke="#a97b28" stroke-width="2.5"/>
+    <text x="72" y="1086">助力 · 荐举 · 宠信</text>
+    <line x1="420" y1="1082" x2="452" y2="1082" stroke="#b0432f" stroke-width="2.5" stroke-dasharray="7,5"/>
+    <text x="462" y="1086">谗害 · 仇杀 · 祸端</text>
+    <line x1="30" y1="1112" x2="62" y2="1112" stroke="#8a7a5e" stroke-width="1.5"/>
+    <text x="72" y="1116">血缘 · 婚姻 · 师生</text>
+    <line x1="420" y1="1112" x2="452" y2="1112" stroke="#4a4038" stroke-width="2.5"/>
+    <text x="462" y="1116">弑立 · 刺杀</text>
+  </g>
+</svg></div>
+<div id="vfig2" hidden><svg viewBox="0 0 780 770" xmlns="http://www.w3.org/2000/svg"
+     font-family="'Songti SC','SimSun','Noto Serif SC',serif">
+
+  <rect x="0" y="0" width="780" height="770" fill="#fdfaf3"/>
+
+  <text x="390" y="22" text-anchor="middle" font-size="17" font-weight="bold" fill="#2e2a25" letter-spacing="1">吴国王位传承线 · 竖版</text>
+  <text x="390" y="38" text-anchor="middle" font-size="11" fill="#7a6f60">寿梦家这笔糊涂账：兄终弟及 · 季札三让 · 僚被「截胡」 · 公子光夺位</text>
+
+  <!-- 主线（正常传位） -->
+  <g fill="none" stroke="#8a7a5e" stroke-width="2">
+    <line x1="265" y1="94" x2="265" y2="150"/>
+    <line x1="265" y1="204" x2="265" y2="250"/>
+    <line x1="265" y1="304" x2="265" y2="350"/>
+    <line x1="265" y1="404" x2="265" y2="470"/>
+    <line x1="585" y1="524" x2="585" y2="580"/>
+  </g>
+  <!-- 季札（金虚线） -->
+  <path d="M350,67 H455 V277 H500" fill="none" stroke="#a97b28" stroke-width="1.6" stroke-dasharray="5,4"/>
+  <!-- 公子光血缘（灰虚线） -->
+  <path d="M350,177 H420 V430 H585 V470" fill="none" stroke="#8a7a5e" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <!-- 刺杀（红） -->
+  <line x1="500" y1="497" x2="350" y2="497" stroke="#b0432f" stroke-width="2.5" stroke-dasharray="7,5"/>
+
+  <!-- 标签 -->
+  <g font-size="11" fill="#6a5a42" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="275" y="128">父卒传长</text>
+    <text x="275" y="232">前548 传弟</text>
+    <text x="275" y="332">前531 传弟</text>
+    <text x="452" y="146">遗命欲传四子 · 三让王位</text>
+    <text x="600" y="556">父死子继 · 前496</text>
+  </g>
+  <g font-size="10.5" fill="#7a6522" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="275" y="442">季札逃位 · 立僚 · 前527</text>
+    <text x="432" y="424">长子公子光 ·「我真王嗣，当立」</text>
+  </g>
+  <g font-size="10.5" fill="#8a3a2a" stroke="#fdfaf3" stroke-width="3.6" paint-order="stroke" stroke-linejoin="round">
+    <text x="425" y="487" text-anchor="middle" font-weight="bold">专诸鱼肠剑刺杀 · 前515</text>
+  </g>
+
+  <!-- 节点 -->
+  <g>
+    <rect x="180" y="40" width="170" height="54" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="265" y="63" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">寿梦</text>
+    <text x="265" y="82" text-anchor="middle" fill="#e8cfa8" font-size="10">第19世 · 前561 卒</text>
+
+    <rect x="180" y="150" width="170" height="54" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="265" y="173" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">诸樊（长子）</text>
+    <text x="265" y="192" text-anchor="middle" fill="#e8cfa8" font-size="10">前560—前548</text>
+
+    <rect x="180" y="250" width="170" height="54" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="265" y="273" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">余祭（次子）</text>
+    <text x="265" y="292" text-anchor="middle" fill="#e8cfa8" font-size="10">前547—前531</text>
+
+    <rect x="180" y="350" width="170" height="54" rx="8" fill="#8d3326" stroke="#6e2418" stroke-width="1.5"/>
+    <text x="265" y="373" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">余昧（三子）</text>
+    <text x="265" y="392" text-anchor="middle" fill="#e8cfa8" font-size="10">前530—前527</text>
+
+    <rect x="180" y="470" width="170" height="54" rx="8" fill="#6e5644" stroke="#4e3c2c" stroke-width="2"/>
+    <text x="265" y="493" text-anchor="middle" fill="#f7ecd7" font-size="15" font-weight="bold">吴王僚 ※</text>
+    <text x="265" y="512" text-anchor="middle" fill="#e0cdb2" font-size="10">余昧之子 · 前526—前515</text>
+
+    <rect x="500" y="250" width="170" height="54" rx="8" fill="#a97b28" stroke="#7a5a1a" stroke-width="1.5"/>
+    <text x="585" y="273" text-anchor="middle" fill="#fdf6e3" font-size="15" font-weight="bold">季札（四子）</text>
+    <text x="585" y="292" text-anchor="middle" fill="#f3e2bd" font-size="10">延陵季子 · 三让王位</text>
+
+    <rect x="500" y="470" width="170" height="54" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="2"/>
+    <text x="585" y="493" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">阖闾（公子光）</text>
+    <text x="585" y="512" text-anchor="middle" fill="#c2d6c4" font-size="10">诸樊长子 · 前514—前496</text>
+
+    <rect x="500" y="580" width="170" height="54" rx="8" fill="#2f5d50" stroke="#1e4036" stroke-width="1.5"/>
+    <text x="585" y="603" text-anchor="middle" fill="#eef4ea" font-size="15" font-weight="bold">吴王夫差</text>
+    <text x="585" y="622" text-anchor="middle" fill="#c2d6c4" font-size="10">前495—前473</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-size="11" fill="#5a5148">
+    <line x1="40" y1="668" x2="72" y2="668" stroke="#8a7a5e" stroke-width="2"/>
+    <text x="82" y="672">正常传位</text>
+    <line x1="220" y1="668" x2="252" y2="668" stroke="#b0432f" stroke-width="2.5" stroke-dasharray="7,5"/>
+    <text x="262" y="672">刺杀夺位</text>
+    <line x1="400" y1="668" x2="432" y2="668" stroke="#8a7a5e" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="442" y="672">虚线 ＝ 血缘 / 让位</text>
+  </g>
+
+  <g font-size="10.5" fill="#8a3a2a">
+    <text x="40" y="706">※ 僚的身世两说：《史记 · 吴太伯世家》「乃立王馀眛之子僚为王」（本图所采）</text>
+    <text x="40" y="726">　　　　　　　　　《公羊传 · 襄公二十九年》「僚者，长庶也」（寿梦庶长子说）</text>
+  </g>
+</svg></div>
+
+<div id="vmodal" role="dialog" aria-modal="true" aria-label="竖版图谱">
+  <div class="vbox">
+    <div class="vbar">
+      <span class="vt" id="vmodal-title">竖版图谱</span>
+      <span class="vhint">上下滑动查看 · 点空白处或 ✕ 关闭</span>
+      <button type="button" class="vclose" id="vmodal-close" aria-label="关闭">✕</button>
+    </div>
+    <div class="vbody" id="vmodal-body"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modal = document.getElementById('vmodal');
+  var body  = document.getElementById('vmodal-body');
+  var title = document.getElementById('vmodal-title');
+  var names = { vfig1:'伍子胥人物关系图 · 竖版', vfig2:'吴国王位传承线 · 竖版' };
+  document.querySelectorAll('.vjump').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-vfig');
+      var src = document.getElementById(id);
+      if (!src) return;
+      var svg = src.querySelector('svg');
+      if (!svg) return;
+      body.innerHTML = '';
+      body.appendChild(svg.cloneNode(true));
+      title.textContent = names[id] || '竖版图谱';
+      modal.classList.add('on');
+      modal.scrollTop = 0;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function vClose(){
+    modal.classList.remove('on');
+    body.innerHTML = '';
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+  modal.addEventListener('click', function(e){ if (e.target === modal) vClose(); });
+  document.getElementById('vmodal-close').addEventListener('click', vClose);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('on')) vClose();
+  });
 })();
 </script>
 </body>
