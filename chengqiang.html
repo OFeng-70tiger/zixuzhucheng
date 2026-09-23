@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>城墙上的春秋 · 趣味知识探讨</title>
+<style>
+  :root{
+    --ink:#2e2a25; --sub:#6b6357; --line:#e4dcc9; --bg:#f7f4ec; --card:#fffdf8;
+    --seal:#9b3b24; --gold:#8a6d3b; --green:#4a6b4f; --blue:#4a5f7b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:"Source Han Serif SC","Songti SC","Noto Serif SC",SimSun,serif; background:var(--bg); color:var(--ink); line-height:1.75; font-size:15.5px;}
+  .wrap{max-width:920px; margin:0 auto; padding:26px 18px 60px;}
+
+  /* ---------- header ---------- */
+  header{position:relative; padding:34px 26px 26px; border:1px solid var(--line); background:var(--card); border-radius:6px; overflow:hidden;}
+  header::before{content:""; position:absolute; inset:0; background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(138,109,59,.05) 34px 35px),
+    repeating-linear-gradient(90deg, transparent 0 34px, rgba(138,109,59,.05) 34px 35px);}
+  .htitle{position:relative; font-size:30px; font-weight:bold; letter-spacing:2px;}
+  .hsub{position:relative; color:var(--sub); margin-top:6px; font-size:14.5px;}
+  .hseal{position:absolute; right:22px; top:24px; width:64px; height:64px; border:2.5px solid var(--seal); border-radius:8px; color:var(--seal);
+    display:flex; align-items:center; justify-content:center; font-size:19px; font-weight:bold; line-height:1.25; text-align:center; transform:rotate(4deg); opacity:.85;}
+  .metabar{position:relative; margin-top:16px; font-size:13.2px; color:var(--sub); display:flex; flex-wrap:wrap; gap:8px 16px;}
+  .metabar span b{color:var(--seal);}
+
+  /* ---------- chips ---------- */
+  html{scroll-behavior:smooth;}
+  nav.chips{position:sticky; top:0; z-index:99; display:flex; flex-wrap:wrap; gap:8px;
+    margin:12px -18px 6px; padding:9px 18px;
+    background:rgba(247,244,236,.93); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); box-shadow:0 2px 10px rgba(46,42,37,.06);}
+  nav.chips a{font-size:13.2px; color:var(--ink); text-decoration:none; border:1px solid var(--line); background:var(--card); padding:4px 13px; border-radius:999px; white-space:nowrap;}
+  nav.chips a:hover{border-color:var(--seal); color:var(--seal);}
+  nav.chips a.on{border-color:var(--seal); background:var(--seal); color:#fff;}
+
+  /* ---------- 左侧栏目录 ---------- */
+  .sidebar{position:fixed; left:0; top:0; bottom:0; width:218px; z-index:100;
+    background:var(--card); border-right:1px solid var(--line);
+    padding:22px 0 20px; overflow-y:auto; display:none;
+    box-shadow:2px 0 14px rgba(46,42,37,.05);}
+  body.sb .sidebar{display:block;}
+  .sbhead{padding:0 20px 12px; border-bottom:1px solid var(--line); margin-bottom:10px;}
+  .sbhead b{display:block; font-size:17px; letter-spacing:1px;}
+  .sbhead span{font-size:12px; color:var(--sub); letter-spacing:2px;}
+  .sidebar a{display:flex; align-items:center; gap:10px; padding:9px 20px;
+    font-size:14px; color:var(--ink); text-decoration:none; border-left:3px solid transparent;}
+  .sidebar a i{font-style:normal; font-size:11.5px; width:22px; height:22px; border:1px solid var(--line);
+    border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); flex:none;}
+  .sidebar a:hover{background:#faf6ec; color:var(--seal);}
+  .sidebar a.on{border-left-color:var(--seal); background:rgba(155,59,36,.08); color:var(--seal); font-weight:bold;}
+  .sidebar a.on i{border-color:var(--seal); background:var(--seal); color:#fff;}
+  body.sb nav.chips{display:none;}
+  @media(min-width:901px){
+    body.sb .wrap{margin-left:218px; margin-right:auto;}
+    @media(min-width:1200px){
+      body.sb .wrap{margin-left:calc(218px + (100vw - 218px - 920px)/2);}
+    }
+    body.sb section{scroll-margin-top:24px;}
+  }
+
+  /* 模式切换按钮 */
+  .modebtn{position:fixed; top:10px; right:14px; z-index:130; cursor:pointer; font-family:inherit;
+    font-size:12.5px; color:var(--ink); background:var(--card); border:1px solid var(--line);
+    padding:5px 13px; border-radius:999px; box-shadow:0 2px 8px rgba(46,42,37,.1);}
+  .modebtn:hover{border-color:var(--seal); color:var(--seal);}
+
+  /* 移动端：侧栏变抽屉 */
+  .backdrop{display:none; position:fixed; inset:0; z-index:95; background:rgba(46,42,37,.35);}
+  .drawerbtn{display:none;}
+  @media(max-width:900px){
+    body.sb .sidebar{width:252px; transform:translateX(-105%); transition:transform .3s;
+      box-shadow:4px 0 20px rgba(46,42,37,.18); display:block;}
+    body.sb.sbopen .sidebar{transform:none;}
+    body.sb.sbopen .backdrop{display:block;}
+    body.sb .drawerbtn{display:block; position:fixed; left:14px; bottom:20px; z-index:105; cursor:pointer; font-family:inherit;
+      font-size:13.5px; color:#fff; background:var(--seal); border:none; padding:9px 18px; border-radius:999px;
+      box-shadow:0 3px 12px rgba(155,59,36,.4);}
+    body.sb .modebtn{top:10px;}
+  }
+
+  /* ---------- sections ---------- */
+  section{margin-top:30px; scroll-margin-top:calc(var(--navh, 74px) + 12px);}
+  .stitle{display:flex; align-items:baseline; gap:12px; border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:14px;}
+  .snum{font-size:13px; color:#fff; background:var(--seal); border-radius:4px; padding:2px 10px; letter-spacing:1px; white-space:nowrap;}
+  .stitle h2{font-size:21px; letter-spacing:1px;}
+  .scap{margin-left:auto; font-size:12.5px; color:var(--sub); white-space:nowrap;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:18px 20px; margin-bottom:14px;}
+  .qa{font-size:15px;}
+  .qa .q{color:var(--seal); font-weight:bold;}
+  .note{font-size:12.8px; color:var(--sub); background:rgba(138,109,59,.07); border-left:3px solid var(--gold); padding:8px 12px; border-radius:0 4px 4px 0; margin-top:10px;}
+  .hl{color:var(--seal); font-weight:bold;}
+  .gd{color:var(--green); font-weight:bold;}
+  em.term{font-style:normal; border-bottom:2px dotted var(--gold);}
+
+  /* ---------- 换算器 ---------- */
+  .conv{display:flex; flex-wrap:wrap; gap:10px; align-items:flex-end; margin:14px 0 6px;}
+  .conv label{font-size:13px; color:var(--sub); display:block; margin-bottom:4px;}
+  .conv input{width:96px; font-family:inherit; font-size:17px; padding:7px 10px; border:1px solid var(--line); border-radius:4px; background:#fff; color:var(--ink);}
+  .conv input:focus{outline:none; border-color:var(--gold);}
+  .conv .unit{font-size:13px; color:var(--sub); margin:0 6px 10px 4px;}
+  .btn{font-family:inherit; cursor:pointer; font-size:14px; border:1px solid var(--seal); color:var(--seal); background:transparent; padding:7px 16px; border-radius:4px; margin-bottom:1px;}
+  .btn:hover{background:var(--seal); color:#fff;}
+  .btn.fill{background:var(--seal); color:#fff;}
+  .btn.fill:hover{opacity:.9;}
+  .presets{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+  .presets button{font-family:inherit; cursor:pointer; font-size:12.8px; border:1px dashed var(--gold); color:var(--gold); background:transparent; padding:4px 11px; border-radius:999px;}
+  .presets button:hover{background:rgba(138,109,59,.1);}
+  #convOut{margin-top:12px; font-size:15.5px; min-height:30px;}
+  #convOut b{font-size:20px; color:var(--seal);}
+
+  /* ---------- 面积对比 ---------- */
+  .citybtns{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+  .citybtns button{font-family:inherit; cursor:pointer; font-size:13.5px; border:1px solid var(--line); background:var(--card); color:var(--ink); padding:6px 14px; border-radius:4px;}
+  .citybtns button.on{border-color:var(--seal); color:#fff; background:var(--seal);}
+  .scalebox{background:#f1ecdd; border:1px solid var(--line); border-radius:6px; padding:6px;}
+  .cinfo{display:flex; flex-wrap:wrap; gap:6px 22px; margin-top:10px; font-size:14px;}
+  .cinfo b{color:var(--seal); font-size:17px;}
+
+  /* ---------- 厚度对比 ---------- */
+  .bars{margin-top:6px;}
+  .barrow{margin-bottom:13px;}
+  .barlab{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:4px;}
+  .barlab .v{color:var(--seal); font-weight:bold;}
+  .bartrack{background:#eee7d4; border-radius:3px; height:20px; position:relative; overflow:hidden;}
+  .barfill{height:100%; width:0; border-radius:3px; transition:width 1s cubic-bezier(.2,.7,.3,1);}
+  .rangefill{position:absolute; height:100%; top:0; width:0; opacity:.45; transition:width 1s cubic-bezier(.2,.7,.3,1);}
+
+  /* ---------- 折叠卡 ---------- */
+  details{border:1px solid var(--line); border-radius:6px; background:var(--card); margin-bottom:10px; overflow:hidden;}
+  details summary{cursor:pointer; padding:12px 16px; font-size:15.5px; font-weight:bold; list-style:none; display:flex; align-items:center; gap:10px;}
+  details summary::-webkit-details-marker{display:none;}
+  details summary::before{content:"＋"; color:var(--seal); font-size:17px; transition:transform .25s;}
+  details[open] summary::before{content:"－"; transform:none;}
+  details .dbody{padding:0 16px 14px; font-size:14.5px; color:var(--ink);}
+  .tag{display:inline-block; font-size:11.5px; padding:1px 8px; border-radius:999px; color:#fff; letter-spacing:1px;}
+  .tag.r{background:var(--seal);} .tag.g{background:var(--green);} .tag.b{background:var(--blue);} .tag.y{background:var(--gold);}
+
+  /* ---------- 攻防翻卡 ---------- */
+  .duel{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px;}
+  .flip{perspective:900px; height:210px; cursor:pointer;}
+  .flip .inner{position:relative; width:100%; height:100%; transition:transform .6s; transform-style:preserve-3d;}
+  .flip.flipped .inner{transform:rotateY(180deg);}
+  .face{position:absolute; inset:0; backface-visibility:hidden; border-radius:6px; padding:16px 18px; display:flex; flex-direction:column; justify-content:center;}
+  .face.atk{background:#f6e8e4; border:1.5px solid var(--seal);}
+  .face.def{background:#e8efe7; border:1.5px solid var(--green); transform:rotateY(180deg);}
+  .face h4{font-size:16.5px; margin-bottom:6px;}
+  .face p{font-size:13.5px; line-height:1.65;}
+  .face .who{position:absolute; top:10px; right:14px; font-size:11.5px; letter-spacing:2px; opacity:.75;}
+  .flip .hint{position:absolute; bottom:8px; left:0; right:0; text-align:center; font-size:11.5px; color:var(--sub);}
+
+  /* ---------- quiz ---------- */
+  .qq{margin-bottom:20px;}
+  .qq .qt{font-weight:bold; margin-bottom:8px;}
+  .qq .opt{display:block; width:100%; text-align:left; font-family:inherit; font-size:14.5px; margin-bottom:7px; padding:9px 14px;
+    border:1px solid var(--line); background:var(--card); border-radius:4px; cursor:pointer; color:var(--ink);}
+  .qq .opt:hover{border-color:var(--gold);}
+  .qq .opt.ok{border-color:var(--green); background:#e8efe7; font-weight:bold;}
+  .qq .opt.bad{border-color:var(--seal); background:#f6e8e4;}
+  .qq .exp{display:none; font-size:13.2px; color:var(--sub); background:rgba(138,109,59,.07); padding:8px 12px; border-radius:4px; margin-top:4px;}
+  .qq.done .exp{display:block;}
+  #score{margin-top:16px; font-size:17px; text-align:center; padding:14px; border:1.5px dashed var(--gold); border-radius:6px; display:none;}
+  #score b{color:var(--seal); font-size:24px;}
+
+  /* ---------- tables ---------- */
+  table{width:100%; border-collapse:collapse; font-size:13.8px; background:var(--card);}
+  th,td{border:1px solid var(--line); padding:7px 10px; text-align:left;}
+  th{background:rgba(138,109,59,.1); font-size:13.2px;}
+  .stars{color:var(--gold); letter-spacing:1px;}
+
+  /* ---------- 遗址卡 ---------- */
+  .sites{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px;}
+  .site{border:1px solid var(--line); border-radius:6px; background:var(--card); padding:16px 18px; cursor:pointer; transition:box-shadow .2s;}
+  .site:hover{box-shadow:0 3px 12px rgba(46,42,37,.12);}
+  .site h4{font-size:16.5px; margin-bottom:4px;}
+  .site .st{font-size:12px; color:#fff; background:var(--gold); display:inline-block; padding:1px 9px; border-radius:999px; margin-bottom:8px;}
+  .site ul{font-size:13.3px; color:var(--sub); padding-left:18px; display:none; margin-top:6px;}
+  .site.open ul{display:block;}
+
+  /* ---------- 延展课程 ---------- */
+  .links{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px;}
+  .lk{border:1px solid var(--line); border-left:4px solid var(--seal); border-radius:0 6px 6px 0; background:var(--card); padding:14px 16px; text-decoration:none; color:var(--ink); display:block;}
+  .lk:hover{background:#faf6ec;}
+  .lk h4{font-size:15.5px; margin-bottom:4px;}
+  .lk p{font-size:13px; color:var(--sub);}
+  .lk .go{font-size:12px; color:var(--seal); margin-top:6px; display:inline-block;}
+
+  footer{margin-top:40px; font-size:12.5px; color:var(--sub); border-top:1px solid var(--line); padding-top:14px; line-height:1.9;}
+
+  @media (max-width:600px){
+    body{font-size:14.5px;}
+    .htitle{font-size:24px;}
+    .hseal{width:52px; height:52px; font-size:15px; right:14px;}
+    .scap{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 左侧栏目录（侧栏模式） -->
+<aside class="sidebar" id="sidebar">
+  <div class="sbhead"><b>城墙上的春秋</b><span>课 题 目 录</span></div>
+  <a href="#intro" onclick="sbNav()"><i>序</i>开篇一问</a>
+  <a href="#s1" onclick="sbNav()"><i>一</i>里有多长</a>
+  <a href="#s2" onclick="sbNav()"><i>二</i>城有多大</a>
+  <a href="#s3" onclick="sbNav()"><i>三</i>墙有多厚</a>
+  <a href="#s4" onclick="sbNav()"><i>四</i>攻防博弈</a>
+  <a href="#s5" onclick="sbNav()"><i>五</i>城郭之制</a>
+  <a href="#s6" onclick="sbNav()"><i>六</i>考古侦探</a>
+  <a href="#quiz" onclick="sbNav()"><i>测</i>通关挑战</a>
+  <a href="#more" onclick="sbNav()"><i>展</i>延展课程</a>
+</aside>
+<div class="backdrop" id="backdrop" onclick="toggleDrawer()"></div>
+<button class="modebtn" id="modeBtn" onclick="toggleMode()" title="切换目录模式">◧ 侧栏目录</button>
+<button class="drawerbtn" onclick="toggleDrawer()">☰ 课 题 目 录</button>
+
+<header>
+  <div class="hseal">城垣<br>考</div>
+  <div class="htitle">城墙上的春秋</div>
+  <div class="hsub">一里有多长？城墙有多厚？—— 一堂关于春秋筑城的趣味知识探讨课</div>
+  <div class="metabar">
+    <span>📜 课题延展 · 伍子胥筑城系列</span>
+    <span>🧱 数据来源：〈越绝书〉〈吴越春秋〉〈墨子〉＋考古实测</span>
+    <span>🔬 四道关卡 · 六题通关</span>
+  </div>
+</header>
+
+<nav class="chips">
+  <a href="#intro">开篇一问</a>
+  <a href="#s1">一 · 里有多长</a>
+  <a href="#s2">二 · 城有多大</a>
+  <a href="#s3">三 · 墙有多厚</a>
+  <a href="#s4">四 · 攻防博弈</a>
+  <a href="#s5">五 · 城郭之制</a>
+  <a href="#s6">六 · 考古侦探</a>
+  <a href="#quiz">通关挑战</a>
+  <a href="#more">延展课程</a>
+</nav>
+
+<!-- ================= 开篇 ================= -->
+<section id="intro">
+  <div class="card qa">
+    <p>两千多年前，孟子在争论"天时不如地利"时，随口打了个比方：</p>
+    <p style="font-size:19px; margin:10px 0; text-align:center; letter-spacing:1px;">"三里之城，七里之郭，环而攻之而不胜。"</p>
+    <p>小小的城，外面还要再套一圈<b>郭</b>。城是什么？郭又是什么？春秋人筑一座城，到底要考虑哪些问题？</p>
+    <p style="margin-top:10px;">本课以<b>伍子胥建造阖闾大城</b>为线索，用文献记载＋考古实测的数据，带你闯过四道关卡，亲手算一算、比一比春秋人的"超级工程"。</p>
+  </div>
+</section>
+
+<!-- ================= 关卡一 ================= -->
+<section id="s1">
+  <div class="stitle"><span class="snum">第一关</span><h2>春秋的一里，到底有多长？</h2><span class="scap">📐 动手换算</span></div>
+
+  <div class="card qa">
+    <p>史料里的城池规模都是"里"和"步"——泰伯城<span class="hl">"周三里二百步"</span>，阖闾大城<span class="hl">"周四十七里"</span>。可它们折成今天的样子有多大？先看古人的"度量衡三件套"：</p>
+    <div class="cinfo" style="margin:12px 0;">
+      <span><span class="tag y">制度</span> 三百步为里 <span style="font-size:12px;color:var(--sub)">《谷梁传》</span></span>
+      <span><span class="tag y">制度</span> 六尺为步 <span style="font-size:12px;color:var(--sub)">《司马法》</span></span>
+      <span><span class="tag y">实物</span> 一尺 ≈ 23.1 厘米 <span style="font-size:12px;color:var(--sub)">洛阳金村出土战国铜尺</span></span>
+    </div>
+    <p>于是：一步 = 6 × 0.231 = <b>1.386 米</b>；一里 = 300 × 1.386 ≈ <b>415.8 米</b>。</p>
+    <div class="note">🔎 为什么信一条 2300 年前的铜尺？因为它不是孤证——"三百步为里""六尺为步"写在传世典籍里，23.1 厘米的尺长有考古出土实物支撑，这是学界通用的先秦里制标准值。</div>
+  </div>
+
+  <div class="card">
+    <p style="font-weight:bold; margin-bottom:6px;">🧮 古里换算器</p>
+    <p style="font-size:13.2px; color:var(--sub);">输入里数、步数（1里=300步），换算成今天的米数：</p>
+    <div class="conv">
+      <div><label>里</label><input id="inLi" type="number" value="3" min="0"></div>
+      <div class="unit">里</div>
+      <div><label>步</label><input id="inBu" type="number" value="200" min="0" max="299"></div>
+      <div class="unit">步</div>
+      <button class="btn fill" onclick="doConv()">开始换算</button>
+    </div>
+    <div id="convOut">👆 先点"开始换算"，试试泰伯城的周长。</div>
+    <div class="presets">
+      <button onclick="preset(3,200)">泰伯城：三里二百步</button>
+      <button onclick="preset(12,0)">阖闾小城：周十二里</button>
+      <button onclick="preset(47,210)">阖闾大城：47里210步2尺</button>
+      <button onclick="preset(68,0)">阖闾大城外郭：周六十八里</button>
+      <button onclick="preset(31,0)">楚国郢都：约三十一里</button>
+    </div>
+  </div>
+
+  <div class="card qa">
+    <p><b>顺手再算个面积。</b>据说郢都面积约 16 平方公里。若把它看成正方形：边长 = √16 = 4 公里，周长 = 16 公里。</p>
+    <p style="margin-top:8px;">神奇的是，考古实测的郢都（纪南城）城垣周长为 <span class="hl">15506 米 ≈ 15.5 公里</span>，与推算值非常接近——这座"不规则方形"的大城，东西约4.5公里、南北约3.5公里，是当时南方的第一大都会。</p>
+  </div>
+</section>
+
+<!-- ================= 关卡二 ================= -->
+<section id="s2">
+  <div class="stitle"><span class="snum">第二关</span><h2>从堡寨到第一大城市：城有多大？</h2><span class="scap">🗺️ 点击对比</span></div>
+
+  <div class="card">
+    <p><b>一个惊人的数学事实：</b>周长大 10 倍，面积就是 <span class="hl">10² = 100 倍</span>。吴国用 600 年只从小城走到中城，却在阖闾时代<b>一座城的功夫</b>追平了营建近 200 年的郢都。点击城名，看看同一把比例尺下的差距：</p>
+    <div class="citybtns" style="margin-top:12px;">
+      <button id="cb0" onclick="pickCity(0)" class="on">泰伯城 · 梅里</button>
+      <button id="cb1" onclick="pickCity(1)">阖闾小城</button>
+      <button id="cb2" onclick="pickCity(2)">楚郢都 · 纪南城</button>
+      <button id="cb3" onclick="pickCity(3)">阖闾大城 · 苏州</button>
+    </div>
+    <div class="scalebox">
+      <svg id="citySvg" viewBox="0 0 840 400" style="width:100%; display:block;">
+        <text x="20" y="26" font-size="12.5" fill="#8a6d3b" font-family="serif">同一比例尺 · 正方形示意（边长按面积开方折算）</text>
+        <!-- drawn by JS -->
+      </svg>
+    </div>
+    <div class="cinfo" id="cityInfo"></div>
+  </div>
+
+  <div class="card qa">
+    <p><b>这组数字怎么读？</b></p>
+    <p style="margin-top:8px;">① <b>泰伯城</b>：周长约1.5公里，只相当于一个<b>大型聚落或堡寨</b>。考古发现的无锡梅里遗址环壕约900余米，与文献记载基本吻合。</p>
+    <p>② <b>阖闾小城</b>（《越绝书》"吴小城，周十二里"）：已经是泰伯城的约 10 倍，但仍只有郢都的 1/10。</p>
+    <p>③ <b>郢都</b>：自楚文王元年（前689年）迁都于此，到阖闾时代已营建<span class="gd">近200年</span>，人口估计8～10万，是南方第一大都会。</p>
+    <p>④ <b>阖闾大城</b>：前514年，伍子胥"相土尝水，象天法地"始建，周长四十七里，一举<span class="gd">超越郢都</span>；外郭更达六十八里（约28公里）。城门陆8座＋水8座共16门，"通门二八，水道陆衢"——把整个太湖水系都串了起来。</p>
+    <div class="note">📖 用一句话总结：从 0.15 平方公里到 14 平方公里，是近百倍的跨越。伍子胥用一座城，把吴国从"蛮夷小邦"直接抬进了与楚、晋、齐并列的争霸大国行列。</div>
+  </div>
+</section>
+
+<!-- ================= 关卡三 ================= -->
+<section id="s3">
+  <div class="stitle"><span class="snum">第三关</span><h2>城墙有多厚？——20米墙基的真相</h2><span class="scap">📏 动态对比</span></div>
+
+  <div class="card qa">
+    <p>有人看到"先秦郭城墙基普遍厚 20 米以上"直接惊了：明清苏州城墙最厚才 11 米左右，难道郭比城还厚？先看数据（点击按钮，看城墙"长"起来）：</p>
+  </div>
+
+  <div class="card">
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px;">
+      <button class="btn" onclick="showBars('suzhou')">先看：历代苏州城墙</button>
+      <button class="btn" onclick="showBars('zhanguo')">再看：战国都城城墙</button>
+      <button class="btn fill" onclick="showBars('all')">全部对比！</button>
+    </div>
+    <div class="bars" id="barBox"></div>
+    <div style="font-size:12.8px; color:var(--sub); margin-top:8px;">∝ 条形长度按墙基厚度等比例绘制（米）</div>
+  </div>
+
+  <div class="card qa">
+    <p><b>为什么差这么多？三个原因，展开看：</b></p>
+    <div style="margin-top:10px;">
+      <details>
+        <summary><span class="tag r">材料</span> 纯夯土 vs 夯土心＋外包砖</summary>
+        <div class="dbody">
+          <p>战国城墙是<b>纯夯土</b>结构：即便用"三合土"（黏土＋沙土＋石灰），抗压强度也只有约 3.2 MPa，远低于砖石。夯层每层仅 3～7 厘米，层层夯实，靠<b>体量</b>取胜。明清苏州城墙则是夯土墙心外包青砖——明代起用<b>糯米灰浆</b>灌缝（抗剪强度是传统石灰砂浆的 3 倍），墙体整体性大增，同样的防御需求，墙就可以做得薄。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="tag b">对手</span> 防"穴攻""水攻" vs 防投石机、火铳</summary>
+        <div class="dbody">
+          <p>战国攻城最狠的两招：<b>穴攻</b>（挖地道掏空墙基，火烧支撑柱让城墙坍塌）和<b>水攻</b>（引水灌城）。墙基越厚，敌军挖通越慢、水泡越久不塌——厚度本质上是<b>和敌军的速度赛跑</b>。而明清城墙面对的是投石机和早期火铳，11 米夯土心＋包砖已足够吸收冲击。</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="tag g">家底</span> 800年持续增筑 vs 历代在旧址重修</summary>
+        <div class="dbody">
+          <p>临淄作为齐国都城经营了<b>800 余年</b>，城墙经西周、春秋、战国、西汉多次增筑，越修越厚。而苏州城墙秦代被拆毁，汉代重建，此后历代都是"在原有基础上重修"，并非从零营建。两者的工程投入和历史积累不可同日而语。</p>
+        </div>
+      </details>
+    </div>
+    <div class="note">⚖️ 结论：不是"郭比城厚"，而是<b>战国夯土都城 vs 明清包砖府城</b>的时代差异——不能用后世的城墙标准去衡量先秦的城墙。战国人筑城靠"堆土成山"，明清人筑城靠砖石灰浆的"精砌薄墙"。若拿春秋阖闾大城（纯夯土）与临淄大城相比，两者墙基应是同一量级——只是苏州春秋夯土墙深埋于 2500 年的城市叠压之下，尚待考古揭露。</div>
+  </div>
+</section>
+
+<!-- ================= 关卡四 ================= -->
+<section id="s4">
+  <div class="stitle"><span class="snum">第四关</span><h2>攻防博弈：矛与盾的较量</h2><span class="scap">⚔️ 点击翻卡</span></div>
+
+  <div class="card">
+    <p>墙为什么修这么厚？因为对手真的很"阴"。下面每组卡片，<b>先看进攻方</b>，点击翻面，看守城方怎么接招：</p>
+    <div class="duel" style="margin-top:14px;">
+      <div class="flip" onclick="this.classList.toggle('flipped')">
+        <div class="inner">
+          <div class="face atk">
+            <span class="who">攻 · 穴攻</span>
+            <h4>🪓 穴攻：把城墙"掏空"</h4>
+            <p>在城墙下挖地道，掏空墙基，再焚柱毁城。《墨子·备穴》："穴土而入，缚柱施火，以坏吾城。"</p>
+            <div class="hint">👆 点击看守方如何反制</div>
+          </div>
+          <div class="face def">
+            <span class="who">守 · 反制</span>
+            <h4>🛡️ 加厚墙基 ＋ 瓮听</h4>
+            <p>墙厚则挖通慢、塌不了。更绝的是"瓮听"：城内每隔五步挖井置陶瓮，让耳朵灵的人伏听地下动静，判断敌军地道的方位深度——中国最早的<b>声学侦测</b>！</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip" onclick="this.classList.toggle('flipped')">
+        <div class="inner">
+          <div class="face atk">
+            <span class="who">攻 · 水攻</span>
+            <h4>🌊 水攻：引河灌城</h4>
+            <p>公元前225年，秦将王贲引黄河、鸿沟之水灌大梁城，泡了<b>整整三个月</b>，夯土城墙泡塌，魏军粮尽而降。</p>
+            <div class="hint">👆 点击看守方如何反制</div>
+          </div>
+          <div class="face def">
+            <span class="who">守 · 反制</span>
+            <h4>🛡️ 厚墙当堤坝 ＋ 梯形截面</h4>
+            <p>墙厚则渗透慢、内芯仍有强度，相当于一道<b>堤坝</b>。城墙普遍做成下宽上窄的梯形截面：既增稳定，又减少雨水冲刷面积。</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip" onclick="this.classList.toggle('flipped')">
+        <div class="inner">
+          <div class="face atk">
+            <span class="who">攻 · 常规</span>
+            <h4>🪜 云梯强攻 ＋ 火烧</h4>
+            <p>云梯登城、火烧城门是常规手段。守方若墙薄门弱，顷刻可破——所以孟子才说"环而攻之而不胜"是难得的天时地利之战。</p>
+            <div class="hint">👆 点击看守方如何反制</div>
+          </div>
+          <div class="face def">
+            <span class="who">守 · 反制</span>
+            <h4>🛡️ 郭城纵深 ＋ 反向挖洞</h4>
+            <p>郭是第一道缓冲：敌破郭，还有城。守军还可"凿穴迎之"，从城内反向挖地道拦截，或用烟熏、灌水反制穴攻之敌。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:14px;">🧠 这是一套完整的"攻防博弈"逻辑：夯土强度不够，就用体量来凑——先秦城墙的厚度，是被对手"逼"出来的。</div>
+  </div>
+</section>
+
+<!-- ================= 关卡五 ================= -->
+<section id="s5">
+  <div class="stitle"><span class="snum">第五关</span><h2>城郭之制：卫君与守民</h2><span class="scap">🏯 图解</span></div>
+
+  <div class="card">
+    <p>《管子·度地篇》："内为之城，外为之郭。"后世概括为一句流传千年的话——<span class="hl">"筑城以卫君，造郭以守民"</span>。看示意图：</p>
+    <div class="scalebox" style="margin-top:12px;">
+      <svg viewBox="0 0 840 380" style="width:100%; display:block;">
+        <rect x="0" y="0" width="840" height="380" fill="#f1ecdd"/>
+        <!-- 护城河 -->
+        <rect x="42" y="42" width="756" height="296" rx="18" fill="none" stroke="#7a99a8" stroke-width="14" opacity=".55"/>
+        <text x="420" y="30" font-size="13" fill="#5b7d8c" text-anchor="middle" font-family="serif">护城河（郭外）</text>
+        <!-- 郭 -->
+        <rect x="76" y="76" width="688" height="228" fill="#e7dfc8" stroke="#8a6d3b" stroke-width="4" rx="6"/>
+        <text x="97" y="103" font-size="15" fill="#8a6d3b" font-weight="bold" font-family="serif">郭 · 外城</text>
+        <text x="97" y="123" font-size="12.5" fill="#6b6357" font-family="serif">夯土城墙 · 规格低于内城</text>
+        <!-- 郭内民生 -->
+        <g font-family="serif" font-size="12.5" fill="#6b6357">
+          <rect x="560" y="110" width="76" height="40" fill="#fffdf8" stroke="#c9bfa4"/><text x="598" y="134" text-anchor="middle">市 集</text>
+          <rect x="648" y="110" width="76" height="40" fill="#fffdf8" stroke="#c9bfa4"/><text x="686" y="134" text-anchor="middle">作 坊</text>
+          <rect x="560" y="162" width="76" height="40" fill="#fffdf8" stroke="#c9bfa4"/><text x="598" y="186" text-anchor="middle">仓 储</text>
+          <rect x="648" y="162" width="76" height="40" fill="#fffdf8" stroke="#c9bfa4"/><text x="686" y="186" text-anchor="middle">民 居</text>
+          <text x="642" y="236" text-anchor="middle">平民 · 商人住郭内</text>
+          <text x="642" y="256" text-anchor="middle">第一道防线 ＋ 经济空间</text>
+        </g>
+        <!-- 城 -->
+        <rect x="150" y="110" width="330" height="160" fill="#f6e8e4" stroke="#9b3b24" stroke-width="4" rx="4"/>
+        <text x="170" y="138" font-size="15" fill="#9b3b24" font-weight="bold" font-family="serif">城 · 内城（宫城）</text>
+        <g font-family="serif" font-size="12.5" fill="#6b6357">
+          <text x="315" y="172" text-anchor="middle">国君 · 贵族 · 官署</text>
+          <text x="315" y="196" text-anchor="middle">统治核心区</text>
+          <text x="315" y="240" text-anchor="middle" font-size="14" fill="#9b3b24" font-weight="bold">筑城以卫君，造郭以守民</text>
+        </g>
+      </svg>
+    </div>
+    <div style="margin-top:14px;">
+      <p>⚖️ <b>但有个冷知识：</b>孟子那句"三里之城，七里之郭"其实是<b>设喻说理的虚指</b>，并非某座真实城池的数字。而且考古研究表明，"城郭两城制"在春秋时期<b>尚未定型</b>——有的国都只有单一城圈，有的是"宫区＋郭城"的非标准形态。直到<b>战国中期</b>，标准的"宫城＋郭城"两城制才逐渐成为常态。</p>
+      <p style="margin-top:8px;">🧱 至于阖闾大城的郭在哪、长什么样？这就轮到下一关的"考古侦探"登场了。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 关卡六 ================= -->
+<section id="s6">
+  <div class="stitle"><span class="snum">第六关</span><h2>考古侦探：阖闾大城到底在哪？</h2><span class="scap">🔍 点击展开</span></div>
+
+  <div class="card">
+    <p>文献说阖闾大城"周四十七里"，可考古挖出来的遗迹却各有各的说法——这就是学界著名的<span class="hl">"三都并峙"</span>之争。点击卡片，化身侦探：</p>
+    <div class="sites" style="margin-top:14px;">
+      <div class="site" onclick="this.classList.toggle('open')">
+        <span class="st">主流观点</span>
+        <h4>① 苏州古城说</h4>
+        <p style="font-size:13.3px;">今苏州古城即阖闾大城，城址 2500 余年未变</p>
+        <ul>
+          <li>2022—2023年金城新村遗址出土春秋战国之际的高等级建筑构件（筒瓦、板瓦、瓦当）</li>
+          <li>碳十四测年：底部主体为春秋末年至战国时期，实证子城区域吴国时已有丰富人类活动</li>
+          <li>⚠️ 最大挑战：古城 2500 年连续使用、历代叠压严重，春秋郭墙遗迹极难辨认，尚无完整郭城墙出土</li>
+        </ul>
+      </div>
+      <div class="site" onclick="this.classList.toggle('open')">
+        <span class="st">证据最全</span>
+        <h4>② 无锡阖闾城说</h4>
+        <p style="font-size:13.3px;">无锡与常州交界处，2007—2008年大规模钻探</p>
+        <ul>
+          <li>确认完整"大城—小城"结构：大城（郭）约2.94平方公里，城垣基础宽约34米＋人工环壕</li>
+          <li>西城为阖闾王宫所在，东城驻军、存军备；龙山山脊还有约20公里"石包土"石城，或为"吴长城"</li>
+          <li>⚠️ 疑点：2.94 平方公里与文献"47里（约14～16平方公里）"差距太大——或为阖闾的军事城堡而非都城</li>
+        </ul>
+      </div>
+      <div class="site" onclick="this.classList.toggle('open')">
+        <span class="st">新发现</span>
+        <h4>③ 苏州木渎古城说</h4>
+        <p style="font-size:13.3px;">2010年苏州西南部发现的超大型都邑遗址</p>
+        <ul>
+          <li>含 1 座大城、1 座小城和 5 座小型城址</li>
+          <li>大城略呈马鞍形，城墙外侧有宽 25～86 米的护城河</li>
+          <li>⚠️ 疑点：发掘工作有限，郭的具体范围和结构尚未完全确认</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">🔍 侦探笔记：文献、考古、地理三者之间的张力，还在等待新的发现来解开——这正是吴国都城研究最迷人的地方。</div>
+  </div>
+
+  <div class="card">
+    <p style="font-weight:bold; margin-bottom:10px;">📊 数据信源可靠性一览（做研究要问出处）</p>
+    <table>
+      <tr><th>数据</th><th>信源性质</th><th>可靠程度</th></tr>
+      <tr><td>郢都周长15.5公里、面积16平方公里</td><td>考古实测</td><td class="stars">★★★★★</td></tr>
+      <tr><td>阖闾大城周长47里</td><td>《越绝书》原文</td><td class="stars">★★★★☆</td></tr>
+      <tr><td>泰伯城"周三里二百步"</td><td>《吴越春秋》原文</td><td class="stars">★★★★☆</td></tr>
+      <tr><td>先秦一里≈415.8米</td><td>文献制度＋考古铜尺推算</td><td class="stars">★★★★☆</td></tr>
+      <tr><td>城门16座（陆8水8）</td><td>《越绝书》原文</td><td class="stars">★★★★☆</td></tr>
+      <tr><td>阖闾大城面积14～16平方公里</td><td>根据周长推断</td><td class="stars">★★★☆☆</td></tr>
+    </table>
+    <div class="note">📌 严谨提醒：①"一里=415.8米"是秦汉标准近似值，春秋尺长可能略短；②阖闾大城面积没有文献原文，是按周长反推的估算值；③本页"苏州古城说"采用学界主流口径。</div>
+  </div>
+</section>
+
+<!-- ================= 通关挑战 ================= -->
+<section id="quiz">
+  <div class="stitle"><span class="snum">终 极</span><h2>通关挑战：城墙小博士</h2><span class="scap">🏆 六题定称号</span></div>
+  <div class="card" id="quizBox"></div>
+</section>
+
+<!-- ================= 延展课程 ================= -->
+<section id="more">
+  <div class="stitle"><span class="snum">延 展</span><h2>本课与我们研学课程的联动</h2><span class="scap">🔗 系列链接</span></div>
+  <div class="card qa">
+    <p>这一课是<b>伍子胥筑城系列</b>的知识延展——在胥门研学现场听过的故事，在这里用数据再验证一遍：</p>
+    <div class="links" style="margin-top:14px;">
+      <a class="lk" href="zixuchuangqi-3story.html">
+        <h4>📖 三个伍子胥故事 · 精简版</h4>
+        <p>出奔 · 刺僚 · 之死——课堂主讲的三段故事</p>
+        <span class="go">进入课程 →</span>
+      </a>
+      <a class="lk" href="yanxueliangdian3.html">
+        <h4>🧭 胥门研学三大亮点</h4>
+        <p>规划展示馆 · 万年桥 · 胥门——现场研学线索</p>
+        <span class="go">进入课程 →</span>
+      </a>
+      <a class="lk" href="wzx_relate.html">
+        <h4>🕸️ 伍子胥人物关系图谱</h4>
+        <p>王位传承与恩怨线——看懂"为什么是他筑城"</p>
+        <span class="go">进入课程 →</span>
+      </a>
+    </div>
+    <div class="note">🗂️ 联动建议：现场讲到"伍子胥相土尝水、象天法地造阖闾大城"时，可用本页第二关的百倍面积跨越、第三关的城墙厚度之谜做课堂追问；"瓮听"技术可与《墨子》备穴篇联读。</div>
+  </div>
+</section>
+
+<footer>
+  <b>数据与文献说明</b>：本页数据整理自《越绝书》《吴越春秋》《谷梁传》《司马法》《管子》《墨子·备穴》及齐国临淄故城、楚国纪南城、无锡梅里遗址、金城新村遗址等考古公开资料；换算采用先秦"三百步为里、六尺为步"、一尺≈23.1厘米的学界通用标准（一里≈415.8米）。郢都考古实测周长15506米；阖闾大城面积为按周长推算的近似值，位置采"苏州古城说"（三都并峙争议见第六关）。<br>
+  「城墙上的春秋 · 趣味知识探讨」— 吴地时光机 · 伍子胥筑城系列课程延展
+</footer>
+
+</div>
+
+<script>
+/* ============ 换算器 ============ */
+var LI_M = 415.8, BU_M = 1.386, CHI_M = 0.231;
+function fmt(n){
+  return n.toLocaleString('zh-CN', {maximumFractionDigits:1});
+}
+function preset(li, bu){
+  document.getElementById('inLi').value = li;
+  document.getElementById('inBu').value = bu;
+  doConv(bu === 210 ? ' dachi' : '');
+}
+function doConv(extra){
+  var li = parseFloat(document.getElementById('inLi').value) || 0;
+  var bu = parseFloat(document.getElementById('inBu').value) || 0;
+  var totalBu = li * 300 + bu;
+  var meters = li * LI_M + bu * BU_M;
+  var chi = (extra === ' dachi') ? 2 : 0;
+  meters += chi * CHI_M;
+  var html = '<b>' + fmt(meters) + '</b> 米（约 <b>' + (meters/1000).toFixed(2) + '</b> 公里）';
+  html += '<div style="font-size:13px;color:var(--sub);margin-top:4px;">算式：' + li + '里×415.8 + ' + bu + '步×1.386';
+  if (chi) html += ' + 2尺×0.231';
+  html += '</div>';
+  var tips = {
+    '3-200': '泰伯城——只相当于今天一个大型小区外加一圈围墙的规模，堪称"堡寨级"。',
+    '12-0': '阖闾小城——约为泰伯城的 3.3 倍周长（面积已近 10 倍）。',
+    '47-210': '阖闾大城——正文通常按"47里"整数口径算，约19.5公里；加上210步2尺的精确记载，约19.8公里。比郢都还长出约4公里！',
+    '68-0': '外郭——近28公里，比今天苏州内环高架一圈还要长。',
+    '31-0': '郢都——考古实测15.5公里，与31里口径基本吻合。'
+  };
+  var key = li + '-' + bu;
+  if (tips[key]) html += '<div class="note">' + tips[key] + '</div>';
+  document.getElementById('convOut').innerHTML = html;
+}
+
+/* ============ 城池对比 ============ */
+var cities = [
+  {name:'泰伯城（梅里）', side:381, color:'#8a6d3b', zhou:'约1.5公里', area:'约0.15平方公里', bei:'1 倍', era:'商末 · 泰伯奔吴',
+   desc:'《吴越春秋》"周三里二百步"。考古发现的梅里遗址环壕约900余米，与记载基本吻合——规模相当于一个大型聚落或堡寨。'},
+  {name:'阖闾小城', side:1247, color:'#4a5f7b', zhou:'约5公里（12里）', area:'约1.5平方公里', bei:'约 10 倍', era:'阖闾即位前 · 《越绝书》"周十二里"',
+   desc:'《吴越春秋》另记"周十里"（约1.08平方公里）。无论取哪说，已是泰伯城的7～10倍，但仍只有郢都的约1/10。'},
+  {name:'楚郢都（纪南城）', side:4000, color:'#4a6b4f', zhou:'实测15.5公里（约37里）', area:'约16平方公里', bei:'约 100 倍', era:'前689年起营建，近200年',
+   desc:'东西约4.5公里、南北约3.5公里的不规则方形，人口估计8～10万——春秋南方第一大都会。'},
+  {name:'阖闾大城（苏州）', side:3900, color:'#9b3b24', zhou:'47里≈19.5公里', area:'约14～16平方公里（推算）', bei:'约 100 倍', era:'前514年 · 伍子胥始建',
+   desc:'周长超越郢都约4公里，16座城门（陆8水8）碾压式领先；另有外郭达68里（约28公里）。数年建成即超越营建200年的郢都！'}
+];
+var curCity = 0;
+function drawCity(){
+  var svg = document.getElementById('citySvg');
+  // scale: 4000m -> 340px
+  var px = function(m){ return m / 4000 * 340; };
+  var cx = 430, cy = 228;
+  var s = '';
+  s += '<line x1="'+(cx-360)+'" y1="'+(cy+10)+'" x2="'+(cx+360)+'" y2="'+(cy+10)+'" stroke="#c9bfa4" stroke-width="1.5"/>';
+  // draw all faint, current highlighted
+  for (var i = 0; i < cities.length; i++){
+    var c = cities[i], half = px(c.side)/2;
+    var op = (i === curCity) ? 1 : 0.28;
+    var w = (i === curCity) ? 3 : 1.5;
+    s += '<rect x="'+(cx-half)+'" y="'+(cy-half)+'" width="'+px(c.side)+'" height="'+px(c.side)+'" fill="'+c.color+'" fill-opacity="'+(i===curCity?0.13:0.05)+'" stroke="'+c.color+'" stroke-width="'+w+'" stroke-opacity="'+op+'"/>';
+    if (i === curCity){
+      var lx = (half > 120) ? cx : cx + half + 8;
+      var anchor = (half > 120) ? 'middle' : 'start';
+      var ly = (half > 120) ? cy - half + 22 : cy - half/2;
+      s += '<text x="'+lx+'" y="'+ly+'" font-size="15" fill="'+c.color+'" font-weight="bold" text-anchor="'+anchor+'" font-family="serif">'+c.name+'</text>';
+    }
+  }
+  // scale bar
+  var barM = 1000, barPx = px(barM);
+  s += '<line x1="40" y1="370" x2="'+(40+barPx)+'" y2="370" stroke="#2e2a25" stroke-width="2.5"/>';
+  s += '<line x1="40" y1="364" x2="40" y2="376" stroke="#2e2a25" stroke-width="2.5"/>';
+  s += '<line x1="'+(40+barPx)+'" y1="364" x2="'+(40+barPx)+'" y2="376" stroke="#2e2a25" stroke-width="2.5"/>';
+  s += '<text x="'+(40+barPx/2)+'" y="360" font-size="12" fill="#2e2a25" text-anchor="middle" font-family="serif">1 公里</text>';
+  svg.innerHTML = s;
+  var c = cities[curCity];
+  document.getElementById('cityInfo').innerHTML =
+    '<span><b>'+c.zhou+'</b> 周长</span><span><b>'+c.area+'</b> 面积</span><span><b>'+c.bei+'</b> 相当于泰伯城</span><span style="width:100%;font-size:13.8px;color:var(--sub);">'+c.era+' — '+c.desc+'</span>';
+}
+function pickCity(i){
+  curCity = i;
+  for (var k = 0; k < 4; k++) document.getElementById('cb'+k).classList.toggle('on', k===i);
+  drawCity();
+}
+drawCity();
+
+/* ============ 厚度对比 ============ */
+var barSets = {
+  suzhou: [
+    {name:'清代苏州城墙（1662年改筑）', v:6.5, lo:5, hi:8, color:'#4a5f7b'},
+    {name:'五代苏州砖城（922年，厚二丈五尺）', v:8, lo:8, hi:8, color:'#4a6b4f'},
+    {name:'明初苏州城墙（夯土心外包砖）', v:11, lo:11, hi:11, color:'#8a6d3b'}
+  ],
+  zhanguo: [
+    {name:'曲阜鲁城 · 春秋早期', v:5, lo:5, hi:5, color:'#c9bfa4'},
+    {name:'赵邯郸城', v:25, lo:20, hi:30, color:'#4a5f7b'},
+    {name:'偃师商城（商代）', v:22, lo:19, hi:40, color:'#8a6d3b'},
+    {name:'曲阜鲁城 · 战国晚期（增筑后）', v:38, lo:38, hi:38, color:'#4a6b4f'},
+    {name:'临淄大城（郭）平均厚度', v:30.3, lo:21, hi:40, color:'#9b3b24'},
+    {name:'临淄小城东北角（最厚处！）', v:120, lo:120, hi:120, color:'#9b3b24'}
+  ]
+};
+function barHtml(d, maxV){
+  var range = '';
+  if (d.hi > d.lo){
+    range = '<div class="rangefill" style="background:'+d.color+'; left:'+(d.lo/maxV*100)+'%; width:'+((d.hi-d.lo)/maxV*100)+'%;"></div>';
+  }
+  var vline = '<div class="rangefill" style="background:'+d.color+'; left:0; width:'+((d.v>=5?d.v:0.6)/maxV*100)+'%; opacity:.9;"></div>';
+  var vTxt = (d.lo !== d.hi) ? d.lo+'～'+d.hi+' 米' : d.v+' 米';
+  return '<div class="barrow"><div class="barlab"><span>'+d.name+'</span><span class="v">'+vTxt+'</span></div>'+
+         '<div class="bartrack">'+range+vline+'</div></div>';
+}
+function showBars(mode){
+  var box = document.getElementById('barBox');
+  var maxV = 120, html = '';
+  html += '<div style="font-size:12.5px;color:var(--sub);margin-bottom:10px;">← 参照：成年人身高约 1.7 米 | 满格 = 120 米（临淄城墙拐角）</div>';
+  if (mode === 'suzhou' || mode === 'all'){
+    html += '<div style="font-weight:bold; font-size:14.5px; margin:6px 0 8px; color:var(--blue);">◆ 历代苏州城墙（包砖时代）</div>';
+    barSets.suzhou.forEach(function(d){ html += barHtml(d, maxV); });
+  }
+  if (mode === 'zhanguo' || mode === 'all'){
+    html += '<div style="font-weight:bold; font-size:14.5px; margin:12px 0 8px; color:var(--seal);">◆ 战国及以前的夯土都城</div>';
+    barSets.zhanguo.forEach(function(d){ html += barHtml(d, maxV); });
+    html += '<div class="note">😄 临淄小城东北角厚达 120 米——当地人至今有句歇后语："脸皮厚得跟城墙拐角似的"。</div>';
+  }
+  box.innerHTML = html;
+  // animate
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    box.querySelectorAll('.rangefill').forEach(function(el){
+      var w = el.style.width; el.style.width = '0';
+      setTimeout(function(){ el.style.width = w; }, 30);
+    });
+  });});
+}
+showBars('suzhou');
+
+/* ============ 目录模式切换（顶部索引 / 左侧栏） ============ */
+function applyMode(){
+  var sb = (localStorage.getItem('cqjz-nav') === 'sb');
+  document.body.classList.toggle('sb', sb);
+  document.body.classList.remove('sbopen');
+  document.getElementById('modeBtn').innerHTML = sb ? '⬆ 顶部索引' : '◧ 侧栏目录';
+}
+function toggleMode(){
+  localStorage.setItem('cqjz-nav', localStorage.getItem('cqjz-nav') === 'sb' ? 'top' : 'sb');
+  applyMode();
+  setNavH();
+}
+function toggleDrawer(){ document.body.classList.toggle('sbopen'); }
+function sbNav(){
+  if (window.innerWidth <= 900) document.body.classList.remove('sbopen');
+}
+applyMode();
+
+/* ============ 置顶索引：滚动高亮当前章节 ============ */
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.chips a'));
+  var sbLinks = Array.prototype.slice.call(document.querySelectorAll('.sidebar a'));
+  var map = {};
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if (sec) map[id] = a;
+  });
+  function spy(){
+    var navH = document.querySelector('nav.chips').offsetHeight;
+    var cur = null;
+    for (var id in map){
+      var sec = document.getElementById(id);
+      if (sec.getBoundingClientRect().top <= navH + 40) cur = id;
+    }
+    if (cur === null) cur = 'intro';
+    links.forEach(function(a){ a.classList.remove('on'); });
+    sbLinks.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+    if (cur) map[cur].classList.add('on');
+  }
+  function setNavH(){
+    document.documentElement.style.setProperty('--navh',
+      document.querySelector('nav.chips').offsetHeight + 'px');
+  }
+  window.addEventListener('resize', setNavH);
+  setNavH();
+  window.setNavH = setNavH;
+  window.addEventListener('scroll', spy, {passive:true});
+  spy();
+})();
+
+/* ============ 通关挑战 ============ */
+var quiz = [
+  {q:'1. 春秋时期"一里"大约等于今天多少米？',
+   o:['250 米','300 米','约 415.8 米','500 米'], a:2,
+   e:'三百步为里、六尺为步、一尺≈23.1厘米（战国铜尺）→ 300×6×0.231≈415.8米。'},
+  {q:'2. 泰伯在梅里筑的城"周三里二百步"，折算周长约多少？',
+   o:['约150米','约1.5公里','约15公里','约150公里'], a:1,
+   e:'(3×300+200)×1.386≈1524.6米≈1.5公里，相当于一个大型堡寨。'},
+  {q:'3. 一座城的周长是另一座的10倍，若形状相似，面积约是它的几倍？',
+   o:['10 倍','20 倍','100 倍','1000 倍'], a:2,
+   e:'面积按边长的平方增长：周长10倍→边长10倍→面积10²=100倍。郢都正是泰伯城的百倍！'},
+  {q:'4. 战国都城夯土城墙墙基动辄二三十米厚，最主要的原因是？',
+   o:['古人喜欢气派','夯土强度低，且要防穴攻和水攻','墙越厚住的人越多','没有测量工具，只能往厚里修'], a:1,
+   e:'夯土抗压约3.2MPa远低于砖石；穴攻掏墙基、水攻泡城墙，厚度就是防御力——"和敌军挖地道的速度赛跑"。'},
+  {q:'5. "筑城以卫君，造郭以守民"中的"郭"指的是？',
+   o:['城墙上的瞭望台','外城：住平民、设市集作坊仓储的第一道屏障','护城河','王宫里的围墙'], a:1,
+   e:'《管子》"内为之城，外为之郭"。郭有夯土城墙和护城河，规格低于内城，兼具防御与经济功能。'},
+  {q:'6. 守军"每隔五步挖井置瓮、伏听地下动静"是在防什么？',
+   o:['敌人挖地道（穴攻）','地下水泛滥','敌方传令兵','蝗灾'], a:0,
+   e:'这就是《墨子·备穴》记载的"瓮听"——中国古代最早的声学侦测技术，用于判断敌军地道的方位和深度。'}
+];
+var answered = 0, correct = 0;
+var qhtml = '';
+quiz.forEach(function(item, qi){
+  qhtml += '<div class="qq" id="qq'+qi+'"><div class="qt">'+item.q+'</div>';
+  item.o.forEach(function(opt, oi){
+    qhtml += '<button class="opt" onclick="answer('+qi+','+oi+',this)">'+opt+'</button>';
+  });
+  qhtml += '<div class="exp">💡 '+item.e+'</div></div>';
+});
+qhtml += '<div id="score"></div>';
+document.getElementById('quizBox').innerHTML = qhtml;
+
+function answer(qi, oi, btn){
+  var box = document.getElementById('qq'+qi);
+  if (box.classList.contains('done')) return;
+  box.classList.add('done');
+  var opts = box.querySelectorAll('.opt');
+  opts[quiz[qi].a].classList.add('ok');
+  if (oi === quiz[qi].a){ correct++; }
+  else { btn.classList.add('bad'); }
+  answered++;
+  if (answered === quiz.length){
+    var title = correct >= 6 ? '🏆 城防大师——攻防博弈尽在掌握！'
+              : correct >= 4 ? '🎖️ 砖石侍郎——离大师只差一步！'
+              : correct >= 2 ? '📜 城墙小吏——再去上面几关转转！'
+              : '🧱 学徒工——欢迎从头再闯一遍四道关卡！';
+    var sc = document.getElementById('score');
+    sc.style.display = 'block';
+    sc.innerHTML = '得分：<b>'+correct+' / '+quiz.length+'</b><br>'+title;
+  }
+}
+</script>
+</body>
+</html>
